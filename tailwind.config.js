@@ -42,6 +42,7 @@ export default {
         'slide-up': 'slideUp 0.6s ease-out',
         'scale-in': 'scaleIn 0.5s ease-out',
         'pulse-gentle': 'pulseGentle 2s ease-in-out infinite',
+        'slide-left': 'slideLeft 0.3s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -59,6 +60,10 @@ export default {
         pulseGentle: {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.02)', opacity: '0.95' },
+        },
+        slideLeft: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },

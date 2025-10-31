@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
+import { Header } from './components/Header';
+import { StickyBottomCTA } from './components/StickyBottomCTA';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProblemTruthSection } from './components/sections/ProblemTruthSection';
 import { BridgeSection } from './components/sections/BridgeSection';
@@ -33,6 +35,8 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      <Header />
+      <StickyBottomCTA />
       <HeroSection />
       <ProblemTruthSection />
       <BridgeSection />
