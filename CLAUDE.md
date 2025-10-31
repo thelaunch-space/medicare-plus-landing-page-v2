@@ -28,8 +28,10 @@ This is a production-ready, single-page application (SPA) landing page for a med
   - Custom shadows (soft, soft-lg, button-3d variants)
 
 ### UI Components & Icons
-- **Lucide React 0.344.0** - Icon library (Shield, Users, Lock, etc.)
-- Custom component library (Button, Card, Section wrappers)
+- **Lucide React 0.344.0** - Icon library (Shield, Users, Lock, Phone, Menu, X, TrendingDown, AlertCircle, CheckCircle, Target, etc.)
+- **clsx 2.1.1** + **tailwind-merge 3.3.1** - Class name merging utilities (cn helper in /src/lib/utils.ts)
+- **Framer Motion 12.23.24** - Animation library (used in aurora-background.tsx component)
+- Custom component library (Button, Card, Section, Header, MobileMenu, StickyBottomCTA)
 
 ### Backend Integration
 - **@supabase/supabase-js 2.57.4** - Database/backend integration (dependency present, not actively used)
@@ -45,47 +47,60 @@ This is a production-ready, single-page application (SPA) landing page for a med
 ### High-Level Structure
 ```
 Landing Page (App.tsx)
-├── 14 Section Components (Hero, Problem, Bridge, Program, etc.)
+├── Header (Fixed navigation with mobile menu)
+├── StickyBottomCTA (Mobile-only sticky bottom CTA)
+├── 13 Section Components (Hero, Problem, Program, etc.)
 ├── Reusable UI Components (Button, Card, Section)
-├── Custom Hook (useScrollAnimation)
-└── Scroll-to-Top Button
+└── Custom Hooks (useScrollAnimation, useScrollPosition)
 ```
 
 ### Component Hierarchy
 
-**3-Tier Architecture:**
+**4-Tier Architecture:**
 
-1. **Base Components** (`/src/components/`)
-   - `Button.tsx` - Reusable button with primary/secondary variants
+1. **Navigation & Layout Components** (`/src/components/`)
+   - `Header.tsx` - Fixed top navigation with logo, nav links, and mobile hamburger
+   - `MobileMenu.tsx` - Slide-in mobile menu with backdrop and navigation
+   - `StickyBottomCTA.tsx` - Mobile-only sticky bottom call-to-action that appears after scrolling past hero
+
+2. **Base Components** (`/src/components/`)
+   - `Button.tsx` - Reusable button with primary/secondary variants, icon support, fixed 48px height
    - `Card.tsx` - Reusable card with default/teal/elevated variants
    - `Section.tsx` - Section wrapper with background variants
 
-2. **Section Components** (`/src/components/sections/`)
-   - 14 specialized sections, each self-contained
+3. **Section Components** (`/src/components/sections/`)
+   - 13 specialized sections (~1,596 total lines), each self-contained
    - Each section uses base components and scroll animations
    - Sections are imported and rendered in sequence in App.tsx
 
-3. **Application Shell** (`/src/`)
-   - `App.tsx` - Main orchestrator component
+4. **Application Shell & Utilities** (`/src/`)
+   - `App.tsx` - Main orchestrator component with snap scrolling
    - `main.tsx` - React root entry point
    - `index.css` - Global styles and Tailwind imports
+   - `lib/utils.ts` - Utility helpers (cn for class name merging)
+   - `components/ui/` - Advanced UI components (aurora-background.tsx, demo.tsx)
 
 ### Key Sections (in order)
 
-1. **HeroSection** - Main headline, value proposition, CTAs
-2. **ProblemTruthSection** - Problem awareness (medication relapse concerns)
-3. **BridgeSection** - Transition from problem to solution
-4. **ProgramSection** - 4-specialist team overview
-5. **ComparisonSection** - Program vs alternatives comparison
-6. **TimelineSection** - Program timeline/journey
-7. **TeamSection** - Medical team credentials
-8. **ScienceSection** - Evidence and research backing
-9. **WhoSection** - Ideal customer profile (who it's for/not for)
-10. **TestimonialsSection** - Social proof with carousel
-11. **FAQSection** - Common questions accordion
-12. **CTASection** - Final call-to-action
-13. **ContactSection** - Consultation booking form
-14. **Footer** - Company info and links
+**Navigation (Fixed/Sticky):**
+- **Header** - Fixed top navigation with rounded glass-morphism design, logo, desktop nav links, mobile hamburger menu, and "Jump on a call" CTA (tel:+919380010221)
+- **StickyBottomCTA** - Mobile-only sticky bottom CTA that slides up after scrolling past hero (>600px)
+
+**Page Sections:**
+1. **HeroSection** - Two-column hero (text left, image right), main headline, value proposition, dual CTAs (phone + register), trust chips; image hidden on mobile, shown from md breakpoint
+2. **ProblemTruthSection** - Two-card layout contrasting "what goes wrong" vs "clinical truth"; uses flex layout to align footer text across both cards
+3. **BridgeSection** - Single centered transition card connecting problem to solution (removed from section count—now 13 sections total)
+4. **ProgramSection** - 4-specialist team overview with icon cards
+5. **ComparisonSection** - Program vs alternatives comparison table
+6. **TimelineSection** - Program timeline/journey with step-by-step progression
+7. **TeamSection** - Medical team credentials with profile cards
+8. **ScienceSection** - Evidence and research backing with gold accent icons
+9. **WhoSection** - Ideal customer profile (who it's for/not for) in two-column layout
+10. **TestimonialsSection** - Social proof with testimonial cards
+11. **FAQSection** - Common questions with accordion pattern
+12. **CTASection** - Final call-to-action before contact form
+13. **ContactSection** - Consultation booking form with webhook integration
+14. **Footer** - Minimal company info footer
 
 ### Data Flow
 
@@ -110,6 +125,38 @@ const { ref, isVisible } = useScrollAnimation();
 // Triggers fade-in/slide-up on scroll into view
 ```
 
+### Mobile Navigation Pattern
+
+Mobile navigation uses a combination of Header, MobileMenu, and StickyBottomCTA:
+```typescript
+// Header.tsx - manages mobile menu state
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+// MobileMenu.tsx - prevents body scroll when open
+useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'unset';
+  }
+}, [isOpen]);
+
+// StickyBottomCTA.tsx - appears after scrolling past hero
+const { hasScrolledPastHero } = useScrollPosition();
+// Slides up when hasScrolledPastHero is true (scroll > 600px)
+```
+
+### Phone CTA Pattern
+
+All primary CTAs link to a phone number for immediate contact:
+```typescript
+<a href="tel:+919380010221">
+  <Button variant="primary" icon={Phone}>
+    Jump on a call
+  </Button>
+</a>
+```
+
 ## Directory Structure
 
 ```
@@ -117,32 +164,45 @@ medicare-plus-landing-page-v2/
 ├── .bolt/                        # Bolt.new configuration
 │   ├── config.json              # Bolt config
 │   └── prompt                   # Design instructions
+├── public/                       # Static assets
+│   ├── hero-image.png           # Hero section doctor consultation image
+│   └── hero-image.webp          # WebP version for performance
 ├── src/
 │   ├── components/
+│   │   ├── Header.tsx           # Fixed navigation component
+│   │   ├── MobileMenu.tsx       # Mobile slide-in menu
+│   │   ├── StickyBottomCTA.tsx  # Mobile sticky bottom CTA
 │   │   ├── Button.tsx           # Reusable button component
 │   │   ├── Card.tsx             # Reusable card component
 │   │   ├── Section.tsx          # Section wrapper component
-│   │   └── sections/            # Page section components
-│   │       ├── HeroSection.tsx
-│   │       ├── ProblemTruthSection.tsx
-│   │       ├── BridgeSection.tsx
-│   │       ├── ProgramSection.tsx
-│   │       ├── ComparisonSection.tsx
-│   │       ├── TimelineSection.tsx
-│   │       ├── TeamSection.tsx
-│   │       ├── ScienceSection.tsx
-│   │       ├── WhoSection.tsx
-│   │       ├── TestimonialsSection.tsx
-│   │       ├── FAQSection.tsx
-│   │       ├── CTASection.tsx
-│   │       ├── ContactSection.tsx
-│   │       └── Footer.tsx
+│   │   ├── sections/            # Page section components (13 total)
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── ProblemTruthSection.tsx
+│   │   │   ├── BridgeSection.tsx
+│   │   │   ├── ProgramSection.tsx
+│   │   │   ├── ComparisonSection.tsx
+│   │   │   ├── TimelineSection.tsx
+│   │   │   ├── TeamSection.tsx
+│   │   │   ├── ScienceSection.tsx
+│   │   │   ├── WhoSection.tsx
+│   │   │   ├── TestimonialsSection.tsx
+│   │   │   ├── FAQSection.tsx
+│   │   │   ├── CTASection.tsx
+│   │   │   ├── ContactSection.tsx
+│   │   │   └── Footer.tsx
+│   │   └── ui/                  # Advanced UI components
+│   │       ├── aurora-background.tsx
+│   │       └── demo.tsx
 │   ├── hooks/
-│   │   └── useScrollAnimation.tsx  # Intersection Observer hook
+│   │   ├── useScrollAnimation.tsx   # Intersection Observer hook
+│   │   └── useScrollPosition.ts     # Scroll position tracking hook
+│   ├── lib/
+│   │   └── utils.ts             # Utility helpers (cn function)
 │   ├── App.tsx                  # Main application component
 │   ├── main.tsx                 # React entry point
 │   ├── index.css                # Global styles + Tailwind
 │   └── vite-env.d.ts           # Vite TypeScript declarations
+├── dist/                         # Production build output
 ├── index.html                   # HTML entry point
 ├── package.json                 # Dependencies and scripts
 ├── vite.config.ts              # Vite configuration
@@ -152,22 +212,35 @@ medicare-plus-landing-page-v2/
 ├── tsconfig.node.json          # Node-specific TS config
 ├── eslint.config.js            # ESLint configuration
 ├── postcss.config.js           # PostCSS configuration
+├── CLAUDE.md                    # This file - coding guidelines
 └── README.md                    # Project readme (minimal)
 ```
 
 ### Key Directories Explained
 
-- **`/src/components/sections/`** - 14 section components (~1,544 total lines)
+- **`/src/components/sections/`** - 13 section components (~1,596 total lines)
   - Each section is self-contained with its own layout and content
   - All follow the same pattern: imports → component → useScrollAnimation → JSX
+  - Line counts: ContactSection (329), ProblemTruthSection (140), TimelineSection (143), ComparisonSection (129), WhoSection (121), HeroSection (116), TestimonialsSection (116), ScienceSection (106), FAQSection (96), TeamSection (96), ProgramSection (86), CTASection (54), Footer (38), BridgeSection (26)
   
-- **`/src/components/`** - Base reusable components
-  - Button: 2 variants (primary, secondary) with icon support
-  - Card: 3 variants (default, teal, elevated) with hover effects
-  - Section: 3 background variants (default, gradient, silver)
+- **`/src/components/`** - Navigation and base reusable components
+  - Header: Fixed navigation with glass-morphism design, responsive nav, mobile menu trigger (3,450 chars)
+  - MobileMenu: Full-screen slide-in mobile navigation with backdrop (2,377 chars)
+  - StickyBottomCTA: Mobile-only sticky bottom CTA appearing after hero scroll (865 chars)
+  - Button: 2 variants (primary gold, secondary blue-border) with icon support and fixed 48px height (1,450 chars)
+  - Card: 3 variants (default, teal, elevated) with hover effects (992 chars)
+  - Section: Background variant wrapper (656 chars)
   
 - **`/src/hooks/`** - Custom React hooks
-  - `useScrollAnimation`: Intersection Observer for scroll-triggered animations
+  - `useScrollAnimation.tsx`: Intersection Observer for scroll-triggered animations (712 chars)
+  - `useScrollPosition.ts`: Tracks scroll position and hero scroll threshold for StickyBottomCTA (790 chars)
+
+- **`/src/lib/`** - Utility helpers
+  - `utils.ts`: cn() helper for merging class names with clsx + tailwind-merge (332 chars)
+
+- **`/src/components/ui/`** - Advanced UI components (not currently in use in main sections)
+  - `aurora-background.tsx`: Animated aurora background using Framer Motion (2,234 chars)
+  - `demo.tsx`: Demo/showcase component (1,112 chars)
 
 ## Build & Development Commands
 
@@ -254,12 +327,14 @@ optimizeDeps: { exclude: ['lucide-react'] }
 ### Tailwind Configuration
 
 **Extensive customization:**
-- **Colors**: Extended color palette (accent-blue, accent-green, accent-purple, accent-terracotta)
-- **Fonts**: Inter from Google Fonts
-- **Typography**: Responsive text sizes using Tailwind utilities (`text-3xl`, `md:text-5xl`, etc.)
-- **Shadows**: Soft, soft-lg, button-3d variants with hover states
-- **Animations**: fade-in, slide-up, scale-in, pulse-gentle, slide-left, aurora
-- **Utilities**: Text gradients, soft gradients, animation delays (200ms, 400ms, 600ms)
+- **Z-Index**: Added z-60 for mobile menu layering above z-50 header
+- **Colors**: Extended color palette with primary, secondary, accent (blue, green, purple, terracotta), and background variants
+- **Fonts**: Inter from Google Fonts with weights 300-800
+- **Typography**: Custom font sizes (hero-desktop, hero-mobile, subheadline) plus Tailwind's responsive utilities
+- **Shadows**: Soft, soft-lg, button-3d, button-3d-hover variants
+- **Animations**: fade-in (0.6s), slide-up (0.6s), scale-in (0.5s), pulse-gentle (2s infinite), slide-left (0.3s for mobile menu), aurora (60s infinite)
+- **Utilities**: Text gradients (blue/teal both map to clinical blue), soft gradients, metallic gradient (legacy support), animation delays (200ms, 400ms, 600ms)
+- **Plugin**: addVariablesForColors - Converts all Tailwind colors to CSS variables (e.g., var(--gray-200))
 
 ### ESLint Configuration
 
@@ -480,6 +555,34 @@ Based on `.bolt/prompt`:
 - **Tailwind + Lucide only** - Minimal dependencies unless necessary
 - **Icons for logos** - Use Lucide React icons instead of image assets
 - **Consistent & Professional** - Unified color palette and responsive design across all screen sizes
+- **Mobile-first responsive** - Base styles for mobile, progressively enhanced for larger screens
+
+### Mobile-First Responsive Design
+
+The application implements a comprehensive mobile-first approach:
+
+**Navigation:**
+- Desktop: Fixed header with inline nav links and CTA button
+- Mobile: Hamburger menu that opens full-screen slide-in menu with backdrop
+- Mobile-only: Sticky bottom CTA appears after scrolling past hero (>600px)
+
+**Layout Patterns:**
+- Hero: Stacked on mobile, two-column from `lg:` breakpoint; image hidden until `md:`
+- Cards: Single column on mobile, grid layouts (`md:grid-cols-2`, `lg:grid-cols-3`) on desktop
+- Typography: Scales from mobile sizes (`text-3xl`) to desktop (`md:text-5xl`, `lg:text-6xl`)
+- Spacing: Compact padding on mobile (`py-16`), increased on desktop (`md:py-24`)
+
+**Interactive Elements:**
+- Touch-friendly button heights (minimum 48px/h-12)
+- Larger tap targets on mobile (generous padding)
+- Prevented body scroll when mobile menu is open
+- Smooth scroll behavior for anchor navigation
+
+**Breakpoints Used:**
+- `sm:` - 640px (small tablets)
+- `md:` - 768px (tablets, show hero image)
+- `lg:` - 1024px (laptops, two-column layouts, hide mobile menu)
+- `xl:` - 1280px (desktops, max widths)
 
 ### Color Consistency Implementation (Latest Update)
 
@@ -540,10 +643,14 @@ Used in `ContactSection.tsx` for form submissions.
 - Likely planned for future backend integration
 - Currently using webhook for form submissions
 
-### Image Placeholders
-- Hero section contains placeholder text for images
-- Images should be added to `/public` directory
-- Update component imports to reference public assets
+### Hero Images
+- Hero section uses professional doctor consultation images stored in `/public`
+- Images: `hero-image.png` and `hero-image.webp` (for performance)
+- Image is hidden on mobile (below `md` breakpoint) and shown from medium screens up
+- Uses `<picture>` element with WebP source for modern browsers
+- Positioned with gradient overlay on left edge to blend with background
+- Alt text optimized for SEO: "Professional endocrinologist consultation - Doctor-led GLP-1 weight loss program"
+- Lazy loading enabled with `loading="lazy"` attribute
 
 ### Accessibility
 - Semantic HTML elements (`<section>`, `<button>`, etc.)
@@ -582,4 +689,11 @@ Used in `ContactSection.tsx` for form submissions.
 ---
 
 **Project Generated With:** Bolt.new (AI-powered web development tool)
-**Last Updated:** 2025-10-31 (Color consistency & responsive design implementation)
+**Last Updated:** 2025-10-31
+
+**Recent Updates:**
+- 2025-10-31: Comprehensive codebase documentation update reflecting actual implementation
+- 2025-10-31: Mobile UX optimization (viewport, spacing, modals, standardized CTAs)
+- 2025-10-31: ProblemTruthSection footer alignment using flex stretch layout
+- 2025-10-31: Hero image edge-aligned with header, reduced gradient overlay
+- 2025-10-31: Color consistency and responsive design implementation across all sections
