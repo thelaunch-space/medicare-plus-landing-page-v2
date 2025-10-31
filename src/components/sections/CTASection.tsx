@@ -1,4 +1,5 @@
 import React from 'react';
+import { Phone } from 'lucide-react';
 import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
@@ -25,19 +26,21 @@ export const CTASection: React.FC = () => {
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button
-              variant="primary"
-              onClick={scrollToContact}
-              className="bg-white text-[#1A1A1A] hover:bg-[#F2F6F8] border-0"
-            >
-              Secure Your Founder's Spot
-            </Button>
+            <a href="tel:+919380010221" className="w-full sm:w-auto">
+              <Button
+                variant="primary"
+                icon={Phone}
+                className="w-full sm:w-auto"
+              >
+                Jump on a call
+              </Button>
+            </a>
             <Button
               variant="secondary"
               onClick={scrollToContact}
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-[#1A1A1A]"
             >
-              Book a Confidential Consultation
+              Register My Spot
             </Button>
           </div>
 

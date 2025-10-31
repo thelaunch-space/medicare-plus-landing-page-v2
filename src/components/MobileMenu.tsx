@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Phone } from 'lucide-react';
 import { Button } from './Button';
 
 interface NavItem {
@@ -40,7 +41,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     <div className="fixed inset-0 z-60 lg:hidden">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-primary/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-[#1A1A1A]/80 backdrop-blur-sm"
         onClick={onClose}
       />
 
@@ -49,7 +50,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         <div className="flex flex-col h-full">
           {/* Menu Header */}
           <div className="px-6 py-8 border-b border-gray-200">
-            <h2 className="text-2xl font-bold text-gradient-blue">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-[#1C4E80] to-blue-600 bg-clip-text text-transparent">
               Medicare+
             </h2>
           </div>
@@ -60,7 +61,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
               <button
                 key={item.href}
                 onClick={() => onNavClick(item.href)}
-                className="w-full text-left px-4 py-3 text-lg font-medium text-primary hover:bg-blue-50 hover:text-accent-blue rounded-lg transition-colors duration-200"
+                className="w-full text-left px-4 py-3 text-lg font-medium text-[#1A1A1A] hover:bg-blue-50 hover:text-[#1C4E80] rounded-lg transition-colors duration-200"
               >
                 {item.label}
               </button>
@@ -69,16 +70,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
 
           {/* CTA Button */}
           <div className="px-6 py-6 border-t border-gray-200">
-            <Button
-              variant="primary"
-              onClick={() => {
-                onCTAClick();
-                onClose();
-              }}
-              className="w-full"
-            >
-              Book Consultation
-            </Button>
+            <a href="tel:+919380010221" className="block">
+              <Button
+                variant="primary"
+                icon={Phone}
+                className="w-full"
+                onClick={onClose}
+              >
+                Jump on a call
+              </Button>
+            </a>
           </div>
         </div>
       </div>

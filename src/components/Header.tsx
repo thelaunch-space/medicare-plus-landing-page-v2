@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Button } from './Button';
 import { MobileMenu } from './MobileMenu';
 
@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
                 <div className="flex-shrink-0">
                   <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="text-2xl font-bold text-gradient-blue hover:opacity-80 transition-opacity"
+                    className="text-2xl font-bold bg-gradient-to-r from-[#1C4E80] to-blue-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
                   >
                     Medicare+
                   </button>
@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
                     <button
                       key={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-primary font-medium hover:text-accent-blue transition-colors duration-200"
+                      className="text-[#1A1A1A] font-medium hover:text-[#1C4E80] transition-colors duration-200"
                     >
                       {item.label}
                     </button>
@@ -65,15 +65,17 @@ export const Header: React.FC = () => {
 
                 {/* Desktop CTA */}
                 <div className="hidden lg:block">
-                  <Button variant="primary" onClick={handleCTAClick}>
-                    Book Consultation
-                  </Button>
+                  <a href="tel:+919380010221">
+                    <Button variant="primary" icon={Phone}>
+                      Jump on a call
+                    </Button>
+                  </a>
                 </div>
 
                 {/* Mobile Hamburger */}
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="lg:hidden p-2 rounded-lg text-primary hover:bg-metallic-silver transition-colors"
+                  className="lg:hidden p-2 rounded-lg text-[#1A1A1A] hover:bg-[#F2F6F8] transition-colors"
                   aria-label="Toggle menu"
                 >
                   {isMobileMenuOpen ? (
