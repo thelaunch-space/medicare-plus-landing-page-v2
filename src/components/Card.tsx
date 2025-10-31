@@ -18,12 +18,12 @@ export const Card: React.FC<CardProps> = ({
   const baseStyles = 'rounded-2xl p-8 transition-all duration-300';
 
   const variants = {
-    default: 'bg-background-card shadow-soft border border-gray-100',
+    default: 'bg-white shadow-soft border border-gray-100',
     teal: 'bg-gradient-to-br from-blue-50 to-purple-50 shadow-soft border border-blue-100',
-    elevated: 'bg-background-card shadow-soft-lg border border-gray-100',
+    elevated: 'bg-white shadow-soft-lg border border-gray-100',
   };
 
-  const hoverStyles = hover ? 'hover:shadow-soft-lg hover:-translate-y-0.5 hover:border-accent-blue/20' : '';
+  const hoverStyles = hover ? 'hover:shadow-soft-lg hover:-translate-y-0.5 hover:border-[#1C4E80]/20' : '';
   const clickableStyles = onClick ? 'cursor-pointer' : '';
 
   return (

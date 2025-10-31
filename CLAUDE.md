@@ -19,12 +19,12 @@ This is a production-ready, single-page application (SPA) landing page for a med
 - **Vite 5.4.2** - Modern build tool and development server
 
 ### Styling & Design
-- **Tailwind CSS 3.4.1** - Utility-first CSS framework
+- **Tailwind CSS 3.4.1** - Utility-first CSS framework with responsive utilities
 - **PostCSS 8.4.35** + **Autoprefixer 10.4.18** - CSS processing
 - **Custom Design System** - Extended Tailwind configuration with:
-  - Custom color palette (primary, accent-teal/coral/gold, metallic variants)
-  - Custom typography scale (hero-desktop, hero-mobile, subheadline)
-  - Custom animations (fade-in, slide-up, scale-in, pulse-gentle)
+  - Standardized color palette (consistent hex colors across all sections)
+  - Responsive typography using Tailwind's responsive classes
+  - Custom animations (fade-in, slide-up, scale-in, pulse-gentle, aurora)
   - Custom shadows (soft, soft-lg, button-3d variants)
 
 ### UI Components & Icons
@@ -254,12 +254,12 @@ optimizeDeps: { exclude: ['lucide-react'] }
 ### Tailwind Configuration
 
 **Extensive customization:**
-- **Colors**: Primary (dark), secondary (slate), accent (teal/coral/gold), metallic (white/silver/platinum)
+- **Colors**: Extended color palette (accent-blue, accent-green, accent-purple, accent-terracotta)
 - **Fonts**: Inter from Google Fonts
-- **Typography**: Custom hero and subheadline sizes
-- **Shadows**: Soft, soft-lg, button-3d variants
-- **Animations**: fade-in, slide-up, scale-in, pulse-gentle
-- **Utilities**: Text gradients, metallic gradients, animation delays
+- **Typography**: Responsive text sizes using Tailwind utilities (`text-3xl`, `md:text-5xl`, etc.)
+- **Shadows**: Soft, soft-lg, button-3d variants with hover states
+- **Animations**: fade-in, slide-up, scale-in, pulse-gentle, slide-left, aurora
+- **Utilities**: Text gradients, soft gradients, animation delays (200ms, 400ms, 600ms)
 
 ### ESLint Configuration
 
@@ -318,27 +318,109 @@ const scrollToContact = () => {
 
 ### Styling Patterns
 
-**1. Custom Tailwind Classes**
-- `text-gradient-teal` - Teal gradient text effect
-- `bg-metallic-gradient` - Metallic background gradient
-- `animation-delay-{200|400|600}` - Staggered animation timing
-- `shadow-button-3d` - 3D button shadow effect
+**1. Standardized Color Palette (Consistent Across All Sections)**
 
-**2. Color System**
-```javascript
-primary: Dark navy (#1a1a2e, #2d2d44)
-secondary: Slate gray (#64748b, #94a3b8)
-accent-teal: Cyan (#06b6d4)
-accent-coral: Orange (#f97316)
-accent-gold: Amber (#f59e0b)
-metallic-white/silver/platinum: Light grays
+The entire landing page uses a unified color system for consistency:
+
+```typescript
+// Text Colors
+Primary Heading: #1A1A1A (dark gray, nearly black)
+Primary Accent: #1C4E80 (clinical blue - for highlights and interactive elements)
+Body Text: #2E445B (muted blue-gray)
+Light Text: #2E445B/70 (70% opacity for subtle text)
+
+// Background Colors
+Primary Background: #F9FBFC (very light blue-gray)
+Card Background: white
+Secondary Background: #F2F6F8 (light gray-blue for subtle sections)
+
+// Interactive Colors
+Primary Button: #C89F65 (warm gold)
+Button Hover: #B1814D (darker gold)
+Secondary Button Border: #1C4E80 (clinical blue)
+Focus Ring: #1C4E80 (clinical blue)
+
+// Accent Colors for Specific Elements
+Success/Positive: #10B981 (emerald green) or green-500
+Warning/Negative: red-500
+Science/Gold Accent: #C89F65 (warm gold - used in ScienceSection)
+
+// Borders & Dividers
+Default Border: gray-200
+Light Border: gray-100
 ```
 
-**3. Responsive Design**
-- Mobile-first approach (base styles, then `md:`, `lg:` breakpoints)
+**Usage Examples:**
+```typescript
+// Headings
+<h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A]">
+  Main Heading <span className="text-[#1C4E80]">Highlighted</span>
+</h2>
+
+// Body Text
+<p className="text-base sm:text-lg text-[#2E445B]">Body content</p>
+
+// Backgrounds
+<div className="bg-[#F9FBFC]">Section background</div>
+<div className="bg-gradient-to-r from-[#F9FBFC] to-[#F2F6F8]">Gradient</div>
+
+// Interactive Elements
+<div className="border-[#1C4E80] hover:text-[#1C4E80]">Link</div>
+```
+
+**2. Responsive Typography System**
+
+All sections use Tailwind's responsive text utilities:
+
+```typescript
+// Headlines (Large)
+text-3xl md:text-5xl           // H1/H2 level
+text-4xl sm:text-5xl lg:text-6xl  // Hero headlines
+
+// Subheadlines
+text-xl md:text-2xl            // H3 level
+text-lg sm:text-xl lg:text-2xl // H2 subheadings
+
+// Body Text
+text-base sm:text-lg           // Standard body copy
+text-sm                        // Small text, captions
+
+// Utilities
+text-xs                        // Fine print, disclaimers
+```
+
+**3. Component Variants**
+
+```typescript
+// Button Component
+<Button variant="primary">Primary CTA</Button>  // Gold button
+<Button variant="secondary">Secondary</Button>  // White with blue border
+
+// Card Component
+<Card variant="default">Standard card</Card>    // White with soft shadow
+<Card variant="teal">Accent card</Card>        // Gradient background
+<Card variant="elevated">Raised card</Card>    // Enhanced shadow
+
+// Hover States
+hover:text-[#1C4E80]          // Interactive text
+hover:bg-[#F2F6F8]            // Subtle background
+hover:border-[#1C4E80]/20     // Interactive borders
+```
+
+**4. Responsive Design**
+- Mobile-first approach (base styles, then `sm:`, `md:`, `lg:`, `xl:` breakpoints)
 - Grid layouts: `grid lg:grid-cols-2` for desktop two-column layouts
-- Typography: `text-hero-mobile md:text-hero-desktop`
-- Spacing: `py-16 md:py-24`, `gap-6 lg:gap-12`
+- Responsive typography: `text-base sm:text-lg lg:text-xl`
+- Responsive spacing: `py-16 md:py-24`, `gap-6 lg:gap-12`
+- Responsive images: `h-[340px] sm:h-[440px] md:h-[520px] lg:h-[600px]`
+
+**5. Animation & Transitions**
+- Custom animation classes with delays:
+  - `animation-delay-200` - 0.2s delay
+  - `animation-delay-400` - 0.4s delay
+  - `animation-delay-600` - 0.6s delay
+- Standard transitions: `transition-all duration-300`
+- Scroll animations: `duration-1000` for section reveals
 
 ### Form Handling Pattern
 
@@ -397,6 +479,49 @@ Based on `.bolt/prompt`:
 - **Production-worthy** - Fully featured, not MVP
 - **Tailwind + Lucide only** - Minimal dependencies unless necessary
 - **Icons for logos** - Use Lucide React icons instead of image assets
+- **Consistent & Professional** - Unified color palette and responsive design across all screen sizes
+
+### Color Consistency Implementation (Latest Update)
+
+The landing page underwent a comprehensive color standardization effort to ensure visual consistency across all 14 sections. Key improvements:
+
+**1. Unified Color Palette**
+- Replaced all generic Tailwind color classes with explicit hex values
+- Established hero section colors as the standard for the entire page
+- Eliminated color inconsistencies across sections
+
+**2. Standardized Components**
+- All text now uses: `#1A1A1A` (headings), `#1C4E80` (accents), `#2E445B` (body)
+- All backgrounds use: `#F9FBFC`, `#F2F6F8`, or white
+- All borders use: `gray-200` or `gray-100`
+- All interactive elements use clinical blue (`#1C4E80`) for consistency
+
+**3. Responsive Typography**
+- Converted fixed pixel values to Tailwind responsive utilities
+- Ensures proper scaling across mobile, tablet, laptop, and desktop screens
+- Example: `text-3xl md:text-5xl` instead of fixed `text-[48px]`
+
+**4. Component Updates**
+- Button: Consistent gold primary (`#C89F65`) and blue-bordered secondary
+- Card: Unified hover states with clinical blue accent
+- All gradients standardized to use the core color palette
+
+**Before vs After:**
+```typescript
+// Before (inconsistent)
+<h2 className="text-primary">              // Generic class
+<p className="text-secondary">             // Generic class
+<div className="bg-metallic-silver">       // Non-standard color
+<span className="text-accent-teal">        // Different accent
+
+// After (consistent)
+<h2 className="text-[#1A1A1A]">           // Explicit hex
+<p className="text-[#2E445B]">            // Explicit hex
+<div className="bg-[#F9FBFC]">            // Standard background
+<span className="text-[#1C4E80]">         // Standard accent
+```
+
+This ensures the landing page maintains a professional, cohesive appearance across all devices while preserving the medical, trustworthy aesthetic.
 
 ## Environment Variables
 
@@ -457,4 +582,4 @@ Used in `ContactSection.tsx` for form submissions.
 ---
 
 **Project Generated With:** Bolt.new (AI-powered web development tool)
-**Last Updated:** 2025-10-31
+**Last Updated:** 2025-10-31 (Color consistency & responsive design implementation)

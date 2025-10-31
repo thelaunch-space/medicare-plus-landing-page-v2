@@ -122,14 +122,14 @@ export const ContactSection: React.FC = () => {
       >
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-              Book Your <span className="text-gradient-teal">Confidential Consultation</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+              Book Your <span className="text-[#1C4E80]">Confidential Consultation</span>
             </h2>
-            <p className="text-lg text-secondary">
+            <p className="text-lg text-[#2E445B]">
               Start your journey to lasting weight loss with expert medical guidance
             </p>
-            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-secondary">
-              <Lock className="w-4 h-4 text-accent-teal" />
+            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-[#2E445B]">
+              <Lock className="w-4 h-4 text-[#1C4E80]" />
               <span>All information is kept strictly confidential</span>
             </div>
           </div>
@@ -140,8 +140,8 @@ export const ContactSection: React.FC = () => {
                 <div className="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center">
                   <CheckCircle className="w-10 h-10 text-green-500" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Thank You!</h3>
-                <p className="text-secondary">
+                <h3 className="text-2xl font-bold text-[#1A1A1A]">Thank You!</h3>
+                <p className="text-[#2E445B]">
                   Your consultation request has been received. Our team will contact you within 24-48 hours.
                 </p>
                 <Button
@@ -155,7 +155,7 @@ export const ContactSection: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-primary mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
                     Full Name *
                   </label>
                   <input
@@ -165,8 +165,8 @@ export const ContactSection: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-xl border ${
-                      errors.name ? 'border-red-500' : 'border-metallic-platinum'
-                    } focus:outline-none focus:ring-2 focus:ring-accent-teal transition-all`}
+                      errors.name ? 'border-red-500' : 'border-gray-200'
+                    } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
                     placeholder="Enter your full name"
                   />
                   {errors.name && (
@@ -179,7 +179,7 @@ export const ContactSection: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-primary mb-2">
+                    <label htmlFor="email" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
                       Email Address *
                     </label>
                     <input
@@ -189,8 +189,8 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.email ? 'border-red-500' : 'border-metallic-platinum'
-                      } focus:outline-none focus:ring-2 focus:ring-accent-teal transition-all`}
+                        errors.email ? 'border-red-500' : 'border-gray-200'
+                      } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
                       placeholder="your@email.com"
                     />
                     {errors.email && (
@@ -202,7 +202,7 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-primary mb-2">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
                       Phone Number *
                     </label>
                     <input
@@ -212,8 +212,8 @@ export const ContactSection: React.FC = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.phone ? 'border-red-500' : 'border-metallic-platinum'
-                      } focus:outline-none focus:ring-2 focus:ring-accent-teal transition-all`}
+                        errors.phone ? 'border-red-500' : 'border-gray-200'
+                      } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
                       placeholder="+1 (555) 000-0000"
                     />
                     {errors.phone && (
@@ -228,7 +228,7 @@ export const ContactSection: React.FC = () => {
                 <div>
                   <label
                     htmlFor="medicationStatus"
-                    className="block text-sm font-semibold text-primary mb-2"
+                    className="block text-sm font-semibold text-[#1A1A1A] mb-2"
                   >
                     Current Medication Status *
                   </label>
@@ -238,8 +238,8 @@ export const ContactSection: React.FC = () => {
                     value={formData.medicationStatus}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-xl border ${
-                      errors.medicationStatus ? 'border-red-500' : 'border-metallic-platinum'
-                    } focus:outline-none focus:ring-2 focus:ring-accent-teal transition-all`}
+                      errors.medicationStatus ? 'border-red-500' : 'border-gray-200'
+                    } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
                   >
                     <option value="">Select your status</option>
                     <option value="currently-using">Currently using GLP-1 medication</option>
@@ -259,7 +259,7 @@ export const ContactSection: React.FC = () => {
                 <div>
                   <label
                     htmlFor="contactMethod"
-                    className="block text-sm font-semibold text-primary mb-2"
+                    className="block text-sm font-semibold text-[#1A1A1A] mb-2"
                   >
                     Preferred Contact Method
                   </label>
@@ -268,7 +268,7 @@ export const ContactSection: React.FC = () => {
                     name="contactMethod"
                     value={formData.contactMethod}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-metallic-platinum focus:outline-none focus:ring-2 focus:ring-accent-teal transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
                   >
                     <option value="email">Email</option>
                     <option value="phone">Phone</option>
@@ -277,7 +277,7 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-primary mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
                     Additional Information (Optional)
                   </label>
                   <textarea
@@ -286,7 +286,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-metallic-platinum focus:outline-none focus:ring-2 focus:ring-accent-teal transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all resize-none"
                     placeholder="Tell us more about your goals or any questions you have..."
                   />
                 </div>
@@ -315,7 +315,7 @@ export const ContactSection: React.FC = () => {
                   </Button>
                 </div>
 
-                <p className="text-xs text-center text-secondary">
+                <p className="text-xs text-center text-[#2E445B]">
                   By submitting this form, you agree to our privacy policy and consent to being
                   contacted by our medical team.
                 </p>

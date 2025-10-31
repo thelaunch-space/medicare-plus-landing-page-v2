@@ -68,13 +68,13 @@ export const TimelineSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            Your roadmap to <span className="text-gradient-teal">lasting weight loss</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+            Your roadmap to <span className="text-[#1C4E80]">lasting weight loss</span>
           </h2>
         </div>
 
         <div className="hidden lg:block relative">
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-accent-teal via-cyan-400 to-accent-teal transform -translate-y-1/2 rounded-full"></div>
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#1C4E80] via-blue-500 to-[#1C4E80] transform -translate-y-1/2 rounded-full"></div>
 
           <div className="relative grid grid-cols-5 gap-8">
             {phases.map((phase, index) => (
@@ -82,19 +82,19 @@ export const TimelineSection: React.FC = () => {
                 key={index}
                 className={`relative ${index % 2 === 0 ? 'pt-32' : 'pb-32'}`}
               >
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-accent-teal to-cyan-500 rounded-full flex items-center justify-center shadow-button-3d z-10">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-[#1C4E80] to-blue-600 rounded-full flex items-center justify-center shadow-button-3d z-10">
                   <span className="text-white font-bold text-lg">{phase.number}</span>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-soft-lg p-6 hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-300">
                   <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-primary mb-1">{phase.title}</h3>
-                    <p className="text-sm text-accent-teal font-semibold">{phase.duration}</p>
+                    <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">{phase.title}</h3>
+                    <p className="text-sm text-[#1C4E80] font-semibold">{phase.duration}</p>
                   </div>
                   <ul className="space-y-2">
                     {phase.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm text-secondary">
-                        <span className="text-accent-teal mt-1">•</span>
+                      <li key={idx} className="flex items-start gap-2 text-sm text-[#2E445B]">
+                        <span className="text-[#1C4E80] mt-1">•</span>
                         <span>{point}</span>
                       </li>
                     ))}
@@ -108,9 +108,9 @@ export const TimelineSection: React.FC = () => {
         <div className="lg:hidden space-y-8">
           {phases.map((phase, index) => (
             <div key={index} className="relative pl-12">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-teal to-cyan-500 rounded-full"></div>
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#1C4E80] to-blue-600 rounded-full"></div>
 
-              <div className="absolute left-0 top-6 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-accent-teal to-cyan-500 rounded-full flex items-center justify-center shadow-button-3d">
+              <div className="absolute left-0 top-6 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-[#1C4E80] to-blue-600 rounded-full flex items-center justify-center shadow-button-3d">
                 <span className="text-white font-bold">{phase.number}</span>
               </div>
 

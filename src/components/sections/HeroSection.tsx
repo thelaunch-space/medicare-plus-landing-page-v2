@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Shield, CheckCircle, Lock, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { AuroraBackground } from '@/components/ui/aurora-background';
 
 /**
  * HeroSection.tsx
- * Purpose: Above-the-fold hero with premium, sleek typography and a single CTA.
- * - Highlights brand drug names with contextual colors
- * - Emphasizes solution line in subtle italics
- * - Ensures first fold fit on mobile and desktop
+ * Purpose: Premium, doctor-led two-column hero.
+ * - Left: headline, subheadline, body copy, CTAs, trust chips
+ * - Right: professional consultation image with gradient edge
+ * - Responsive: stacks on smaller screens with refined typography
  */
 
 export const HeroSection: React.FC = () => {
@@ -23,10 +22,8 @@ export const HeroSection: React.FC = () => {
       const callWidth = callRef.current?.getBoundingClientRect().width || 0;
       const registerWidth = registerRef.current?.getBoundingClientRect().width || 0;
       if (window.innerWidth >= 640) {
-        // sm breakpoint and above: buttons are side-by-side with gap-3 (12px)
-        setHelperWidth(callWidth + registerWidth + 12);
+        setHelperWidth(callWidth + registerWidth + 16);
       } else {
-        // stacked on mobile: match the wider button for a clean edge
         setHelperWidth(Math.max(callWidth, registerWidth));
       }
     };
@@ -40,79 +37,93 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <AuroraBackground className="h-[100svh]">
-      <section className="relative w-full h-full flex items-center justify-center overflow-hidden pt-20 md:pt-24 snap-start">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10 py-10 md:py-16">
-          <div
-            ref={ref}
-            className={`text-center transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            {/* Centered Content */}
-            <div className="space-y-8 mx-auto">
-              {/* Heading with improved hierarchy */}
-              <div className="space-y-5">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-primary leading-tight">
-                  On <span className="text-accent-terracotta">Ozempic</span> or <span className="text-accent-green">Wegovy</span> and worried about relapse?
-                </h1>
-                <h2 className="text-xl sm:text-2xl md:text-3xl text-gradient-blue italic leading-snug">
-                  Secure lasting results with doctor-led care.
-                </h2>
+    <section
+      className="relative overflow-hidden"
+      style={{
+        backgroundColor: '#F9FBFC',
+        backgroundImage:
+          'radial-gradient(1200px 600px at 10% -10%, rgba(28,78,128,0.03), rgba(255,255,255,0)), radial-gradient(1000px 500px at 110% 110%, rgba(28,78,128,0.03), rgba(255,255,255,0))',
+      }}
+    >
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24 lg:min-h-screen">
+        <div
+          ref={ref}
+          className={`grid gap-12 lg:gap-16 lg:grid-cols-2 items-center transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          {/* Left Column - Text + CTAs */}
+          <div className="flex flex-col justify-center">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight leading-tight">
+              On Ozempic or Wegovy and worried about relapse?
+            </h1>
+            <h2 className="mt-6 text-lg sm:text-xl md:text-xl lg:text-2xl leading-relaxed font-semibold text-[#1C4E80]">
+              Secure lasting results with doctor-led care.
+            </h2>
+            <p className="mt-4 text-base sm:text-lg lg:text-lg leading-relaxed text-[#2E445B] max-w-[560px]">
+              Endocrinologist-led dosing, CBT for emotional eating, and culturally adapted nutrition—integrated into one seamless, confidential program.
+            </p>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+              <a ref={callRef} href="tel:+919380010221" className="w-full sm:w-auto">
+                <Button
+                  variant="primary"
+                  icon={Phone}
+                  className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
+                >
+                  Jump on a call
+                </Button>
+              </a>
+              <div ref={registerRef} className="w-full sm:w-auto">
+                <Button
+                  variant="secondary"
+                  onClick={scrollToContact}
+                  className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
+                >
+                  Register My Spot
+                </Button>
               </div>
+            </div>
+            <p
+              className="mt-3 text-[12px] md:text-[14px] text-[#2E445B]"
+              style={{ width: helperWidth ? `${helperWidth}px` : undefined }}
+            >
+              Doctor-supervised. Science-backed. Confidential.
+            </p>
 
-              {/* Subheading with clear secondary hierarchy */}
-              <p className="text-base md:text-xl text-secondary leading-relaxed max-w-2xl mx-auto">
-                Endocrinologist-led dosing, CBT for emotional eating, and culturally adapted nutrition—integrated into one seamless, confidential program.
-              </p>
-
-              {/* CTAs */}
-              <div className="inline-flex flex-col sm:flex-row sm:items-center gap-3 pt-2 justify-center">
-                <a ref={callRef} href="tel:+919380010221" className="w-full sm:w-auto">
-                  <Button variant="primary" icon={Phone} className="w-full sm:w-auto text-base md:text-lg px-8 py-4">
-                    Jump on a call
-                  </Button>
-                </a>
-                <div ref={registerRef} className="w-full sm:w-auto">
-                  <Button variant="secondary" onClick={scrollToContact} className="w-full sm:w-auto text-base md:text-lg px-8 py-4">
-                    Register My Spot
-                  </Button>
+            {/* Trust Bar Chips */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              {['Doctor-supervised', 'Science-backed', 'Fully Confidential'].map((label) => (
+                <div
+                  key={label}
+                  className="inline-flex items-center gap-2 rounded-full px-4 py-2"
+                  style={{ backgroundColor: '#F2F6F8', color: '#2E445B' }}
+                >
+                  <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: '#1C4E80' }} />
+                  <span className="text-[14px] font-medium">{label}</span>
                 </div>
-              </div>
-              <p className="text-xs md:text-sm text-secondary text-center mx-auto" style={{ width: helperWidth ? `${helperWidth}px` : undefined }}>
-                100% confidential. No commitment required.
-              </p>
+              ))}
+            </div>
+          </div>
 
-              {/* Trust Badges with colorful backgrounds */}
-              <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
-                {/* Doctor-supervised */}
-                <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-soft">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-background-blue flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-accent-blue" />
-                  </div>
-                  <span className="font-medium text-primary text-sm md:text-base">Doctor-supervised</span>
-                </div>
-
-                {/* Science-backed */}
-                <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-soft">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-background-green flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-accent-green" />
-                  </div>
-                  <span className="font-medium text-primary text-sm md:text-base">Science-backed</span>
-                </div>
-
-                {/* Fully Confidential */}
-                <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-soft">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-background-purple flex items-center justify-center">
-                    <Lock className="w-5 h-5 text-accent-purple" />
-                  </div>
-                  <span className="font-medium text-primary text-sm md:text-base">Fully Confidential</span>
-                </div>
-              </div>
+          {/* Right Column - Image */}
+          <div className="order-first lg:order-none">
+            <div className="relative w-full h-[340px] sm:h-[440px] md:h-[520px] lg:h-[600px] xl:h-[660px] overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1800&auto=format&fit=crop"
+                alt="Private consultation with endocrinologist."
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ boxShadow: '0 24px 60px rgba(28, 78, 128, 0.08)' }}
+                loading="lazy"
+              />
+              {/* Left-edge gradient overlay */}
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-[40%]"
+                   style={{background: 'linear-gradient(90deg, #F9FBFC 0%, rgba(249,251,252,0.9) 40%, rgba(255,255,255,0) 100%)'}} />
             </div>
           </div>
         </div>
-      </section>
-    </AuroraBackground>
+      </div>
+    </section>
   );
 };

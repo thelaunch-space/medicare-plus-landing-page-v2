@@ -48,10 +48,10 @@ export const TeamSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            Meet your <span className="text-gradient-teal">multidisciplinary team</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+            Meet your <span className="text-[#1C4E80]">multidisciplinary team</span>
           </h2>
-          <p className="text-lg text-secondary">Trusted experts. Unified care.</p>
+          <p className="text-lg text-[#2E445B]">Trusted experts. Unified care.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -63,14 +63,14 @@ export const TeamSection: React.FC = () => {
               onClick={() => setExpandedId(expandedId === member.id ? null : member.id)}
             >
               <div className="text-center space-y-4">
-                <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-accent-teal to-cyan-500 flex items-center justify-center shadow-button-3d">
+                <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center shadow-button-3d">
                   <User className="w-12 h-12 text-white" />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-1">{member.name}</h3>
-                  <p className="text-sm text-accent-teal font-semibold mb-1">{member.role}</p>
-                  <p className="text-xs text-secondary">{member.credentials}</p>
+                  <h3 className="text-lg font-bold text-[#1A1A1A] mb-1">{member.name}</h3>
+                  <p className="text-sm text-[#1C4E80] font-semibold mb-1">{member.role}</p>
+                  <p className="text-xs text-[#2E445B]">{member.credentials}</p>
                 </div>
 
                 <div
@@ -78,8 +78,8 @@ export const TeamSection: React.FC = () => {
                     expandedId === member.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="pt-4 border-t border-metallic-platinum">
-                    <p className="text-sm text-secondary">{member.bio}</p>
+                  <div className="pt-4 border-t border-gray-200">
+                    <p className="text-sm text-[#2E445B]">{member.bio}</p>
                   </div>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export const TeamSection: React.FC = () => {
           ))}
         </div>
 
-        <p className="text-center text-sm text-secondary italic mt-8">
+        <p className="text-center text-sm text-[#2E445B] italic mt-8">
           Images placeholder - Replace from /public directory
         </p>
       </div>

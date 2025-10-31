@@ -53,8 +53,8 @@ export const FAQSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            Frequently Asked <span className="text-gradient-teal">Questions</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+            Frequently Asked <span className="text-[#1C4E80]">Questions</span>
           </h2>
         </div>
 
@@ -68,11 +68,11 @@ export const FAQSection: React.FC = () => {
                 onClick={() => toggleFAQ(faq.id)}
                 className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left group"
               >
-                <span className="font-semibold text-primary text-lg group-hover:text-accent-teal transition-colors">
+                <span className="font-semibold text-[#1A1A1A] text-lg group-hover:text-[#1C4E80] transition-colors">
                   {faq.question}
                 </span>
                 <ChevronDown
-                  className={`w-6 h-6 text-accent-teal flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-6 h-6 text-[#1C4E80] flex-shrink-0 transition-transform duration-300 ${
                     openId === faq.id ? 'rotate-180' : ''
                   }`}
                 />
@@ -83,7 +83,7 @@ export const FAQSection: React.FC = () => {
                   openId === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-5 text-secondary leading-relaxed border-t border-metallic-platinum pt-4">
+                <div className="px-6 pb-5 text-[#2E445B] leading-relaxed border-t border-gray-200 pt-4">
                   {faq.answer}
                 </div>
               </div>

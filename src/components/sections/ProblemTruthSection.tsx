@@ -12,8 +12,8 @@ export const ProblemTruthSection: React.FC = () => {
     <Section id="problem-truth" background="silver">
       <div className="space-y-8">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            Why <span className="text-gradient-teal">GLP-1</span> is powerful—and why it isn't enough alone.
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+            Why <span className="text-[#1C4E80]">GLP-1</span> is powerful—and why it isn't enough alone.
           </h2>
         </div>
 
@@ -25,18 +25,18 @@ export const ProblemTruthSection: React.FC = () => {
             }`}
           >
             <Card variant="default" className="h-full">
-              <h3 className="text-2xl font-bold text-primary mb-6">
+              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-6">
                 What usually goes wrong after the injection
               </h3>
 
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <TrendingDown className="w-6 h-6 text-accent-coral" />
+                    <TrendingDown className="w-6 h-6 text-red-500" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-2">Early loss, later regain.</h4>
-                    <p className="text-secondary text-sm">
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Early loss, later regain.</h4>
+                    <p className="text-[#2E445B] text-sm">
                       Weight comes back once medication stops or plateaus.
                     </p>
                   </div>
@@ -44,11 +44,11 @@ export const ProblemTruthSection: React.FC = () => {
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <AlertCircle className="w-6 h-6 text-accent-coral" />
+                    <AlertCircle className="w-6 h-6 text-red-500" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-2">Side effects without guidance.</h4>
-                    <p className="text-secondary text-sm">
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Side effects without guidance.</h4>
+                    <p className="text-[#2E445B] text-sm">
                       Nausea, constipation, fatigue—unmanaged and frustrating.
                     </p>
                   </div>
@@ -56,17 +56,17 @@ export const ProblemTruthSection: React.FC = () => {
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <RefreshCw className="w-6 h-6 text-accent-coral" />
+                    <RefreshCw className="w-6 h-6 text-red-500" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-2">Old habits resurface.</h4>
-                    <p className="text-secondary text-sm">
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Old habits resurface.</h4>
+                    <p className="text-[#2E445B] text-sm">
                       Emotional eating and low muscle mass persist.
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm italic text-secondary-light pt-4 mt-2 border-t border-metallic-platinum">
+                <p className="text-sm italic text-[#2E445B]/70 pt-4 mt-2 border-t border-gray-200">
                   If medication is a head start, these are the reasons people lose momentum.
                 </p>
               </div>
@@ -80,18 +80,18 @@ export const ProblemTruthSection: React.FC = () => {
             }`}
           >
             <Card variant="teal" className="h-full">
-              <h3 className="text-2xl font-bold text-primary mb-6">
+              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-6">
                 The clinical truth we treat for lasting results
               </h3>
 
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <CheckCircle className="w-6 h-6 text-accent-teal" />
+                    <CheckCircle className="w-6 h-6 text-[#1C4E80]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-2">Medication is a tool, not the plan.</h4>
-                    <p className="text-secondary text-sm">
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Medication is a tool, not the plan.</h4>
+                    <p className="text-[#2E445B] text-sm">
                       Sustainable change requires expert supervision and structured lifestyle support.
                     </p>
                   </div>
@@ -99,11 +99,11 @@ export const ProblemTruthSection: React.FC = () => {
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <Shield className="w-6 h-6 text-accent-teal" />
+                    <Shield className="w-6 h-6 text-[#1C4E80]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-2">We protect metabolism.</h4>
-                    <p className="text-secondary text-sm">
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2">We protect metabolism.</h4>
+                    <p className="text-[#2E445B] text-sm">
                       High-protein nutrition and strength-focused exercise maintain lean mass.
                     </p>
                   </div>
@@ -111,17 +111,17 @@ export const ProblemTruthSection: React.FC = () => {
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <Target className="w-6 h-6 text-accent-teal" />
+                    <Target className="w-6 h-6 text-[#1C4E80]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-2">We build exit plans.</h4>
-                    <p className="text-secondary text-sm">
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2">We build exit plans.</h4>
+                    <p className="text-[#2E445B] text-sm">
                       Structured tapering and relapse-prevention strategies stop rebound gain.
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm italic text-secondary-light pt-4 mt-2 border-t border-accent-teal/30">
+                <p className="text-sm italic text-[#2E445B]/70 pt-4 mt-2 border-t border-[#1C4E80]/30">
                   That's why doctor-led, multidisciplinary care works long-term.
                 </p>
               </div>

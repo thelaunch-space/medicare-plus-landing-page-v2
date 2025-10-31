@@ -48,8 +48,8 @@ export const TestimonialsSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            What our <span className="text-gradient-teal">patients say</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+            What our <span className="text-[#1C4E80]">patients say</span>
           </h2>
         </div>
 
@@ -66,13 +66,13 @@ export const TestimonialsSection: React.FC = () => {
               >
                 <Card variant="elevated" hover={false}>
                   <div className="text-center space-y-6 py-8">
-                    <Quote className="w-12 h-12 text-accent-teal mx-auto opacity-50" />
+                    <Quote className="w-12 h-12 text-[#1C4E80] mx-auto opacity-50" />
 
-                    <blockquote className="text-xl md:text-2xl text-primary font-medium leading-relaxed">
+                    <blockquote className="text-xl md:text-2xl text-[#1A1A1A] font-medium leading-relaxed">
                       "{testimonial.quote}"
                     </blockquote>
 
-                    <p className="text-secondary italic">— {testimonial.author}</p>
+                    <p className="text-[#2E445B] italic">— {testimonial.author}</p>
                   </div>
                 </Card>
               </div>
@@ -84,7 +84,7 @@ export const TestimonialsSection: React.FC = () => {
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 w-12 h-12 rounded-full bg-white shadow-soft hover:shadow-soft-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-6 h-6 text-primary" />
+            <ChevronLeft className="w-6 h-6 text-[#1A1A1A]" />
           </button>
 
           <button
@@ -92,7 +92,7 @@ export const TestimonialsSection: React.FC = () => {
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 w-12 h-12 rounded-full bg-white shadow-soft hover:shadow-soft-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-6 h-6 text-primary" />
+            <ChevronRight className="w-6 h-6 text-[#1A1A1A]" />
           </button>
 
           <div className="flex justify-center gap-2 mt-8">
@@ -102,8 +102,8 @@ export const TestimonialsSection: React.FC = () => {
                 onClick={() => setActiveIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? 'w-8 bg-accent-teal'
-                    : 'bg-metallic-platinum hover:bg-secondary'
+                    ? 'w-8 bg-[#1C4E80]'
+                    : 'bg-gray-300 hover:bg-[#2E445B]'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

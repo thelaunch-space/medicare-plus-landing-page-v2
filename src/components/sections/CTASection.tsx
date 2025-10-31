@@ -10,8 +10,8 @@ export const CTASection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary to-primary-light relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-accent-teal/20 via-transparent to-transparent"></div>
+    <section className="py-20 bg-gradient-to-br from-[#1A1A1A] to-[#2E445B] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#1C4E80]/20 via-transparent to-transparent"></div>
 
       <div
         ref={ref}
@@ -28,7 +28,7 @@ export const CTASection: React.FC = () => {
             <Button
               variant="primary"
               onClick={scrollToContact}
-              className="bg-white text-primary hover:bg-metallic-silver border-0"
+              className="bg-white text-[#1A1A1A] hover:bg-[#F2F6F8] border-0"
             >
               Secure Your Founder's Spot
             </Button>

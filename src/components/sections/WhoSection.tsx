@@ -16,8 +16,8 @@ export const WhoSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            Who this is <span className="text-gradient-teal">for</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+            Who this is <span className="text-[#1C4E80]">for</span>
           </h2>
         </div>
 
@@ -28,24 +28,24 @@ export const WhoSection: React.FC = () => {
                 <CheckCircle className="w-7 h-7 text-white" />
               </div>
 
-              <h3 className="text-xl font-bold text-primary">Ideal Candidates</h3>
+              <h3 className="text-xl font-bold text-[#1A1A1A]">Ideal Candidates</h3>
 
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <span className="text-sm text-[#2E445B]">
                     Currently using or considering GLP-1 (Ozempic, Wegovy, etc.)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <span className="text-sm text-[#2E445B]">
                     Looking for a structured, medical-led plan
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <span className="text-sm text-[#2E445B]">
                     Need confidentiality and personalized care
                   </span>
                 </li>
@@ -59,24 +59,24 @@ export const WhoSection: React.FC = () => {
                 <XCircle className="w-7 h-7 text-white" />
               </div>
 
-              <h3 className="text-xl font-bold text-primary">Not a Fit</h3>
+              <h3 className="text-xl font-bold text-[#1A1A1A]">Not a Fit</h3>
 
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <span className="text-sm text-[#2E445B]">
                     Seeking quick fixes or generic app-based programs
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <span className="text-sm text-[#2E445B]">
                     Not ready to commit to lifestyle changes
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <span className="text-sm text-[#2E445B]">
                     Looking for medication-only solutions
                   </span>
                 </li>
@@ -86,28 +86,28 @@ export const WhoSection: React.FC = () => {
 
           <Card variant="elevated" className="animate-fade-in animation-delay-400">
             <div className="space-y-4">
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-teal to-cyan-500 flex items-center justify-center shadow-button-3d">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center shadow-button-3d">
                 <Target className="w-7 h-7 text-white" />
               </div>
 
-              <h3 className="text-xl font-bold text-primary">Expectations</h3>
+              <h3 className="text-xl font-bold text-[#1A1A1A]">Expectations</h3>
 
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <Target className="w-5 h-5 text-accent-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <Target className="w-5 h-5 text-[#1C4E80] flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-[#2E445B]">
                     3-12 month commitment to structured program
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Target className="w-5 h-5 text-accent-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <Target className="w-5 h-5 text-[#1C4E80] flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-[#2E445B]">
                     Weekly check-ins with multidisciplinary team
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Target className="w-5 h-5 text-accent-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-secondary">
+                  <Target className="w-5 h-5 text-[#1C4E80] flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-[#2E445B]">
                     Active participation in nutrition and behavioral coaching
                   </span>
                 </li>

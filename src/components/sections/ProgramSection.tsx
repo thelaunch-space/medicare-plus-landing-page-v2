@@ -44,14 +44,14 @@ export const ProgramSection: React.FC = () => {
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-5">
-            <p className="text-sm uppercase tracking-wide text-accent-teal/80">The Approach</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-primary">
+            <p className="text-sm uppercase tracking-wide text-[#1C4E80]/80">The Approach</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A]">
               How we close the gap
             </h2>
-            <h3 className="text-xl md:text-2xl font-semibold text-primary/90">
-              A <span className="text-gradient-teal">4-specialist team</span> built around your life.
+            <h3 className="text-xl md:text-2xl font-semibold text-[#1A1A1A]/90">
+              A <span className="text-[#1C4E80]">4-specialist team</span> built around your life.
             </h3>
-            <p className="text-lg text-secondary">
+            <p className="text-lg text-[#2E445B]">
               One endocrinologist, one psychologist, one nutritionist, and a care coordinator—working together to personalize every step so results last.
             </p>
             <div className="pt-2">
@@ -69,10 +69,10 @@ export const ProgramSection: React.FC = () => {
                   key={index}
                   className={`bg-white rounded-2xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in animation-delay-${feature.delay}`}
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-teal to-cyan-500 flex items-center justify-center mb-4 shadow-button-3d">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center mb-4 shadow-button-3d">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <p className="font-semibold text-primary">
+                  <p className="font-semibold text-[#1A1A1A]">
                     {feature.title}
                   </p>
                 </div>
