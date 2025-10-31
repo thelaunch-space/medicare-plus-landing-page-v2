@@ -10,28 +10,16 @@
   }
 
   body {
-    @apply bg-background text-primary font-sans antialiased;
+    @apply text-primary font-sans antialiased bg-white;
   }
 }
 
-/* Animated gradient background */
+/* Legacy helper (no longer needed globally but kept if referenced) */
 .animated-gradient-bg {
-  background: linear-gradient(-45deg, #F8F9FA, #EEF2FF, #F3F4F6, #FEF3F2);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
+  background: transparent;
 }
 
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+/* Removed global page gradient animation to emphasize aurora movement on a rich white background */
 
 @layer utilities {
   .text-gradient-blue {

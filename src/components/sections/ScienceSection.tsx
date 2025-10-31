@@ -66,8 +66,16 @@ export const ScienceSection: React.FC = () => {
         </div>
 
         {selectedStudy && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-            <div className="bg-white rounded-2xl shadow-soft-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-scale-in">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in backdrop-blur-md"
+            aria-modal="true"
+            role="dialog"
+            onClick={() => setSelectedStudy(null)}
+          >
+            <div
+              className="bg-white rounded-2xl shadow-soft-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-scale-in"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="sticky top-0 bg-white border-b border-metallic-platinum p-6 flex justify-between items-start">
                 <div>
                   <h3 className="text-2xl font-bold text-primary mb-2">

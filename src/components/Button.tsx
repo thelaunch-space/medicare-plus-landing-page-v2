@@ -1,6 +1,14 @@
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 
+/**
+ * Button.tsx
+ * Purpose: Reusable, sleek, single-line button component used across the site.
+ * - Slim paddings and rounded corners for premium look
+ * - Consistent heights and typography to avoid "fat" buttons
+ * - Variants: primary and secondary
+ */
+
 interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary';
@@ -20,11 +28,12 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   disabled = false,
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed';
+  // Sleek, single-line button baseline
+  const baseStyles = 'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm tracking-tight transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variants = {
-    primary: 'bg-accent-blue text-white shadow-button-3d hover:shadow-button-3d-hover hover:-translate-y-0.5',
-    secondary: 'bg-white border-2 border-primary/20 text-primary hover:border-accent-blue hover:text-accent-blue hover:shadow-soft',
+    primary: 'bg-accent-blue text-white hover:bg-blue-700',
+    secondary: 'bg-white border border-primary/15 text-primary hover:border-accent-blue hover:text-accent-blue',
   };
 
   return (
@@ -34,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={`${baseStyles} ${variants[variant]} ${className}`}
     >
-      {Icon && <Icon className="w-5 h-5" />}
+      {Icon && <Icon className="w-4 h-4" />}
       {children}
     </button>
   );

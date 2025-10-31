@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { StickyBottomCTA } from './components/StickyBottomCTA';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProblemTruthSection } from './components/sections/ProblemTruthSection';
-import { BridgeSection } from './components/sections/BridgeSection';
 import { ProgramSection } from './components/sections/ProgramSection';
 import { ComparisonSection } from './components/sections/ComparisonSection';
 import { TimelineSection } from './components/sections/TimelineSection';
@@ -34,12 +33,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen snap-y snap-proximity">
       <Header />
       <StickyBottomCTA />
       <HeroSection />
       <ProblemTruthSection />
-      <BridgeSection />
       <ProgramSection />
       <ComparisonSection />
       <TimelineSection />

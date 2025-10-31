@@ -43,14 +43,18 @@ export const ProgramSection: React.FC = () => {
         }`}
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className="space-y-5">
+            <p className="text-sm uppercase tracking-wide text-accent-teal/80">The Approach</p>
             <h2 className="text-3xl md:text-5xl font-bold text-primary">
-              A <span className="text-gradient-teal">4-specialist team</span> built around your life.
+              How we close the gap
             </h2>
+            <h3 className="text-xl md:text-2xl font-semibold text-primary/90">
+              A <span className="text-gradient-teal">4-specialist team</span> built around your life.
+            </h3>
             <p className="text-lg text-secondary">
-              One endocrinologist, one psychologist, one nutritionist, and a care coordinator. Together, they personalize every step—data-led, confidential, and science-backed.
+              One endocrinologist, one psychologist, one nutritionist, and a care coordinator—working together to personalize every step so results last.
             </p>
-            <div className="pt-4">
+            <div className="pt-2">
               <Button variant="primary" onClick={scrollToContact}>
                 Book a Confidential Consultation
               </Button>

@@ -66,7 +66,7 @@ export const ProblemTruthSection: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm italic text-secondary-light pt-4 border-t border-metallic-platinum">
+                <p className="text-sm italic text-secondary-light pt-4 mt-2 border-t border-metallic-platinum">
                   If medication is a head start, these are the reasons people lose momentum.
                 </p>
               </div>
@@ -121,7 +121,7 @@ export const ProblemTruthSection: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm italic text-secondary-light pt-4 border-t border-accent-teal/30">
+                <p className="text-sm italic text-secondary-light pt-4 mt-2 border-t border-accent-teal/30">
                   That's why doctor-led, multidisciplinary care works long-term.
                 </p>
               </div>
