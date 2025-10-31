@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Phone } from 'lucide-react';
+import { Phone, X } from 'lucide-react';
 import { Button } from './Button';
 
 interface NavItem {
@@ -37,7 +37,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-60 lg:hidden">
+    <div className="fixed inset-0 z-[60] lg:hidden">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-[#1A1A1A]/80 backdrop-blur-sm"
@@ -48,10 +48,17 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl animate-slide-left">
         <div className="flex flex-col h-full">
           {/* Menu Header */}
-          <div className="px-6 py-8 border-b border-gray-200">
+          <div className="px-6 py-8 border-b border-gray-200 flex items-center justify-between">
             <h2 className="text-2xl font-bold bg-gradient-to-r from-[#1C4E80] to-blue-600 bg-clip-text text-transparent">
               Medicare+
             </h2>
+            <button
+              onClick={onClose}
+              className="p-2 rounded-lg text-[#1A1A1A] hover:bg-[#F2F6F8] transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
           </div>
 
           {/* Navigation Items */}

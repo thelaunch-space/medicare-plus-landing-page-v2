@@ -74,24 +74,30 @@ export const TimelineSection: React.FC = () => {
         </div>
 
         <div className="hidden lg:block relative">
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#1C4E80] via-blue-500 to-[#1C4E80] transform -translate-y-1/2 rounded-full"></div>
+          {/* Timeline line behind the circles */}
+          <div className="absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-[#1C4E80] via-blue-500 to-[#1C4E80] rounded-full"></div>
 
-          <div className="relative grid grid-cols-5 gap-8">
+          {/* Numbered circles on top of the line */}
+          <div className="relative grid grid-cols-5 gap-8 mb-4">
             {phases.map((phase, index) => (
-              <div
-                key={index}
-                className={`relative ${index % 2 === 0 ? 'pt-32' : 'pb-32'}`}
-              >
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-[#1C4E80] to-blue-600 rounded-full flex items-center justify-center shadow-button-3d z-10">
+              <div key={index} className="flex justify-center relative z-10">
+                <div className="relative w-12 h-12 bg-gradient-to-br from-[#1C4E80] to-blue-600 rounded-full flex items-center justify-center shadow-button-3d">
                   <span className="text-white font-bold text-lg">{phase.number}</span>
                 </div>
+              </div>
+            ))}
+          </div>
 
-                <div className="bg-white rounded-2xl shadow-soft-lg p-6 hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-300">
+          {/* Cards below the line */}
+          <div className="relative grid grid-cols-5 gap-8 mt-8">
+            {phases.map((phase, index) => (
+              <div key={index} className="flex flex-col h-full">
+                <div className="bg-white rounded-2xl shadow-soft-lg p-6 hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                   <div className="text-center mb-4">
                     <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">{phase.title}</h3>
                     <p className="text-sm text-[#1C4E80] font-semibold">{phase.duration}</p>
                   </div>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 flex-grow">
                     {phase.points.map((point, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-[#2E445B]">
                         <span className="text-[#1C4E80] mt-1">•</span>
@@ -116,13 +122,13 @@ export const TimelineSection: React.FC = () => {
 
               <div className="bg-white rounded-2xl shadow-soft p-6">
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-primary mb-1">{phase.title}</h3>
-                  <p className="text-sm text-accent-teal font-semibold">{phase.duration}</p>
+                  <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">{phase.title}</h3>
+                  <p className="text-sm text-[#1C4E80] font-semibold">{phase.duration}</p>
                 </div>
                 <ul className="space-y-2">
                   {phase.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-secondary">
-                      <span className="text-accent-teal mt-1">•</span>
+                    <li key={idx} className="flex items-start gap-2 text-sm text-[#2E445B]">
+                      <span className="text-[#1C4E80] mt-1">•</span>
                       <span>{point}</span>
                     </li>
                   ))}
