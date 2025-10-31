@@ -29,7 +29,9 @@ export const ProblemTruthSection: React.FC = () => {
                 What usually goes wrong after the injection
               </h3>
 
-              <div className="space-y-6">
+              {/* Make content stretch so the footer line/text align across both cards */}
+              <div className="flex flex-col h-full">
+                <div className="space-y-6 flex-1">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
                     <TrendingDown className="w-6 h-6 text-red-500" />
@@ -65,6 +67,7 @@ export const ProblemTruthSection: React.FC = () => {
                     </p>
                   </div>
                 </div>
+                </div>
 
                 <p className="text-sm italic text-[#2E445B]/70 pt-4 mt-2 border-t border-gray-200">
                   If medication is a head start, these are the reasons people lose momentum.
@@ -84,7 +87,9 @@ export const ProblemTruthSection: React.FC = () => {
                 The clinical truth we treat for lasting results
               </h3>
 
-              <div className="space-y-6">
+              {/* Match layout to align footer across cards */}
+              <div className="flex flex-col h-full">
+                <div className="space-y-6 flex-1">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
                     <CheckCircle className="w-6 h-6 text-[#1C4E80]" />
@@ -119,6 +124,7 @@ export const ProblemTruthSection: React.FC = () => {
                       Structured tapering and relapse-prevention strategies stop rebound gain.
                     </p>
                   </div>
+                </div>
                 </div>
 
                 <p className="text-sm italic text-[#2E445B]/70 pt-4 mt-2 border-t border-[#1C4E80]/30">
