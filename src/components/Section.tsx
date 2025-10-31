@@ -14,9 +14,9 @@ export const Section: React.FC<SectionProps> = ({
   background = 'default',
 }) => {
   const backgrounds = {
-    default: 'bg-metallic-white',
-    gradient: 'bg-metallic-gradient',
-    silver: 'bg-metallic-silver',
+    default: 'bg-white',
+    gradient: 'bg-soft-gradient',
+    silver: 'bg-background',
   };
 
   return (

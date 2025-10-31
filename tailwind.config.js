@@ -5,22 +5,25 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1a1a2e',
-          light: '#2d2d44',
+          DEFAULT: '#1F2937', // Deep charcoal for text
+          light: '#374151',
         },
         secondary: {
-          DEFAULT: '#64748b',
-          light: '#94a3b8',
+          DEFAULT: '#6B7280', // Medium gray for secondary text
+          light: '#9CA3AF',
         },
         accent: {
-          teal: '#06b6d4',
-          coral: '#f97316',
-          gold: '#f59e0b',
+          blue: '#3B82F6', // Vibrant royal blue (primary action)
+          green: '#10B981', // Emerald green (success/science)
+          purple: '#8B5CF6', // Purple (privacy/trust)
+          terracotta: '#E57373', // Warm terracotta
         },
-        metallic: {
-          white: '#fafafa',
-          silver: '#f1f5f9',
-          platinum: '#e2e8f0',
+        background: {
+          DEFAULT: '#F8F9FA', // Light warm gray
+          card: '#FFFFFF',
+          blue: '#DBEAFE', // Light blue for trust badges
+          green: '#D1FAE5', // Light green
+          purple: '#EDE9FE', // Light purple
         },
       },
       fontFamily: {
@@ -32,10 +35,10 @@ export default {
         'subheadline': ['1.25rem', { lineHeight: '1.6', fontWeight: '400' }],
       },
       boxShadow: {
-        'soft': '0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06)',
-        'soft-lg': '0 4px 16px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.08)',
-        'button-3d': '0 4px 12px rgba(6, 182, 212, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1)',
-        'button-3d-hover': '0 6px 16px rgba(6, 182, 212, 0.4), 0 3px 6px rgba(0, 0, 0, 0.15)',
+        'soft': '0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.06)',
+        'soft-lg': '0 4px 12px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.06)',
+        'button-3d': '0 4px 12px rgba(59, 130, 246, 0.25), 0 2px 4px rgba(0, 0, 0, 0.08)',
+        'button-3d-hover': '0 6px 16px rgba(59, 130, 246, 0.35), 0 3px 6px rgba(0, 0, 0, 0.1)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

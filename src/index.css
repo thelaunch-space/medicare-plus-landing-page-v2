@@ -10,17 +10,46 @@
   }
 
   body {
-    @apply bg-metallic-white text-primary font-sans antialiased;
+    @apply bg-background text-primary font-sans antialiased;
+  }
+}
+
+/* Animated gradient background */
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, #F8F9FA, #EEF2FF, #F3F4F6, #FEF3F2);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 @layer utilities {
-  .text-gradient-teal {
-    @apply bg-gradient-to-r from-accent-teal to-cyan-500 bg-clip-text text-transparent;
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-accent-blue to-blue-600 bg-clip-text text-transparent;
   }
 
+  /* Legacy support - redirects to new blue gradient */
+  .text-gradient-teal {
+    @apply bg-gradient-to-r from-accent-blue to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .bg-soft-gradient {
+    background: linear-gradient(135deg, #F8F9FA 0%, #EEF2FF 50%, #F8F9FA 100%);
+  }
+
+  /* Legacy support */
   .bg-metallic-gradient {
-    background: linear-gradient(135deg, #fafafa 0%, #f1f5f9 50%, #fafafa 100%);
+    background: linear-gradient(135deg, #F8F9FA 0%, #EEF2FF 50%, #F8F9FA 100%);
   }
 
   .animation-delay-200 {

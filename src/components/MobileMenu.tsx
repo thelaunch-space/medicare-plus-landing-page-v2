@@ -48,8 +48,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl animate-slide-left">
         <div className="flex flex-col h-full">
           {/* Menu Header */}
-          <div className="px-6 py-8 border-b border-metallic-platinum">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-accent-teal to-cyan-500 bg-clip-text text-transparent">
+          <div className="px-6 py-8 border-b border-gray-200">
+            <h2 className="text-2xl font-bold text-gradient-blue">
               Medicare+
             </h2>
           </div>
@@ -60,7 +60,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
               <button
                 key={item.href}
                 onClick={() => onNavClick(item.href)}
-                className="w-full text-left px-4 py-3 text-lg font-medium text-primary hover:bg-metallic-silver hover:text-accent-teal rounded-lg transition-colors duration-200"
+                className="w-full text-left px-4 py-3 text-lg font-medium text-primary hover:bg-blue-50 hover:text-accent-blue rounded-lg transition-colors duration-200"
               >
                 {item.label}
               </button>
@@ -68,7 +68,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </nav>
 
           {/* CTA Button */}
-          <div className="px-6 py-6 border-t border-metallic-platinum">
+          <div className="px-6 py-6 border-t border-gray-200">
             <Button
               variant="primary"
               onClick={() => {

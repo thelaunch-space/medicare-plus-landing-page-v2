@@ -37,14 +37,14 @@ export const Header: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 mx-4 mt-4">
         <div className="max-w-7xl mx-auto">
-          <div className="backdrop-blur-md bg-white/80 rounded-2xl shadow-lg border border-metallic-platinum">
+          <div className="backdrop-blur-md bg-white/80 rounded-2xl shadow-lg border border-gray-200">
             <div className="px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-16">
                 {/* Logo */}
                 <div className="flex-shrink-0">
                   <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="text-2xl font-bold bg-gradient-to-r from-accent-teal to-cyan-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+                    className="text-2xl font-bold text-gradient-blue hover:opacity-80 transition-opacity"
                   >
                     Medicare+
                   </button>
@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
                     <button
                       key={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-primary font-medium hover:text-accent-teal transition-colors duration-200"
+                      className="text-primary font-medium hover:text-accent-blue transition-colors duration-200"
                     >
                       {item.label}
                     </button>

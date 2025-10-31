@@ -19,7 +19,7 @@ export const StickyBottomCTA: React.FC = () => {
       }`}
     >
       <div className="px-4 pb-4">
-        <div className="backdrop-blur-md bg-white/90 rounded-2xl shadow-xl border border-metallic-platinum p-3">
+        <div className="backdrop-blur-md bg-white/90 rounded-2xl shadow-xl border border-gray-200 p-3">
           <Button variant="primary" onClick={handleCTAClick} className="w-full">
             Book Confidential Consultation
           </Button>

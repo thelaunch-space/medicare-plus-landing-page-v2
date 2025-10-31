@@ -23,8 +23,8 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variants = {
-    primary: 'bg-accent-teal text-white shadow-button-3d hover:shadow-button-3d-hover hover:-translate-y-0.5 animate-pulse-gentle',
-    secondary: 'bg-transparent border-2 border-accent-teal text-accent-teal hover:bg-accent-teal hover:text-white hover:shadow-button-3d',
+    primary: 'bg-accent-blue text-white shadow-button-3d hover:shadow-button-3d-hover hover:-translate-y-0.5',
+    secondary: 'bg-white border-2 border-primary/20 text-primary hover:border-accent-blue hover:text-accent-blue hover:shadow-soft',
   };
 
   return (
