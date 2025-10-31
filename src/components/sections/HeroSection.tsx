@@ -115,14 +115,14 @@ export const HeroSection: React.FC = () => {
                 <img
                   src="/hero-image.png"
                   alt="Professional endocrinologist consultation - Doctor-led GLP-1 weight loss program"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                   style={{ boxShadow: '0 24px 60px rgba(28, 78, 128, 0.08)' }}
                   loading="lazy"
                 />
               </picture>
-              {/* Left-edge gradient overlay */}
-              <div className="pointer-events-none absolute left-0 top-0 h-full w-[40%]"
-                   style={{background: 'linear-gradient(90deg, #F9FBFC 0%, rgba(249,251,252,0.9) 40%, rgba(255,255,255,0) 100%)'}} />
+              {/* Left-edge gradient overlay - seamlessly blends with background */}
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-[50%]"
+                   style={{background: 'linear-gradient(90deg, #F9FBFC 0%, rgba(249,251,252,0.95) 25%, rgba(249,251,252,0.7) 50%, rgba(255,255,255,0) 100%)'}} />
             </div>
           </div>
         </div>
