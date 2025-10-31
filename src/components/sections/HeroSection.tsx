@@ -45,7 +45,7 @@ export const HeroSection: React.FC = () => {
           'radial-gradient(1200px 600px at 10% -10%, rgba(28,78,128,0.03), rgba(255,255,255,0)), radial-gradient(1000px 500px at 110% 110%, rgba(28,78,128,0.03), rgba(255,255,255,0))',
       }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24 lg:min-h-screen">
+      <div className="mx-auto max-w-7xl pl-6 pr-6 lg:pl-8 lg:pr-0 py-16 lg:py-24 lg:min-h-screen">
         <div
           ref={ref}
           className={`grid gap-12 lg:gap-16 lg:grid-cols-2 items-center transition-all duration-1000 ${
@@ -89,7 +89,7 @@ export const HeroSection: React.FC = () => {
               className="mt-3 text-[12px] md:text-[14px] text-[#2E445B]"
               style={{ width: helperWidth ? `${helperWidth}px` : undefined }}
             >
-              Doctor-supervised. Science-backed. Confidential.
+              Speak with a doctor in minutes. No obligation—limited spots available.
             </p>
 
             {/* Trust Bar Chips */}
@@ -120,9 +120,14 @@ export const HeroSection: React.FC = () => {
                   loading="lazy"
                 />
               </picture>
-              {/* Left-edge gradient overlay - seamlessly blends with background */}
-              <div className="pointer-events-none absolute left-0 top-0 h-full w-[50%]"
-                   style={{background: 'linear-gradient(90deg, #F9FBFC 0%, rgba(249,251,252,0.95) 25%, rgba(249,251,252,0.7) 50%, rgba(255,255,255,0) 100%)'}} />
+              {/* Left-edge gradient overlay */}
+              <div
+                className="pointer-events-none absolute left-0 top-0 h-full w-[32%]"
+                style={{
+                  background:
+                    'linear-gradient(90deg, #F9FBFC 0%, rgba(249,251,252,0.8) 28%, rgba(255,255,255,0) 100%)',
+                }}
+              />
             </div>
           </div>
         </div>
