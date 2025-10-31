@@ -45,7 +45,7 @@ export const HeroSection: React.FC = () => {
           'radial-gradient(1200px 600px at 10% -10%, rgba(28,78,128,0.03), rgba(255,255,255,0)), radial-gradient(1000px 500px at 110% 110%, rgba(28,78,128,0.03), rgba(255,255,255,0))',
       }}
     >
-      <div className="mx-auto max-w-7xl pl-6 pr-6 lg:pl-8 lg:pr-0 py-16 lg:py-24 lg:min-h-screen">
+      <div className="mx-auto max-w-7xl pl-6 pr-6 lg:pl-8 lg:pr-0 pt-24 pb-16 lg:py-24 lg:min-h-screen">
         <div
           ref={ref}
           className={`grid gap-12 lg:gap-16 lg:grid-cols-2 items-center transition-all duration-1000 ${
@@ -108,7 +108,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Right Column - Image */}
-          <div className="order-first lg:order-none">
+          <div className="hidden md:block">
             <div className="relative w-full h-[340px] sm:h-[440px] md:h-[520px] lg:h-[600px] xl:h-[660px] overflow-hidden rounded-2xl">
               <picture>
                 <source srcSet="/hero-image.webp" type="image/webp" />
