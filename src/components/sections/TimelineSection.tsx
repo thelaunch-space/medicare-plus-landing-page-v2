@@ -134,7 +134,7 @@ export const TimelineSection: React.FC = () => {
 
         <div className="text-center mt-12">
           <Button variant="primary" onClick={scrollToContact}>
-            See full 5-phase plan
+            Register My Spot
           </Button>
         </div>
       </div>

@@ -20,7 +20,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   onClose,
   navItems,
   onNavClick,
-  onCTAClick,
 }) => {
   // Prevent body scroll when menu is open
   useEffect(() => {

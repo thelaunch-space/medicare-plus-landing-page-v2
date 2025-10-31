@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
 import { Header } from './components/Header';
 import { StickyBottomCTA } from './components/StickyBottomCTA';
 import { HeroSection } from './components/sections/HeroSection';
@@ -17,21 +15,6 @@ import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/sections/Footer';
 
 function App() {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 500);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen snap-y snap-proximity">
       <Header />
@@ -49,16 +32,6 @@ function App() {
       <CTASection />
       <ContactSection />
       <Footer />
-
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 bg-accent-teal text-white rounded-full shadow-button-3d hover:shadow-button-3d-hover flex items-center justify-center transition-all duration-300 z-40 ${
-          showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16 pointer-events-none'
-        }`}
-        aria-label="Scroll to top"
-      >
-        <ArrowUp className="w-6 h-6" />
-      </button>
     </div>
   );
 }

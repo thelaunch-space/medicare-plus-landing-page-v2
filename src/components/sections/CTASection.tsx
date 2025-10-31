@@ -38,7 +38,7 @@ export const CTASection: React.FC = () => {
             <Button
               variant="secondary"
               onClick={scrollToContact}
-              className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-[#1A1A1A]"
+              className="w-full sm:w-auto bg-white text-[#1C4E80] border-white hover:bg-[#F2F6F8]"
             >
               Register My Spot
             </Button>

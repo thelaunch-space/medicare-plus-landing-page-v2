@@ -67,13 +67,13 @@ export const ScienceSection: React.FC = () => {
 
         {selectedStudy && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 sm:pt-16 md:items-center animate-fade-in backdrop-blur-md overflow-y-auto"
             aria-modal="true"
             role="dialog"
             onClick={() => setSelectedStudy(null)}
           >
             <div
-              className="bg-white rounded-2xl shadow-soft-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-scale-in"
+              className="bg-white rounded-2xl shadow-soft-lg max-w-2xl w-full max-h-[85vh] sm:max-h-[80vh] overflow-y-auto animate-scale-in my-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start">

@@ -17,7 +17,7 @@ export const ProblemTruthSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           <div
             ref={leftRef}
             className={`transition-all duration-700 ${
