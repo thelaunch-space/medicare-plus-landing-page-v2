@@ -48,6 +48,7 @@ export const TeamSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-12">
+          <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">YOUR CARE TEAM</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
             Meet your <span className="text-[#1C4E80]">multidisciplinary team</span>
           </h2>

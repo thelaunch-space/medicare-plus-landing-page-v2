@@ -16,7 +16,7 @@ export const StickyBottomCTA: React.FC = () => {
         <div className="backdrop-blur-md bg-white/90 rounded-2xl shadow-xl border border-gray-200 p-3 sm:p-4">
           <a href="tel:+919380010221" className="block">
             <Button variant="primary" icon={Phone} className="w-full">
-              Jump on a call
+              Talk to the Founding Team
             </Button>
           </a>
         </div>

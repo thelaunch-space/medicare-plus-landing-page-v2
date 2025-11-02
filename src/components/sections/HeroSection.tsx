@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
                   icon={Phone}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Jump on a call
+                  Talk to the Founding Team
                 </Button>
               </a>
               <div className="w-full sm:w-auto">
@@ -63,17 +63,18 @@ export const HeroSection: React.FC = () => {
                   onClick={scrollToContact}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Register My Spot
+                  Apply for Founders Cohort
                 </Button>
               </div>
             </div>
-            <p className="mt-3 text-[12px] md:text-[14px] text-[#2E445B] max-w-full">
-              Speak with a doctor in minutes. No obligation—limited spots available.
-            </p>
+
+            {/* Urgency microcopy */}
+            <p className="mt-3 text-sm text-[#1C4E80] font-semibold">10 spots only. Next cohort opens in 6 months.</p>
+            
 
             {/* Trust Bar Chips */}
-            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
-              {['Doctor-supervised', 'Science-backed', 'Fully Confidential'].map((label) => (
+            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
+              {['Doctor-supervised', 'Science-backed', '15-20% weight loss'].map((label) => (
                 <div
                   key={label}
                   className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-2"

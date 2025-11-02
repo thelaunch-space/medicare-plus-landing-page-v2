@@ -32,7 +32,7 @@ export const CTASection: React.FC = () => {
                 icon={Phone}
                 className="w-full sm:w-auto"
               >
-                Jump on a call
+                Talk to the Founding Team
               </Button>
             </a>
             <Button
@@ -40,7 +40,7 @@ export const CTASection: React.FC = () => {
               onClick={scrollToContact}
               className="w-full sm:w-auto bg-white text-[#1C4E80] border-white hover:bg-[#F2F6F8]"
             >
-              Register My Spot
+              Apply for Founders Cohort
             </Button>
           </div>
 

@@ -56,7 +56,7 @@ export const ProgramSection: React.FC = () => {
             </p>
             <div className="pt-2">
               <Button variant="primary" onClick={scrollToContact}>
-                Register My Spot
+                Apply for Founders Cohort
               </Button>
             </div>
           </div>

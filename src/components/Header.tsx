@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
                 <div className="hidden lg:block">
                   <a href="tel:+919380010221">
                     <Button variant="primary" icon={Phone}>
-                      Jump on a call
+                      Talk to the Founding Team
                     </Button>
                   </a>
                 </div>

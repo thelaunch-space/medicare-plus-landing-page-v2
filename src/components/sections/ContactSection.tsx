@@ -122,6 +122,7 @@ export const ContactSection: React.FC = () => {
       >
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
+            <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">CONFIDENTIAL CONSULT</p>
             <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
               Book Your <span className="text-[#1C4E80]">Confidential Consultation</span>
             </h2>
@@ -131,6 +132,13 @@ export const ContactSection: React.FC = () => {
             <div className="flex items-center justify-center gap-2 mt-4 text-sm text-[#2E445B]">
               <Lock className="w-4 h-4 text-[#1C4E80]" />
               <span>All information is kept strictly confidential</span>
+            </div>
+            <div className="flex items-center justify-center gap-2 mt-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C89F65] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C89F65]"></span>
+              </span>
+              <span className="text-sm font-semibold text-[#1C4E80]">10 spots only. Next cohort opens in 6 months.</span>
             </div>
           </div>
 

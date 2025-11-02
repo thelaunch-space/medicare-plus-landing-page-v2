@@ -83,7 +83,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                 className="w-full"
                 onClick={onClose}
               >
-                Jump on a call
+                Talk to the Founding Team
               </Button>
             </a>
           </div>
