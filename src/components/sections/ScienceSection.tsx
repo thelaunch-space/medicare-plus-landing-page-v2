@@ -51,6 +51,81 @@ export const ScienceSection: React.FC = () => {
           </p>
         </div>
 
+        {/* Real-World Evidence Section */}
+        <div className="mb-16 bg-white rounded-2xl shadow-soft-lg p-8 md:p-10">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6 text-center">
+              Why Medical Supervision <span className="text-[#1C4E80]">Matters</span>
+            </h3>
+
+            <div className="space-y-6 text-[#2E445B]">
+              <p className="text-lg leading-relaxed">
+                <span className="font-semibold text-[#1C4E80]">Clinical trials vs. real-world results:</span> The gap matters.
+              </p>
+
+              <p className="leading-relaxed">
+                In clinical trials, patients on GLP-1 medications (semaglutide, tirzepatide) achieved <span className="font-semibold">15-20% weight loss</span>.
+                But a real-world study of nearly 8,000 patients told a different story:
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-4 my-6">
+                <div className="bg-[#F9FBFC] rounded-xl p-5 border border-[#1C4E80]/10">
+                  <div className="text-3xl font-bold text-[#1C4E80] mb-2">20%</div>
+                  <p className="text-sm">
+                    Discontinued within <span className="font-semibold">3 months</span>
+                    <br />
+                    <span className="text-[#1C4E80] font-semibold">→ 3.6% weight loss</span>
+                  </p>
+                </div>
+
+                <div className="bg-[#F9FBFC] rounded-xl p-5 border border-[#1C4E80]/10">
+                  <div className="text-3xl font-bold text-[#1C4E80] mb-2">32%</div>
+                  <p className="text-sm">
+                    Discontinued <span className="font-semibold">3-12 months</span>
+                    <br />
+                    <span className="text-[#1C4E80] font-semibold">→ 6.8% weight loss</span>
+                  </p>
+                </div>
+
+                <div className="bg-[#F9FBFC] rounded-xl p-5 border border-[#1C4E80]/10">
+                  <div className="text-3xl font-bold text-[#1C4E80] mb-2">12%</div>
+                  <p className="text-sm">
+                    <span className="font-semibold">Continued treatment</span>
+                    <br />
+                    <span className="text-[#1C4E80] font-semibold">→ Average weight loss</span>
+                  </p>
+                </div>
+              </div>
+
+              <p className="leading-relaxed">
+                <span className="font-semibold text-[#1A1A1A]">The difference?</span> Adherence, proper dosing, and structured support.
+              </p>
+
+              <div className="bg-gradient-to-r from-[#F9FBFC] to-[#F2F6F8] rounded-xl p-6 border border-[#1C4E80]/20 mt-6">
+                <p className="text-base leading-relaxed">
+                  Patients on <span className="font-semibold">higher maintenance doses with continuous medical supervision</span> achieved
+                  results matching clinical trials:
+                </p>
+                <div className="mt-4 grid sm:grid-cols-2 gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#1C4E80]"></div>
+                    <span><span className="font-semibold text-[#1C4E80]">Semaglutide:</span> 13.7% weight loss</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#1C4E80]"></div>
+                    <span><span className="font-semibold text-[#1C4E80]">Tirzepatide:</span> 18% weight loss (up to 25.3% at 88 weeks)</span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-lg font-semibold text-[#1A1A1A] text-center pt-4">
+                Our program bridges this gap. Weekly team coordination, proactive side effect management, and psychological
+                support keep you on track—not just on medication, but on your path to lasting results.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {studies.map((study, index) => {
             const isExpanded = expandedStudy === study.id;

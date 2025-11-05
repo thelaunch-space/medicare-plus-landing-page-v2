@@ -24,7 +24,7 @@ export const ProgramSection: React.FC = () => {
     },
     {
       icon: Brain,
-      title: 'CBT for emotional eating',
+      title: 'Behavioral therapy for emotional eating',
       delay: '400',
     },
     {
@@ -52,11 +52,11 @@ export const ProgramSection: React.FC = () => {
               A <span className="text-[#1C4E80]">4-specialist team</span> built around your life.
             </h3>
             <p className="text-lg text-[#2E445B]">
-              One endocrinologist, one psychologist, one nutritionist, and a care coordinator—working together to personalize every step so results last.
+              Medication is the starting point. Leave the rest to us. Our 4-specialist team gives you the psychological tools, nutrition strategy, and medical oversight to turn initial progress into lasting transformation.
             </p>
             <div className="pt-2">
               <Button variant="primary" onClick={scrollToContact}>
-                Apply for Founders Cohort
+                Get My Initial Assessment
               </Button>
             </div>
           </div>

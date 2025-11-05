@@ -15,7 +15,7 @@ export const ComparisonSection: React.FC = () => {
     {
       aspect: 'Emotional eating',
       alone: 'Unaddressed',
-      medicare: 'CBT support',
+      medicare: 'Behavioral therapy support',
     },
     {
       aspect: 'Metabolic monitoring',

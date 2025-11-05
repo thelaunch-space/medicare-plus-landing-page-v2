@@ -21,7 +21,7 @@ export const FAQSection: React.FC = () => {
     {
       id: 3,
       question: 'What is included?',
-      answer: 'Full multidisciplinary supervision including endocrinology consultations, personalized nutrition plans, CBT sessions for emotional eating, exercise guidance, and continuous progress tracking.',
+      answer: 'Full multidisciplinary supervision including endocrinology consultations, personalized nutrition plans, behavioral therapy sessions for emotional eating, exercise guidance, and continuous progress tracking.',
     },
     {
       id: 4,

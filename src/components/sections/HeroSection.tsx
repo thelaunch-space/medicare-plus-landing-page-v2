@@ -37,13 +37,13 @@ export const HeroSection: React.FC = () => {
           {/* Left Column - Text + CTAs */}
           <div className="flex flex-col justify-center">
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight leading-snug sm:leading-tight">
-              On Ozempic or Wegovy and worried about relapse?
+              On Ozempic or Wegovy and worried about regaining weight?
             </h1>
             <h2 className="mt-6 text-lg sm:text-xl md:text-xl lg:text-2xl leading-relaxed font-semibold text-[#1C4E80]">
               Secure lasting results with doctor-led care.
             </h2>
             <p className="mt-4 text-base sm:text-lg lg:text-lg leading-relaxed text-[#2E445B] max-w-[560px]">
-              Endocrinologist-led dosing, CBT for emotional eating, and culturally adapted nutrition—integrated into one seamless, confidential program.
+              Doctor-led medication management, psychological support for emotional eating, and personalized nutrition—all integrated into one confidential program tailored to your lifestyle.
             </p>
 
             {/* CTAs */}
@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
                   icon={Phone}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Talk to the Founding Team
+                  Talk to Us
                 </Button>
               </a>
               <div className="w-full sm:w-auto">
@@ -63,18 +63,18 @@ export const HeroSection: React.FC = () => {
                   onClick={scrollToContact}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Apply for Founders Cohort
+                  Get My Initial Assessment
                 </Button>
               </div>
             </div>
 
             {/* Urgency microcopy */}
-            <p className="mt-3 text-sm text-[#1C4E80] font-semibold">10 spots only. Next cohort opens in 6 months.</p>
+            <p className="mt-3 text-sm text-[#1C4E80] font-semibold">Limited spots available. Priority access for qualified candidates.</p>
             
 
             {/* Trust Bar Chips */}
             <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
-              {['Doctor-supervised', 'Science-backed', '15-20% weight loss'].map((label) => (
+              {['Doctor-supervised', 'Science-backed', 'Personalized to Your Lifestyle'].map((label) => (
                 <div
                   key={label}
                   className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-2"

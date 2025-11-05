@@ -36,8 +36,8 @@ export const WhoSection: React.FC = () => {
                       <Crown className="w-8 h-8 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-[#1A1A1A]">For the Founder Who...</h3>
-                      <p className="text-base text-[#1C4E80] font-semibold mt-1">Limited to 10 founding members</p>
+                      <h3 className="text-2xl font-bold text-[#1A1A1A]">For the Executive Who...</h3>
+                      <p className="text-base text-[#1C4E80] font-semibold mt-1">Priority Access Program</p>
                     </div>
                   </div>
 

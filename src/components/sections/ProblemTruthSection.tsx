@@ -71,7 +71,7 @@ export const ProblemTruthSection: React.FC = () => {
               </div>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Dose titration</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>CBT for triggers</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Behavioral therapy for triggers</span></li>
                 <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Protein + strength</span></li>
                 <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Planned taper</span></li>
               </ul>

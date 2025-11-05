@@ -27,7 +27,7 @@ export const TeamSection: React.FC = () => {
       id: 3,
       name: 'Clinical Psychologist',
       role: 'Behavioral Therapy Specialist',
-      credentials: 'CBT and behavioral therapy',
+      credentials: 'Cognitive-behavioral and behavioral therapy',
       bio: 'Dedicated to addressing emotional eating patterns and building lasting behavioral change.',
     },
     {
