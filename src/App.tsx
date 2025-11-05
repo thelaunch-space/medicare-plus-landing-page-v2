@@ -8,7 +8,6 @@ import { TimelineSection } from './components/sections/TimelineSection';
 import { TeamSection } from './components/sections/TeamSection';
 import { ScienceSection } from './components/sections/ScienceSection';
 import { PriorityAccessSection } from './components/sections/PriorityAccessSection';
-import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/sections/Footer';
@@ -26,7 +25,6 @@ function App() {
       <TeamSection />
       <ScienceSection />
       <PriorityAccessSection />
-      <TestimonialsSection />
       <FAQSection />
       <ContactSection />
       <Footer />
