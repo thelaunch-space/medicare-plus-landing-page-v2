@@ -66,9 +66,9 @@ export const TimelineSection: React.FC = () => {
 
         {/* Desktop Layout */}
         <div className="hidden md:block">
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12 items-start">
             {months.map((month, index) => (
-              <div key={index} className="relative">
+              <div key={index} className="relative flex flex-col h-full">
                 {/* Large Number */}
                 <div className="mb-6">
                   <div className="text-7xl lg:text-8xl font-bold text-[#1C4E80]/10 leading-none">
@@ -76,20 +76,20 @@ export const TimelineSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Card Content */}
-                <div className="bg-white rounded-2xl shadow-soft p-6 lg:p-8 hover:shadow-soft-lg transition-all duration-300">
-                  {/* Title */}
-                  <h3 className="text-xl lg:text-2xl font-bold text-[#1A1A1A] mb-3">
+                {/* Card Content - using flex to fill available space */}
+                <div className="bg-white rounded-2xl shadow-soft p-6 lg:p-8 hover:shadow-soft-lg transition-all duration-300 flex flex-col flex-grow">
+                  {/* Title - fixed height area */}
+                  <h3 className="text-xl lg:text-2xl font-bold text-[#1A1A1A] mb-3 min-h-[4rem] lg:min-h-[4.5rem]">
                     {month.title}
                   </h3>
 
-                  {/* Purpose */}
-                  <p className="text-sm lg:text-base text-[#1C4E80] mb-6 italic">
+                  {/* Purpose - fixed height area */}
+                  <p className="text-sm lg:text-base text-[#1C4E80] mb-6 italic min-h-[3rem] lg:min-h-[3.5rem]">
                     {month.purpose}
                   </p>
 
-                  {/* Highlights */}
-                  <ul className="space-y-3">
+                  {/* Highlights - flexible area */}
+                  <ul className="space-y-3 flex-grow">
                     {month.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <span className="text-[#1C4E80] mt-1.5 flex-shrink-0">•</span>
