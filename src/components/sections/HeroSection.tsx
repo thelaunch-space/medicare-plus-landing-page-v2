@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Phone } from 'lucide-react';
 import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
@@ -13,24 +13,6 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export const HeroSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const callRef = useRef<HTMLAnchorElement>(null);
-  const registerRef = useRef<HTMLDivElement>(null);
-  const [helperWidth, setHelperWidth] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    const measure = () => {
-      const callWidth = callRef.current?.getBoundingClientRect().width || 0;
-      const registerWidth = registerRef.current?.getBoundingClientRect().width || 0;
-      if (window.innerWidth >= 640) {
-        setHelperWidth(callWidth + registerWidth + 16);
-      } else {
-        setHelperWidth(Math.max(callWidth, registerWidth));
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -38,14 +20,14 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden min-h-screen snap-start flex items-center"
       style={{
         backgroundColor: '#F9FBFC',
         backgroundImage:
           'radial-gradient(1200px 600px at 10% -10%, rgba(28,78,128,0.03), rgba(255,255,255,0)), radial-gradient(1000px 500px at 110% 110%, rgba(28,78,128,0.03), rgba(255,255,255,0))',
       }}
     >
-      <div className="mx-auto max-w-7xl pl-6 pr-6 lg:pl-8 lg:pr-0 pt-24 pb-16 lg:py-24 lg:min-h-screen">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:pl-8 lg:pr-0 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 w-full">
         <div
           ref={ref}
           className={`grid gap-12 lg:gap-16 lg:grid-cols-2 items-center transition-all duration-1000 ${
@@ -54,60 +36,58 @@ export const HeroSection: React.FC = () => {
         >
           {/* Left Column - Text + CTAs */}
           <div className="flex flex-col justify-center">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight leading-tight">
-              On Ozempic or Wegovy and worried about relapse?
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight leading-snug sm:leading-tight">
+              On Ozempic or Wegovy and worried about regaining weight?
             </h1>
             <h2 className="mt-6 text-lg sm:text-xl md:text-xl lg:text-2xl leading-relaxed font-semibold text-[#1C4E80]">
               Secure lasting results with doctor-led care.
             </h2>
             <p className="mt-4 text-base sm:text-lg lg:text-lg leading-relaxed text-[#2E445B] max-w-[560px]">
-              Endocrinologist-led dosing, CBT for emotional eating, and culturally adapted nutrition—integrated into one seamless, confidential program.
+              Doctor-led medication management, psychological support for emotional eating, and personalized nutrition—all integrated into one confidential program tailored to your lifestyle.
             </p>
 
             {/* CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-              <a ref={callRef} href="tel:+919380010221" className="w-full sm:w-auto">
+              <a href="tel:+919380010221" className="w-full sm:w-auto">
                 <Button
                   variant="primary"
                   icon={Phone}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Jump on a call
+                  Talk to Us
                 </Button>
               </a>
-              <div ref={registerRef} className="w-full sm:w-auto">
+              <div className="w-full sm:w-auto">
                 <Button
                   variant="secondary"
                   onClick={scrollToContact}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Register My Spot
+                  Get My Initial Assessment
                 </Button>
               </div>
             </div>
-            <p
-              className="mt-3 text-[12px] md:text-[14px] text-[#2E445B]"
-              style={{ width: helperWidth ? `${helperWidth}px` : undefined }}
-            >
-              Speak with a doctor in minutes. No obligation—limited spots available.
-            </p>
+
+            {/* Urgency microcopy */}
+            <p className="mt-3 text-sm text-[#1C4E80] font-semibold">Limited spots available. Priority access for qualified candidates.</p>
+            
 
             {/* Trust Bar Chips */}
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              {['Doctor-supervised', 'Science-backed', 'Fully Confidential'].map((label) => (
+            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
+              {['Doctor-supervised', 'Science-backed', 'Personalized to Your Lifestyle'].map((label) => (
                 <div
                   key={label}
-                  className="inline-flex items-center gap-2 rounded-full px-4 py-2"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-2"
                   style={{ backgroundColor: '#F2F6F8', color: '#2E445B' }}
                 >
                   <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: '#1C4E80' }} />
-                  <span className="text-[14px] font-medium">{label}</span>
+                  <span className="text-sm font-medium">{label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image (hidden on mobile) */}
           <div className="hidden md:block">
             <div className="relative w-full h-[340px] sm:h-[440px] md:h-[520px] lg:h-[600px] xl:h-[660px] overflow-hidden rounded-2xl">
               <picture>
@@ -115,7 +95,7 @@ export const HeroSection: React.FC = () => {
                 <img
                   src="/hero-image.png"
                   alt="Professional endocrinologist consultation - Doctor-led GLP-1 weight loss program"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                   style={{ boxShadow: '0 24px 60px rgba(28, 78, 128, 0.08)' }}
                   loading="lazy"
                 />

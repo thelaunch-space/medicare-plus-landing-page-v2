@@ -1,43 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import React from 'react';
+import { Crown, Users, Star, CheckCircle, Shield } from 'lucide-react';
 import { Section } from '../Section';
-import { Card } from '../Card';
+import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export const TestimonialsSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  const testimonials = [
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const priorityBenefits = [
     {
-      id: 1,
-      quote: "I plateaued after GLP-1 use. Medicare+ helped me stabilize, manage side effects, and maintain results.",
-      author: "Female, 42",
+      icon: Crown,
+      title: "Exclusive Pricing",
+      description: "Priority member pricing for qualified candidates"
     },
     {
-      id: 2,
-      quote: "The taper plan removed my fear of relapse. The team knew exactly how to transition me safely.",
-      author: "Male, 49",
+      icon: Users,
+      title: "Priority Team Access",
+      description: "Direct access to Dr. Venkatesh and the medical team"
     },
     {
-      id: 3,
-      quote: "The personalized nutrition plan and CBT support addressed issues I didn't know I had. Life-changing experience.",
-      author: "Female, 38",
+      icon: Star,
+      title: "Quarterly Check-ins",
+      description: "Ongoing support for life with dedicated care team"
     },
+    {
+      icon: CheckCircle,
+      title: "Early Innovation Access",
+      description: "First access to new treatments and protocols"
+    },
+    {
+      icon: Shield,
+      title: "10x Personalization",
+      description: "Limited enrollment means unparalleled focus on you"
+    }
   ];
-
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 6000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <Section id="testimonials" background="gradient">
@@ -47,67 +47,77 @@ export const TestimonialsSection: React.FC = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <div className="text-center max-w-4xl mx-auto mb-12">
+        <div className="text-center max-w-4xl mx-auto">
+          <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">PRIORITY ACCESS PROGRAM</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-            What our <span className="text-[#1C4E80]">patients say</span>
+            Join Our <span className="text-[#1C4E80]">Priority Access Program</span>
           </h2>
+          <p className="text-lg text-[#2E445B] mb-6">
+            We're accepting a limited number of qualified candidates into our exclusive program.
+          </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#F2F6F8' }}>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C89F65] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C89F65]"></span>
+            </span>
+            <span className="text-sm font-semibold text-[#1C4E80]">Limited spots available. Priority enrollment for qualified candidates.</span>
+          </div>
         </div>
 
-        <div className="max-w-4xl mx-auto relative">
-          <div className="relative overflow-hidden">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                className={`transition-all duration-500 ${
-                  index === activeIndex
-                    ? 'opacity-100 relative'
-                    : 'opacity-0 absolute inset-0 pointer-events-none'
-                }`}
-              >
-                <Card variant="elevated" hover={false}>
-                  <div className="text-center space-y-6 py-8">
-                    <Quote className="w-12 h-12 text-[#1C4E80] mx-auto opacity-50" />
-
-                    <blockquote className="text-xl md:text-2xl text-[#1A1A1A] font-medium leading-relaxed">
-                      "{testimonial.quote}"
-                    </blockquote>
-
-                    <p className="text-[#2E445B] italic">— {testimonial.author}</p>
+        <div className="max-w-4xl mx-auto mt-8">
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <div className="flex-1">
+              <div className="grid grid-cols-2 gap-4">
+                {priorityBenefits.map((benefit, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-start gap-3 p-3 animate-fade-in animation-delay-${index * 100}`}
+                  >
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F2F6F8' }}>
+                      <benefit.icon className="w-5 h-5 text-[#1C4E80]" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="text-sm font-bold text-[#1A1A1A]">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-sm text-[#2E445B]">
+                        {benefit.description}
+                      </p>
+                    </div>
                   </div>
-                </Card>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
 
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 w-12 h-12 rounded-full bg-white shadow-soft hover:shadow-soft-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-6 h-6 text-[#1A1A1A]" />
-          </button>
+            <div className="flex-shrink-0 w-full md:w-auto">
+              <div className="bg-white rounded-2xl shadow-soft-lg p-8 border border-gray-200 max-w-sm mx-auto md:mx-0">
+                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                  Why join our priority program?
+                </h3>
+                <p className="text-[#2E445B] mb-6 leading-relaxed">
+                  As a priority member, you're not just getting treatment—you're getting exclusive access to personalized weight loss care with unparalleled attention.
+                </p>
 
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 w-12 h-12 rounded-full bg-white shadow-soft hover:shadow-soft-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-6 h-6 text-[#1A1A1A]" />
-          </button>
+                <div className="space-y-3">
+                  <a href="tel:+919380010221" className="block">
+                    <Button variant="primary" className="w-full">
+                      Talk to Us
+                    </Button>
+                  </a>
+                  <Button
+                    variant="secondary"
+                    onClick={scrollToContact}
+                    className="w-full"
+                  >
+                    Get My Initial Assessment
+                  </Button>
+                </div>
 
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === activeIndex
-                    ? 'w-8 bg-[#1C4E80]'
-                    : 'bg-gray-300 hover:bg-[#2E445B]'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
+                <p className="text-xs text-[#2E445B] mt-4">
+                  <span className="font-semibold">Important:</span> Priority enrollment is limited. Applicants must be using or starting GLP-1 medications.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

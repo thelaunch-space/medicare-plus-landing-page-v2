@@ -6,6 +6,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      zIndex: {
+        '60': '60',
+      },
       colors: {
         primary: {
           DEFAULT: '#1F2937', // Deep charcoal for text

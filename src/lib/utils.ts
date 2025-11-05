@@ -3,7 +3,9 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-export function cn(...inputs: Array<string | number | null | undefined | Record<string, boolean>>): string {
+export function cn(
+  ...inputs: Array<string | number | null | undefined | boolean | Record<string, boolean>>
+): string {
   return twMerge(clsx(inputs));
 }
 

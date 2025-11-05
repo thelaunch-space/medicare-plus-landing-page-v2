@@ -10,51 +10,38 @@ export const TimelineSection: React.FC = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const phases = [
+  const months = [
     {
       number: 1,
-      title: 'Foundation & Assessment',
-      duration: 'Weeks 1-4',
-      points: [
-        'Baseline labs and diagnostics',
-        'Initial endocrinology consult + GLP-1 plan',
-        'Mindful eating introduction',
+      title: 'Foundation & Stabilization',
+      purpose: 'Getting you started safely with coordinated specialist care',
+      highlights: [
+        'Initial consultation: GLP-1 review, baseline labs, and metabolic profile',
+        'Personalized meal plan with high-protein, high-fiber strategy',
+        'Light activity routine: 15-30 minutes daily walking',
+        'Mental health screening and mindful eating introduction',
       ],
     },
     {
       number: 2,
-      title: 'Structure',
-      duration: 'Weeks 5-8',
-      points: [
-        'Nutrition adjustments and habit coaching',
-        'Exercise ramp-up + progress review',
+      title: 'Acceleration & Refinement',
+      purpose: 'Optimizing your dosage and building sustainable habits',
+      highlights: [
+        'GLP-1 dose titration and side effect management',
+        'Advanced nutrition: meal timing and glycemic control strategies',
+        'Progressive exercise: 4-5x/week with cardio and strength training',
+        'Deep dive into food beliefs and habit tracking',
       ],
     },
     {
       number: 3,
-      title: 'Acceleration',
-      duration: 'Weeks 9-12',
-      points: [
-        'Habit reinforcement, muscle retention focus',
-        'Psychological accountability sessions',
-      ],
-    },
-    {
-      number: 4,
-      title: 'Optimization',
-      duration: 'Month 4-6',
-      points: [
-        'Personalized taper planning',
-        'Lifestyle maintenance education',
-      ],
-    },
-    {
-      number: 5,
-      title: 'Independence',
-      duration: 'Beyond Month 6',
-      points: [
-        'Taper execution + sustainability plan',
-        'Continued check-ins as needed',
+      title: 'Optimization & Sustainability',
+      purpose: 'Building long-term success and preventing relapse',
+      highlights: [
+        'Target achieved: 5-10% body weight loss',
+        'Sustainable meal templates and plateau management',
+        'Relapse prevention and body acceptance work',
+        'Celebrate non-scale wins: strength, energy, mood',
       ],
     },
   ];
@@ -68,79 +55,117 @@ export const TimelineSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-16">
+          <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">YOUR ROADMAP</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-            Your roadmap to <span className="text-[#1C4E80]">lasting weight loss</span>
+            Your <span className="text-[#1C4E80]">3-Month Roadmap</span> to Sustainable Weight Loss
           </h2>
+          <p className="text-lg text-[#2E445B] max-w-2xl mx-auto mt-4">
+            Safe, sustainable weight loss while maximizing GLP-1 effectiveness through coordinated specialist care.
+          </p>
         </div>
 
-        <div className="hidden lg:block relative">
-          {/* Timeline line behind the circles */}
-          <div className="absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-[#1C4E80] via-blue-500 to-[#1C4E80] rounded-full"></div>
-
-          {/* Numbered circles on top of the line */}
-          <div className="relative grid grid-cols-5 gap-8 mb-4">
-            {phases.map((phase, index) => (
-              <div key={index} className="flex justify-center relative z-10">
-                <div className="relative w-12 h-12 bg-gradient-to-br from-[#1C4E80] to-blue-600 rounded-full flex items-center justify-center shadow-button-3d">
-                  <span className="text-white font-bold text-lg">{phase.number}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Cards below the line */}
-          <div className="relative grid grid-cols-5 gap-8 mt-8">
-            {phases.map((phase, index) => (
-              <div key={index} className="flex flex-col h-full">
-                <div className="bg-white rounded-2xl shadow-soft-lg p-6 hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">{phase.title}</h3>
-                    <p className="text-sm text-[#1C4E80] font-semibold">{phase.duration}</p>
+        {/* Desktop Layout */}
+        <div className="hidden md:block">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {months.map((month, index) => (
+              <div key={index} className="relative">
+                {/* Large Number */}
+                <div className="mb-6">
+                  <div className="text-7xl lg:text-8xl font-bold text-[#1C4E80]/10 leading-none">
+                    {month.number}
                   </div>
-                  <ul className="space-y-2 flex-grow">
-                    {phase.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm text-[#2E445B]">
-                        <span className="text-[#1C4E80] mt-1">•</span>
-                        <span>{point}</span>
+                </div>
+
+                {/* Card Content */}
+                <div className="bg-white rounded-2xl shadow-soft p-6 lg:p-8 hover:shadow-soft-lg transition-all duration-300">
+                  {/* Title */}
+                  <h3 className="text-xl lg:text-2xl font-bold text-[#1A1A1A] mb-3">
+                    {month.title}
+                  </h3>
+
+                  {/* Purpose */}
+                  <p className="text-sm lg:text-base text-[#1C4E80] mb-6 italic">
+                    {month.purpose}
+                  </p>
+
+                  {/* Highlights */}
+                  <ul className="space-y-3">
+                    {month.highlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="text-[#1C4E80] mt-1.5 flex-shrink-0">•</span>
+                        <span className="text-sm lg:text-base text-[#2E445B] leading-relaxed">
+                          {highlight}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
+
+                {/* Connector Line (not on last item) */}
+                {index < months.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-full w-12 h-0.5 bg-gradient-to-r from-[#1C4E80]/30 to-transparent"></div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="lg:hidden space-y-8">
-          {phases.map((phase, index) => (
-            <div key={index} className="relative pl-12">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#1C4E80] to-blue-600 rounded-full"></div>
-
-              <div className="absolute left-0 top-6 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-[#1C4E80] to-blue-600 rounded-full flex items-center justify-center shadow-button-3d">
-                <span className="text-white font-bold">{phase.number}</span>
+        {/* Mobile Layout */}
+        <div className="md:hidden space-y-8">
+          {months.map((month, index) => (
+            <div key={index} className="relative">
+              {/* Large Number */}
+              <div className="mb-4">
+                <div className="text-6xl font-bold text-[#1C4E80]/10 leading-none">
+                  {month.number}
+                </div>
               </div>
 
+              {/* Card Content */}
               <div className="bg-white rounded-2xl shadow-soft p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">{phase.title}</h3>
-                  <p className="text-sm text-[#1C4E80] font-semibold">{phase.duration}</p>
-                </div>
-                <ul className="space-y-2">
-                  {phase.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-[#2E445B]">
-                      <span className="text-[#1C4E80] mt-1">•</span>
-                      <span>{point}</span>
+                {/* Title */}
+                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                  {month.title}
+                </h3>
+
+                {/* Purpose */}
+                <p className="text-sm text-[#1C4E80] mb-5 italic">
+                  {month.purpose}
+                </p>
+
+                {/* Highlights */}
+                <ul className="space-y-3">
+                  {month.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-[#1C4E80] mt-1.5 flex-shrink-0">•</span>
+                      <span className="text-sm text-[#2E445B] leading-relaxed">
+                        {highlight}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
+
+              {/* Connector (not on last item) */}
+              {index < months.length - 1 && (
+                <div className="flex justify-center my-6">
+                  <div className="w-0.5 h-8 bg-gradient-to-b from-[#1C4E80]/30 to-transparent"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>
 
+        {/* Key Feature Callout */}
+        <div className="mt-12 bg-gradient-to-r from-[#F9FBFC] to-[#F2F6F8] rounded-2xl p-6 md:p-8 border border-[#1C4E80]/20">
+          <p className="text-center text-base md:text-lg text-[#2E445B] font-medium">
+            <span className="text-[#1C4E80] font-semibold">Coordinated Care:</span> You interact with your program coordinator—but behind the scenes, 4 specialists meet weekly to synchronize your care.
+          </p>
+        </div>
+
         <div className="text-center mt-12">
           <Button variant="primary" onClick={scrollToContact}>
-            Register My Spot
+            Get My Initial Assessment
           </Button>
         </div>
       </div>

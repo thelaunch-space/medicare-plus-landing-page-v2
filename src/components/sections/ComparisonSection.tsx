@@ -15,7 +15,7 @@ export const ComparisonSection: React.FC = () => {
     {
       aspect: 'Emotional eating',
       alone: 'Unaddressed',
-      medicare: 'CBT support',
+      medicare: 'Behavioral therapy support',
     },
     {
       aspect: 'Metabolic monitoring',
@@ -43,6 +43,7 @@ export const ComparisonSection: React.FC = () => {
         }`}
       >
         <div className="text-center max-w-4xl mx-auto mb-12">
+          <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">COMPARE CARE MODELS</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
             <span className="text-[#1C4E80]">GLP-1 alone</span> vs <span className="text-[#1C4E80]">Medicare+</span>
           </h2>

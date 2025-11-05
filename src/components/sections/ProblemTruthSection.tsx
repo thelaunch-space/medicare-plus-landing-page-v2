@@ -1,133 +1,85 @@
 import React from 'react';
-import { TrendingDown, AlertCircle, RefreshCw, CheckCircle, Shield, Target } from 'lucide-react';
+import { Activity, AlertCircle, Shield } from 'lucide-react';
 import { Card } from '../Card';
 import { Section } from '../Section';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export const ProblemTruthSection: React.FC = () => {
-  const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation();
-  const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <Section id="problem-truth" background="silver">
-      <div className="space-y-8">
-        <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-            Why <span className="text-[#1C4E80]">GLP-1</span> is powerful—and why it isn't enough alone.
+      <div
+        ref={ref}
+        className={`transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <div className="text-center max-w-5xl mx-auto">
+          <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">UNDERSTAND THE FULL PICTURE</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A]">
+            Why <span className="text-[#1C4E80]">GLP-1</span> works—and why results don’t last without a plan
           </h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
-          <div
-            ref={leftRef}
-            className={`transition-all duration-700 ${
-              leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}
-          >
-            <Card variant="default" className="h-full">
-              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-6">
-                What usually goes wrong after the injection
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <TrendingDown className="w-6 h-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Early loss, later regain.</h4>
-                    <p className="text-[#2E445B] text-sm">
-                      Weight comes back once medication stops or plateaus.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <AlertCircle className="w-6 h-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Side effects without guidance.</h4>
-                    <p className="text-[#2E445B] text-sm">
-                      Nausea, constipation, fatigue—unmanaged and frustrating.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <RefreshCw className="w-6 h-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Old habits resurface.</h4>
-                    <p className="text-[#2E445B] text-sm">
-                      Emotional eating and low muscle mass persist.
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-sm italic text-[#2E445B]/70 pt-4 mt-2 border-t border-gray-200">
-                  If medication is a head start, these are the reasons people lose momentum.
-                </p>
-              </div>
-            </Card>
-          </div>
-
-          <div
-            ref={rightRef}
-            className={`transition-all duration-700 ${
-              rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}
-          >
-            <Card variant="teal" className="h-full">
-              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-6">
-                The clinical truth we treat for lasting results
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <CheckCircle className="w-6 h-6 text-[#1C4E80]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">Medication is a tool, not the plan.</h4>
-                    <p className="text-[#2E445B] text-sm">
-                      Sustainable change requires expert supervision and structured lifestyle support.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <Shield className="w-6 h-6 text-[#1C4E80]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">We protect metabolism.</h4>
-                    <p className="text-[#2E445B] text-sm">
-                      High-protein nutrition and strength-focused exercise maintain lean mass.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <Target className="w-6 h-6 text-[#1C4E80]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">We build exit plans.</h4>
-                    <p className="text-[#2E445B] text-sm">
-                      Structured tapering and relapse-prevention strategies stop rebound gain.
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-sm italic text-[#2E445B]/70 pt-4 mt-2 border-t border-[#1C4E80]/30">
-                  That's why doctor-led, multidisciplinary care works long-term.
-                </p>
-              </div>
-            </Card>
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#F2F6F8' }}>
+            <span className="text-sm text-[#2E445B]">GLP‑1 lowers appetite quickly; without behavioral and metabolic care, results often fade. We add both.</span>
           </div>
         </div>
+
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {/* Power */}
+          <Card variant="default" className="animate-fade-in">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center shadow-button-3d">
+                  <Activity className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">The power of GLP‑1</h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Appetite down</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Cravings down</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Early weight loss</span></li>
+              </ul>
+            </div>
+          </Card>
+
+          {/* Gaps */}
+          <Card variant="default" className="animate-fade-in animation-delay-200 bg-[#FEF2F2]">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-button-3d" style={{ backgroundColor: 'white' }}>
+                  <AlertCircle className="w-6 h-6 text-red-500" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">What breaks when used alone</h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Habits persist</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Lean mass risk</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Rebound risk</span></li>
+              </ul>
+            </div>
+          </Card>
+
+          {/* Fix */}
+          <Card variant="elevated" className="animate-fade-in animation-delay-400">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C89F65] to-amber-600 flex items-center justify-center shadow-button-3d">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">How we close the gap</h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Dose titration</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Behavioral therapy for triggers</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Protein + strength</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Planned taper</span></li>
+              </ul>
+            </div>
+          </Card>
+        </div>
+
+        {/* Intentionally no footer chips/links to keep the section focused and consistent with palette */}
       </div>
     </Section>
   );

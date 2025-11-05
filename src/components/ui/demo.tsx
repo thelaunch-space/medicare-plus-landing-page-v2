@@ -1,8 +1,6 @@
 // File purpose: Demo component showcasing the AuroraBackground in use with framer-motion.
 
 "use client";
-
-import React from "react";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 

@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 mx-4 mt-4">
+      <header className="fixed top-0 left-0 right-0 z-50 mx-2 sm:mx-4 mt-2 sm:mt-4">
         <div className="max-w-7xl mx-auto">
           <div className="backdrop-blur-md bg-white/80 rounded-2xl shadow-lg border border-gray-200">
             <div className="px-4 sm:px-6 lg:px-8">
@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
                 <div className="hidden lg:block">
                   <a href="tel:+919380010221">
                     <Button variant="primary" icon={Phone}>
-                      Jump on a call
+                      Talk to Us
                     </Button>
                   </a>
                 </div>
