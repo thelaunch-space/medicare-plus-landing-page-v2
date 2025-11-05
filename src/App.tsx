@@ -7,10 +7,9 @@ import { ComparisonSection } from './components/sections/ComparisonSection';
 import { TimelineSection } from './components/sections/TimelineSection';
 import { TeamSection } from './components/sections/TeamSection';
 import { ScienceSection } from './components/sections/ScienceSection';
-import { WhoSection } from './components/sections/WhoSection';
+import { PriorityAccessSection } from './components/sections/PriorityAccessSection';
 import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { FAQSection } from './components/sections/FAQSection';
-import { CTASection } from './components/sections/CTASection';
 import { ContactSection } from './components/sections/ContactSection';
 import { Footer } from './components/sections/Footer';
 
@@ -26,10 +25,9 @@ function App() {
       <TimelineSection />
       <TeamSection />
       <ScienceSection />
-      <WhoSection />
+      <PriorityAccessSection />
       <TestimonialsSection />
       <FAQSection />
-      <CTASection />
       <ContactSection />
       <Footer />
     </div>
