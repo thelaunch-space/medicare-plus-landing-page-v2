@@ -11,6 +11,7 @@ interface TeamMember {
   atAGlance: string;
   fullBio: string[];
   imagePath: string;
+  imagePosition: string; // Custom positioning for each face
 }
 
 export const TeamSection: React.FC = () => {
@@ -30,7 +31,8 @@ export const TeamSection: React.FC = () => {
         'He has published over 100+ scientific papers, received multiple national and international awards — including the Cleveland Clinic Caregiver Award, and serves as Principal Investigator on pioneering clinical research in thyroid and diabetes care. He is also a reviewer and editorial board member for leading endocrinology journals.',
         'What sets Dr. Kannan apart is his patient-first philosophy. Every protocol he designs, every treatment he delivers, focuses on sustainable, personalized care rooted in scientific evidence — not shortcuts. His work is driven by the belief that effective weight loss is not just about numbers, but restoring health, energy, and confidence.'
       ],
-      imagePath: '/s-kannan.jpg'
+      imagePath: '/s-kannan.jpg',
+      imagePosition: '60% 20%' // Face positioned right-center and upper portion
     },
     {
       id: 2,
@@ -44,7 +46,8 @@ export const TeamSection: React.FC = () => {
         'A recipient of prestigious awards such as the Sadhana Award and IAPEN National Award for Excellence in Nutrition, Sheryl has also been recognized globally — including a fellowship at the Children\'s Hospital in Sydney and a contributor role with The Lancet Commission on Type 1 Diabetes.',
         'Beyond clinical work, she\'s a published author, educator, speaker, and an advisor to international diabetes and nutrition associations. Her programs combine evidence-based dietetics with holistic wellness, giving people the tools they need to not just lose weight, but live stronger, healthier, happier lives.'
       ],
-      imagePath: '/sheryl.jpeg'
+      imagePath: '/sheryl.jpeg',
+      imagePosition: '50% 15%' // Face centered, upper portion for full-body shot
     },
     {
       id: 3,
@@ -57,7 +60,8 @@ export const TeamSection: React.FC = () => {
         'He unites endocrinology, nutrition, psychology, and exercise under a coordinated clinical framework, ensuring every client receives a plan that is as individual as their biology.',
         'Grounded in science and empathy, Dr. Venkatesh champions a holistic, concierge model of metabolic transformation for lasting results.'
       ],
-      imagePath: '/dr-venkatesh.jpg'
+      imagePath: '/dr-venkatesh.jpg',
+      imagePosition: '50% 40%' // Face centered horizontally, adjusted vertically for tight headshot
     }
   ];
 
@@ -90,30 +94,33 @@ export const TeamSection: React.FC = () => {
             return (
               <div
                 key={member.id}
-                className={`bg-white rounded-xl shadow-soft overflow-hidden animate-fade-in animation-delay-${index * 200} transition-all duration-300 flex flex-col ${
+                className={`bg-white rounded-xl shadow-soft animate-fade-in animation-delay-${index * 200} transition-all duration-300 flex flex-col ${
                   isExpanded ? 'ring-2 ring-[#1C4E80]' : ''
                 }`}
               >
-                {/* Rectangular Doctor Image */}
-                <div className="w-full h-48 sm:h-56 md:h-48 lg:h-52 overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600">
-                  <img
-                    src={member.imagePath}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-[50%_25%]"
-                    onError={(e) => {
-                      // Fallback if image doesn't exist
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      if (target.nextElementSibling) {
-                        (target.nextElementSibling as HTMLElement).style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div
-                    className="w-full h-full hidden items-center justify-center text-white text-4xl font-bold"
-                    style={{ display: 'none' }}
-                  >
-                    {member.name.split(' ')[0][0]}{member.name.split(' ')[member.name.split(' ').length - 1][0]}
+                {/* Circular Doctor Image - Centered at top */}
+                <div className="flex justify-center pt-6 pb-4">
+                  <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-52 lg:h-52 rounded-full overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600 shadow-lg ring-4 ring-white">
+                    <img
+                      src={member.imagePath}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: member.imagePosition }}
+                      onError={(e) => {
+                        // Fallback if image doesn't exist
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        if (target.nextElementSibling) {
+                          (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div
+                      className="w-full h-full hidden items-center justify-center text-white text-4xl font-bold"
+                      style={{ display: 'none' }}
+                    >
+                      {member.name.split(' ')[0][0]}{member.name.split(' ')[member.name.split(' ').length - 1][0]}
+                    </div>
                   </div>
                 </div>
 
