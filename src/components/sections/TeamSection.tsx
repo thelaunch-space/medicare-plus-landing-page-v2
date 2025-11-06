@@ -94,60 +94,56 @@ export const TeamSection: React.FC = () => {
                   isExpanded ? 'ring-2 ring-[#1C4E80]' : ''
                 }`}
               >
-                {/* Card Header - Compact for fold fit */}
-                <div className="p-4 lg:p-5">
-                  <div className="flex flex-col items-center gap-3 mb-3">
-                    {/* Smaller profile image for compact layout */}
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600 shadow-soft-lg">
-                        <img
-                          src={member.imagePath}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            // Fallback if image doesn't exist
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            if (target.nextElementSibling) {
-                              (target.nextElementSibling as HTMLElement).style.display = 'flex';
-                            }
-                          }}
-                        />
-                        <div
-                          className="w-full h-full hidden items-center justify-center text-white text-2xl font-bold"
-                          style={{ display: 'none' }}
-                        >
-                          {member.name.split(' ')[0][0]}{member.name.split(' ')[member.name.split(' ').length - 1][0]}
-                        </div>
-                      </div>
-                    </div>
+                {/* Rectangular Doctor Image */}
+                <div className="w-full h-48 sm:h-56 md:h-48 lg:h-52 overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600">
+                  <img
+                    src={member.imagePath}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      // Fallback if image doesn't exist
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      if (target.nextElementSibling) {
+                        (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                      }
+                    }}
+                  />
+                  <div
+                    className="w-full h-full hidden items-center justify-center text-white text-4xl font-bold"
+                    style={{ display: 'none' }}
+                  >
+                    {member.name.split(' ')[0][0]}{member.name.split(' ')[member.name.split(' ').length - 1][0]}
+                  </div>
+                </div>
 
-                    {/* Name & Credentials - Centered, Compact */}
-                    <div className="flex-1 text-center">
-                      <h3 className="text-base lg:text-lg font-bold text-[#1A1A1A] mb-1 leading-tight">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs lg:text-sm text-[#1C4E80] font-semibold mb-2 leading-snug">
-                        {member.role}
-                      </p>
-                      <div className="flex items-center justify-center gap-1.5 text-[10px] lg:text-xs text-[#2E445B]">
-                        <Award className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#C89F65] flex-shrink-0" />
-                        <span className="leading-tight">{member.credentials}</span>
-                      </div>
+                {/* Card Content - Fixed structure for equal heights */}
+                <div className="p-4 lg:p-5 flex flex-col flex-grow">
+                  {/* Name & Role - Fixed height area */}
+                  <div className="mb-3 min-h-[110px] sm:min-h-[100px] lg:min-h-[110px] flex flex-col justify-center">
+                    <h3 className="text-lg lg:text-xl font-bold text-[#1A1A1A] mb-1 leading-tight text-center">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs lg:text-sm text-[#1C4E80] font-semibold mb-2 leading-snug text-center">
+                      {member.role}
+                    </p>
+                    <div className="flex items-center justify-center gap-1.5 text-[10px] lg:text-xs text-[#2E445B] flex-wrap">
+                      <Award className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#C89F65] flex-shrink-0" />
+                      <span className="leading-tight text-center">{member.credentials}</span>
                     </div>
                   </div>
 
-                  {/* At a Glance - Compact */}
-                  <div className="mb-3">
+                  {/* At a Glance - Fixed height area */}
+                  <div className="mb-4 min-h-[80px] lg:min-h-[90px]">
                     <p className="text-xs lg:text-sm text-[#2E445B] leading-relaxed text-center">
                       {member.atAGlance}
                     </p>
                   </div>
 
-                  {/* View More/Less Button - Compact */}
+                  {/* View More/Less Button */}
                   <button
                     onClick={() => toggleExpand(member.id)}
-                    className="flex items-center justify-center gap-1.5 w-full px-3 py-2 rounded-lg bg-[#F9FBFC] hover:bg-[#F2F6F8] text-[#1C4E80] font-semibold text-xs lg:text-sm transition-colors duration-200 border border-[#1C4E80]/20"
+                    className="flex items-center justify-center gap-1.5 w-full px-3 py-2.5 rounded-lg bg-[#F9FBFC] hover:bg-[#F2F6F8] text-[#1C4E80] font-semibold text-xs lg:text-sm transition-colors duration-200 border border-[#1C4E80]/20 mt-auto"
                   >
                     <BookOpen className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                     <span>{isExpanded ? 'View Less' : 'View Full Bio'}</span>
