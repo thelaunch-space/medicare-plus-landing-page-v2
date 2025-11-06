@@ -95,7 +95,7 @@ export const TeamSection: React.FC = () => {
                 }`}
               >
                 {/* Rectangular Doctor Image */}
-                <div className="w-full h-48 sm:h-56 md:h-48 lg:h-52 overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600">
+                <div className="w-full h-64 sm:h-72 md:h-64 lg:h-80 overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600">
                   <img
                     src={member.imagePath}
                     alt={member.name}
