@@ -1,116 +1,110 @@
-import React, { useState } from 'react';
-import { Send, CheckCircle, AlertCircle, Lock } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, Lock } from 'lucide-react';
 import { Section } from '../Section';
 import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  medicationStatus: string;
-  contactMethod: string;
-  message: string;
+interface QuizData {
+  age: string;
+  height: string;
+  weight: string;
+  diabetes: string;
+  previousAttempts: string;
+  cravings: string;
+  currentMeds: string;
+  topGoal: string;
 }
 
 export const ContactSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    medicationStatus: '',
-    contactMethod: 'email',
-    message: '',
+  const [quizData, setQuizData] = useState<QuizData>({
+    age: '',
+    height: '',
+    weight: '',
+    diabetes: '',
+    previousAttempts: '',
+    cravings: '',
+    currentMeds: '',
+    topGoal: '',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [bmi, setBmi] = useState<number | null>(null);
+  const [showResult, setShowResult] = useState(false);
 
-  const validateForm = (): boolean => {
-    const newErrors: Partial<FormData> = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+  // Auto-calculate BMI when height and weight change
+  useEffect(() => {
+    const h = parseFloat(quizData.height);
+    const w = parseFloat(quizData.weight);
+    if (h > 0 && w > 0) {
+      const calculatedBMI = w / Math.pow(h / 100, 2);
+      setBmi(calculatedBMI);
+    } else {
+      setBmi(null);
     }
+  }, [quizData.height, quizData.weight]);
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    }
-
-    if (!formData.medicationStatus) {
-      newErrors.medicationStatus = 'Please select your medication status';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const getBMICategory = (bmi: number): string => {
+    if (bmi < 18.5) return 'Underweight';
+    if (bmi < 25) return 'Normal weight';
+    if (bmi < 30) return 'Overweight';
+    return 'Obese';
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const getBMICategoryColor = (bmi: number): string => {
+    if (bmi < 18.5 || bmi >= 30) return 'text-red-500';
+    if (bmi < 25) return 'text-green-500';
+    return 'text-orange-500';
+  };
+
+  const isFormComplete = (): boolean => {
+    return (
+      quizData.age !== '' &&
+      quizData.height !== '' &&
+      quizData.weight !== '' &&
+      quizData.diabetes !== '' &&
+      quizData.previousAttempts !== '' &&
+      quizData.cravings !== '' &&
+      quizData.currentMeds !== '' &&
+      quizData.topGoal !== ''
+    );
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-
-      if (!webhookUrl) {
-        throw new Error('Webhook URL not configured');
-      }
-
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          submittedAt: new Date().toISOString(),
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Submission failed');
-      }
-
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        medicationStatus: '',
-        contactMethod: 'email',
-        message: '',
-      });
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+    if (isFormComplete()) {
+      setShowResult(true);
+      // Scroll to result
+      setTimeout(() => {
+        document.getElementById('quiz-result')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormData]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-    }
-  };
+  const RadioButton: React.FC<{
+    name: string;
+    value: string;
+    checked: boolean;
+    onChange: () => void;
+    label: string;
+  }> = ({ name, value, checked, onChange, label }) => (
+    <label
+      className={`flex items-center justify-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+        checked
+          ? 'border-[#1C4E80] bg-[#1C4E80]/5 text-[#1C4E80] font-semibold'
+          : 'border-gray-200 bg-white text-[#2E445B] hover:border-[#1C4E80]/30 hover:bg-[#F9FBFC]'
+      }`}
+    >
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={onChange}
+        className="sr-only"
+      />
+      <span className="text-sm md:text-base">{label}</span>
+    </label>
+  );
 
   return (
     <Section id="contact" background="silver">
@@ -121,214 +115,264 @@ export const ContactSection: React.FC = () => {
         }`}
       >
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">CONFIDENTIAL CONSULT</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-              Book Your <span className="text-[#1C4E80]">Confidential Consultation</span>
+          {/* Header */}
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-3">
+              💊 Check If You Are a GLP-1 Candidate
             </h2>
-            <p className="text-lg text-[#2E445B]">
-              Start your journey to lasting weight loss with expert medical guidance
+            <p className="text-base md:text-lg text-[#2E445B] italic">
+              (Takes 30 seconds to find out)
             </p>
             <div className="flex items-center justify-center gap-2 mt-4 text-sm text-[#2E445B]">
               <Lock className="w-4 h-4 text-[#1C4E80]" />
               <span>All information is kept strictly confidential</span>
             </div>
-            <div className="flex items-center justify-center gap-2 mt-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C89F65] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C89F65]"></span>
-              </span>
-              <span className="text-sm font-semibold text-[#1C4E80]">10 spots only. Next cohort opens in 6 months.</span>
-            </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-soft-lg p-8 md:p-12">
-            {submitStatus === 'success' ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle className="w-10 h-10 text-green-500" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#1A1A1A]">Thank You!</h3>
-                <p className="text-[#2E445B]">
-                  Your consultation request has been received. Our team will contact you within 24-48 hours.
-                </p>
-                <Button
-                  variant="primary"
-                  onClick={() => setSubmitStatus('idle')}
-                  className="mt-6"
-                >
-                  Submit Another Request
-                </Button>
+          {/* Quiz Form */}
+          <div className="bg-white rounded-2xl shadow-soft-lg p-6 md:p-10">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Question 1: Age */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  1️⃣ Age
+                </label>
+                <input
+                  type="number"
+                  value={quizData.age}
+                  onChange={(e) => setQuizData({ ...quizData, age: e.target.value })}
+                  placeholder="Enter your age"
+                  min="18"
+                  max="100"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${
-                      errors.name ? 'border-red-500' : 'border-gray-200'
-                    } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
-                    placeholder="Enter your full name"
-                  />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="w-4 h-4" />
-                      {errors.name}
+
+              {/* Question 2: Height */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  2️⃣ Height (cm)
+                </label>
+                <input
+                  type="number"
+                  value={quizData.height}
+                  onChange={(e) => setQuizData({ ...quizData, height: e.target.value })}
+                  placeholder="Enter your height in cm"
+                  min="100"
+                  max="250"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
+                />
+              </div>
+
+              {/* Question 3: Weight with BMI */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  3️⃣ Weight (kg)
+                </label>
+                <input
+                  type="number"
+                  value={quizData.weight}
+                  onChange={(e) => setQuizData({ ...quizData, weight: e.target.value })}
+                  placeholder="Enter your weight in kg"
+                  min="30"
+                  max="300"
+                  step="0.1"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
+                />
+                {bmi && (
+                  <div className="mt-2 p-3 bg-[#F9FBFC] rounded-lg border border-gray-200">
+                    <p className="text-sm text-[#2E445B]">
+                      Your BMI: <span className={`font-bold ${getBMICategoryColor(bmi)}`}>
+                        {bmi.toFixed(1)} ({getBMICategory(bmi)})
+                      </span>
                     </p>
-                  )}
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.email ? 'border-red-500' : 'border-gray-200'
-                      } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
-                      placeholder="your@email.com"
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.phone ? 'border-red-500' : 'border-gray-200'
-                      } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
-                      placeholder="+1 (555) 000-0000"
-                    />
-                    {errors.phone && (
-                      <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.phone}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="medicationStatus"
-                    className="block text-sm font-semibold text-[#1A1A1A] mb-2"
-                  >
-                    Current Medication Status *
-                  </label>
-                  <select
-                    id="medicationStatus"
-                    name="medicationStatus"
-                    value={formData.medicationStatus}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${
-                      errors.medicationStatus ? 'border-red-500' : 'border-gray-200'
-                    } focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all`}
-                  >
-                    <option value="">Select your status</option>
-                    <option value="currently-using">Currently using GLP-1 medication</option>
-                    <option value="considering">Considering GLP-1 medication</option>
-                    <option value="plateaued">Plateaued on current medication</option>
-                    <option value="discontinued">Discontinued GLP-1 medication</option>
-                    <option value="other">Other</option>
-                  </select>
-                  {errors.medicationStatus && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="w-4 h-4" />
-                      {errors.medicationStatus}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="contactMethod"
-                    className="block text-sm font-semibold text-[#1A1A1A] mb-2"
-                  >
-                    Preferred Contact Method
-                  </label>
-                  <select
-                    id="contactMethod"
-                    name="contactMethod"
-                    value={formData.contactMethod}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
-                  >
-                    <option value="email">Email</option>
-                    <option value="phone">Phone</option>
-                    <option value="either">Either</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-[#1A1A1A] mb-2">
-                    Additional Information (Optional)
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all resize-none"
-                    placeholder="Tell us more about your goals or any questions you have..."
-                  />
-                </div>
-
-                {submitStatus === 'error' && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-semibold text-red-800">Submission Failed</p>
-                      <p className="text-sm text-red-600 mt-1">
-                        Please try again or contact us directly at support@medicareplus.com
-                      </p>
-                    </div>
                   </div>
                 )}
+              </div>
 
-                <div className="pt-4">
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    disabled={isSubmitting}
-                    icon={Send}
-                    className="w-full"
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
-                  </Button>
+              {/* Question 4: Diabetes */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  4️⃣ Do you have diabetes, pre-diabetes, or insulin resistance?
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <RadioButton
+                    name="diabetes"
+                    value="yes"
+                    checked={quizData.diabetes === 'yes'}
+                    onChange={() => setQuizData({ ...quizData, diabetes: 'yes' })}
+                    label="Yes"
+                  />
+                  <RadioButton
+                    name="diabetes"
+                    value="no"
+                    checked={quizData.diabetes === 'no'}
+                    onChange={() => setQuizData({ ...quizData, diabetes: 'no' })}
+                    label="No"
+                  />
+                  <RadioButton
+                    name="diabetes"
+                    value="not-sure"
+                    checked={quizData.diabetes === 'not-sure'}
+                    onChange={() => setQuizData({ ...quizData, diabetes: 'not-sure' })}
+                    label="Not sure"
+                  />
                 </div>
+              </div>
 
-                <p className="text-xs text-center text-[#2E445B]">
-                  By submitting this form, you agree to our privacy policy and consent to being
-                  contacted by our medical team.
-                </p>
-              </form>
-            )}
+              {/* Question 5: Previous Attempts */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  5️⃣ Have you tried diet or exercise programs before without sustained success?
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <RadioButton
+                    name="previousAttempts"
+                    value="yes"
+                    checked={quizData.previousAttempts === 'yes'}
+                    onChange={() => setQuizData({ ...quizData, previousAttempts: 'yes' })}
+                    label="Yes"
+                  />
+                  <RadioButton
+                    name="previousAttempts"
+                    value="no"
+                    checked={quizData.previousAttempts === 'no'}
+                    onChange={() => setQuizData({ ...quizData, previousAttempts: 'no' })}
+                    label="No"
+                  />
+                </div>
+              </div>
+
+              {/* Question 6: Cravings */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  6️⃣ Do you often struggle with food cravings or portion control?
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <RadioButton
+                    name="cravings"
+                    value="yes"
+                    checked={quizData.cravings === 'yes'}
+                    onChange={() => setQuizData({ ...quizData, cravings: 'yes' })}
+                    label="Yes"
+                  />
+                  <RadioButton
+                    name="cravings"
+                    value="sometimes"
+                    checked={quizData.cravings === 'sometimes'}
+                    onChange={() => setQuizData({ ...quizData, cravings: 'sometimes' })}
+                    label="Sometimes"
+                  />
+                  <RadioButton
+                    name="cravings"
+                    value="no"
+                    checked={quizData.cravings === 'no'}
+                    onChange={() => setQuizData({ ...quizData, cravings: 'no' })}
+                    label="No"
+                  />
+                </div>
+              </div>
+
+              {/* Question 7: Current Medications */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  7️⃣ Are you currently on any weight-loss medications or injections?
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <RadioButton
+                    name="currentMeds"
+                    value="yes"
+                    checked={quizData.currentMeds === 'yes'}
+                    onChange={() => setQuizData({ ...quizData, currentMeds: 'yes' })}
+                    label="Yes"
+                  />
+                  <RadioButton
+                    name="currentMeds"
+                    value="no"
+                    checked={quizData.currentMeds === 'no'}
+                    onChange={() => setQuizData({ ...quizData, currentMeds: 'no' })}
+                    label="No"
+                  />
+                </div>
+              </div>
+
+              {/* Question 8: Top Goal */}
+              <div className="space-y-3">
+                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+                  8️⃣ What's your top goal?
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <RadioButton
+                    name="topGoal"
+                    value="steady-weight"
+                    checked={quizData.topGoal === 'steady-weight'}
+                    onChange={() => setQuizData({ ...quizData, topGoal: 'steady-weight' })}
+                    label="Steady weight loss"
+                  />
+                  <RadioButton
+                    name="topGoal"
+                    value="sugar-control"
+                    checked={quizData.topGoal === 'sugar-control'}
+                    onChange={() => setQuizData({ ...quizData, topGoal: 'sugar-control' })}
+                    label="Better sugar control"
+                  />
+                  <RadioButton
+                    name="topGoal"
+                    value="energy"
+                    checked={quizData.topGoal === 'energy'}
+                    onChange={() => setQuizData({ ...quizData, topGoal: 'energy' })}
+                    label="More energy & confidence"
+                  />
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-4">
+                <Button
+                  type="submit"
+                  variant="primary"
+                  icon={Search}
+                  className="w-full"
+                  disabled={!isFormComplete()}
+                >
+                  🔍 Check My Eligibility with the Doctor
+                </Button>
+              </div>
+
+              {/* Result Display */}
+              {showResult && (
+                <div
+                  id="quiz-result"
+                  className="mt-8 p-6 md:p-8 bg-gradient-to-br from-[#1C4E80] to-[#2E445B] rounded-xl text-white animate-fade-in"
+                >
+                  <div className="text-center space-y-4">
+                    <div className="w-16 h-16 mx-auto rounded-full bg-[#C89F65] flex items-center justify-center">
+                      <span className="text-3xl">✓</span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold">Great News!</h3>
+                    <p className="text-base md:text-lg leading-relaxed text-white/95">
+                      Based on your answers, you may be an ideal candidate for a doctor-supervised GLP-1 holistic program that addresses both biology and lifestyle.
+                    </p>
+                    <p className="text-base md:text-lg font-semibold text-[#C89F65]">
+                      Let's confirm with a short consultation.
+                    </p>
+                    <div className="pt-4">
+                      <a href="tel:+919380010221" className="block">
+                        <Button
+                          variant="secondary"
+                          className="w-full bg-white text-[#1C4E80] border-white hover:bg-[#F2F6F8]"
+                        >
+                          📞 Book Your Consultation Now
+                        </Button>
+                      </a>
+                    </div>
+                    <p className="text-sm text-white/80 pt-2">
+                      Our medical team will review your profile and contact you within 24-48 hours
+                    </p>
+                  </div>
+                </div>
+              )}
+            </form>
           </div>
         </div>
       </div>
