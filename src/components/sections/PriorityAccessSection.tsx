@@ -47,7 +47,7 @@ export const PriorityAccessSection: React.FC = () => {
                   icon={Phone}
                   className="w-full sm:w-auto"
                 >
-                  Talk to Us Now
+                  Learn How We Do It
                 </Button>
               </a>
               <Button

@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
                   icon={Phone}
                   className="w-full sm:w-auto h-12 text-[15px] md:text-[16px] px-6"
                 >
-                  Talk to Us
+                  Learn How We Do It
                 </Button>
               </a>
               <div className="w-full sm:w-auto">

@@ -32,7 +32,7 @@ export const CTASection: React.FC = () => {
                 icon={Phone}
                 className="w-full sm:w-auto"
               >
-                Talk to Us
+                Learn How We Do It
               </Button>
             </a>
             <Button

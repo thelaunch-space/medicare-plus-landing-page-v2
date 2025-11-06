@@ -100,8 +100,8 @@ export const TestimonialsSection: React.FC = () => {
 
                 <div className="space-y-3">
                   <a href="tel:+919380010221" className="block">
-                    <Button variant="primary" className="w-full">
-                      Talk to Us
+                    <Button variant="primary" icon={Phone} className="w-full">
+                      Learn How We Do It
                     </Button>
                   </a>
                   <Button
