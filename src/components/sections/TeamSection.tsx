@@ -30,7 +30,7 @@ export const TeamSection: React.FC = () => {
         'He has published over 100+ scientific papers, received multiple national and international awards — including the Cleveland Clinic Caregiver Award, and serves as Principal Investigator on pioneering clinical research in thyroid and diabetes care. He is also a reviewer and editorial board member for leading endocrinology journals.',
         'What sets Dr. Kannan apart is his patient-first philosophy. Every protocol he designs, every treatment he delivers, focuses on sustainable, personalized care rooted in scientific evidence — not shortcuts. His work is driven by the belief that effective weight loss is not just about numbers, but restoring health, energy, and confidence.'
       ],
-      imagePath: '/dr-kannan.jpg'
+      imagePath: '/s-kannan.jpg'
     },
     {
       id: 2,
@@ -44,7 +44,7 @@ export const TeamSection: React.FC = () => {
         'A recipient of prestigious awards such as the Sadhana Award and IAPEN National Award for Excellence in Nutrition, Sheryl has also been recognized globally — including a fellowship at the Children\'s Hospital in Sydney and a contributor role with The Lancet Commission on Type 1 Diabetes.',
         'Beyond clinical work, she\'s a published author, educator, speaker, and an advisor to international diabetes and nutrition associations. Her programs combine evidence-based dietetics with holistic wellness, giving people the tools they need to not just lose weight, but live stronger, healthier, happier lives.'
       ],
-      imagePath: '/sheryl-salis.jpg'
+      imagePath: '/sheryl.jpeg'
     },
     {
       id: 3,
