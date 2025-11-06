@@ -99,7 +99,7 @@ export const TeamSection: React.FC = () => {
                   <img
                     src={member.imagePath}
                     alt={member.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-[50%_25%]"
                     onError={(e) => {
                       // Fallback if image doesn't exist
                       const target = e.target as HTMLImageElement;
