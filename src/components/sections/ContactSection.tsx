@@ -88,7 +88,7 @@ export const ContactSection: React.FC = () => {
     label: string;
   }> = ({ name, value, checked, onChange, label }) => (
     <label
-      className={`flex items-center justify-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+      className={`flex items-center justify-center px-3 py-2 md:py-2.5 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
         checked
           ? 'border-[#1C4E80] bg-[#1C4E80]/5 text-[#1C4E80] font-semibold'
           : 'border-gray-200 bg-white text-[#2E445B] hover:border-[#1C4E80]/30 hover:bg-[#F9FBFC]'
@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
         onChange={onChange}
         className="sr-only"
       />
-      <span className="text-sm md:text-base">{label}</span>
+      <span className="text-xs md:text-sm">{label}</span>
     </label>
   );
 
@@ -114,27 +114,27 @@ export const ContactSection: React.FC = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <div className="max-w-3xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-3">
+        <div className="max-w-4xl mx-auto">
+          {/* Header - Compact & Sleek */}
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-2 whitespace-nowrap overflow-hidden text-ellipsis px-4 sm:px-0 sm:whitespace-normal">
               💊 Check If You Are a GLP-1 Candidate
             </h2>
-            <p className="text-base md:text-lg text-[#2E445B] italic">
-              (Takes 30 seconds to find out)
+            <p className="text-sm md:text-base text-[#2E445B] italic">
+              Takes 30 seconds to find out
             </p>
-            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-[#2E445B]">
-              <Lock className="w-4 h-4 text-[#1C4E80]" />
-              <span>All information is kept strictly confidential</span>
+            <div className="flex items-center justify-center gap-1.5 mt-3 text-xs md:text-sm text-[#2E445B]">
+              <Lock className="w-3.5 h-3.5 text-[#1C4E80]" />
+              <span>Strictly confidential</span>
             </div>
           </div>
 
-          {/* Quiz Form */}
-          <div className="bg-white rounded-2xl shadow-soft-lg p-6 md:p-10">
-            <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Quiz Form - Sleek & Compact */}
+          <div className="bg-white rounded-2xl shadow-soft-lg p-4 md:p-6 lg:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {/* Question 1: Age */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   1️⃣ Age
                 </label>
                 <input
@@ -144,13 +144,13 @@ export const ContactSection: React.FC = () => {
                   placeholder="Enter your age"
                   min="18"
                   max="100"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
+                  className="w-full px-3 py-2 md:py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all text-sm md:text-base"
                 />
               </div>
 
               {/* Question 2: Height */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   2️⃣ Height (cm)
                 </label>
                 <input
@@ -160,13 +160,13 @@ export const ContactSection: React.FC = () => {
                   placeholder="Enter your height in cm"
                   min="100"
                   max="250"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
+                  className="w-full px-3 py-2 md:py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all text-sm md:text-base"
                 />
               </div>
 
               {/* Question 3: Weight with BMI */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   3️⃣ Weight (kg)
                 </label>
                 <input
@@ -177,12 +177,12 @@ export const ContactSection: React.FC = () => {
                   min="30"
                   max="300"
                   step="0.1"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all"
+                  className="w-full px-3 py-2 md:py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all text-sm md:text-base"
                 />
                 {bmi && (
-                  <div className="mt-2 p-3 bg-[#F9FBFC] rounded-lg border border-gray-200">
-                    <p className="text-sm text-[#2E445B]">
-                      Your BMI: <span className={`font-bold ${getBMICategoryColor(bmi)}`}>
+                  <div className="mt-1.5 p-2 bg-[#F9FBFC] rounded-lg border border-gray-200">
+                    <p className="text-xs md:text-sm text-[#2E445B]">
+                      BMI: <span className={`font-bold ${getBMICategoryColor(bmi)}`}>
                         {bmi.toFixed(1)} ({getBMICategory(bmi)})
                       </span>
                     </p>
@@ -191,11 +191,11 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Question 4: Diabetes */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   4️⃣ Do you have diabetes, pre-diabetes, or insulin resistance?
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <RadioButton
                     name="diabetes"
                     value="yes"
@@ -221,11 +221,11 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Question 5: Previous Attempts */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   5️⃣ Have you tried diet or exercise programs before without sustained success?
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <RadioButton
                     name="previousAttempts"
                     value="yes"
@@ -244,11 +244,11 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Question 6: Cravings */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   6️⃣ Do you often struggle with food cravings or portion control?
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <RadioButton
                     name="cravings"
                     value="yes"
@@ -274,11 +274,11 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Question 7: Current Medications */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   7️⃣ Are you currently on any weight-loss medications or injections?
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <RadioButton
                     name="currentMeds"
                     value="yes"
@@ -297,11 +297,11 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Question 8: Top Goal */}
-              <div className="space-y-3">
-                <label className="block text-base md:text-lg font-semibold text-[#1A1A1A]">
+              <div className="space-y-2">
+                <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
                   8️⃣ What's your top goal?
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <RadioButton
                     name="topGoal"
                     value="steady-weight"
@@ -327,7 +327,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-              <div className="pt-4">
+              <div className="pt-2">
                 <Button
                   type="submit"
                   variant="primary"
@@ -335,39 +335,39 @@ export const ContactSection: React.FC = () => {
                   className="w-full"
                   disabled={!isFormComplete()}
                 >
-                  🔍 Check My Eligibility with the Doctor
+                  🔍 Check My Eligibility
                 </Button>
               </div>
 
-              {/* Result Display */}
+              {/* Result Display - Compact */}
               {showResult && (
                 <div
                   id="quiz-result"
-                  className="mt-8 p-6 md:p-8 bg-gradient-to-br from-[#1C4E80] to-[#2E445B] rounded-xl text-white animate-fade-in"
+                  className="mt-4 p-4 md:p-6 bg-gradient-to-br from-[#1C4E80] to-[#2E445B] rounded-xl text-white animate-fade-in"
                 >
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-[#C89F65] flex items-center justify-center">
-                      <span className="text-3xl">✓</span>
+                  <div className="text-center space-y-3">
+                    <div className="w-12 h-12 mx-auto rounded-full bg-[#C89F65] flex items-center justify-center">
+                      <span className="text-2xl">✓</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold">Great News!</h3>
-                    <p className="text-base md:text-lg leading-relaxed text-white/95">
+                    <h3 className="text-lg md:text-xl font-bold">Great News!</h3>
+                    <p className="text-sm md:text-base leading-relaxed text-white/95">
                       Based on your answers, you may be an ideal candidate for a doctor-supervised GLP-1 holistic program that addresses both biology and lifestyle.
                     </p>
-                    <p className="text-base md:text-lg font-semibold text-[#C89F65]">
+                    <p className="text-sm md:text-base font-semibold text-[#C89F65]">
                       Let's confirm with a short consultation.
                     </p>
-                    <div className="pt-4">
+                    <div className="pt-2">
                       <a href="tel:+919380010221" className="block">
                         <Button
                           variant="secondary"
                           className="w-full bg-white text-[#1C4E80] border-white hover:bg-[#F2F6F8]"
                         >
-                          📞 Book Your Consultation Now
+                          📞 Book Consultation
                         </Button>
                       </a>
                     </div>
-                    <p className="text-sm text-white/80 pt-2">
-                      Our medical team will review your profile and contact you within 24-48 hours
+                    <p className="text-xs text-white/80 pt-1">
+                      Response within 24-48 hours
                     </p>
                   </div>
                 </div>
