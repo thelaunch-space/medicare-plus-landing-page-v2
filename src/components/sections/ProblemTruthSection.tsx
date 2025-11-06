@@ -18,7 +18,7 @@ export const ProblemTruthSection: React.FC = () => {
         <div className="text-center max-w-5xl mx-auto">
           <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">UNDERSTAND THE FULL PICTURE</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A]">
-            Why <span className="text-[#1C4E80]">GLP-1</span> works—and why results don’t last without a plan
+            Why <span className="text-[#1C4E80]">GLP-1</span> alone may not yield long term results - and how it can impact your wellness
           </h2>
           <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#F2F6F8' }}>
             <span className="text-sm text-[#2E445B]">GLP‑1 lowers appetite quickly; without behavioral and metabolic care, results often fade. We add both.</span>

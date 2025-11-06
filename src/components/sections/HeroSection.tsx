@@ -43,7 +43,7 @@ export const HeroSection: React.FC = () => {
               Secure lasting results with doctor-led care.
             </h2>
             <p className="mt-4 text-base sm:text-lg lg:text-lg leading-relaxed text-[#2E445B] max-w-[560px]">
-              Doctor-led medication management, psychological support for emotional eating, and personalized nutrition—all integrated into one confidential program tailored to your lifestyle.
+              Endocrinologist led Medication management, psychological support for motivation and good habits, personally tailored dietetics and nutrition support - clinically co-ordinated to deliver optimum results for a healthy life
             </p>
 
             {/* CTAs */}

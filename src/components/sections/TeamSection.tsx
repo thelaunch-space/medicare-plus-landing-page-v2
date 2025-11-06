@@ -22,7 +22,7 @@ export const TeamSection: React.FC = () => {
       id: 1,
       name: 'Dr. Subramanian Kannan, MD',
       role: 'US Board-Certified Endocrinologist',
-      credentials: 'American Board (Internal Medicine & Endocrinology)',
+      credentials: 'MD AB (Internal Medicine & Endocrinology) | Cleveland Clinic',
       atAGlance: 'Clinical Lead – Weight Loss Program. US-trained endocrinologist with 15+ years of global experience in diabetes, obesity, and metabolic health.',
       fullBio: [
         'Dr. Subramanian Kannan is a US-trained, board-certified endocrinologist with over 15 years of global experience in treating diabetes, obesity, thyroid, and hormonal disorders. He currently serves as Consultant and Head of Endocrinology at Narayana Health City, Bangalore, and leads clinical programs at the Mazumdar Shaw Medical Center.',

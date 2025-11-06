@@ -17,8 +17,8 @@ export const TimelineSection: React.FC = () => {
       purpose: 'Getting you started safely with coordinated specialist care',
       highlights: [
         'Initial consultation: GLP-1 review, baseline labs, and metabolic profile',
-        'Personalized meal plan with high-protein, high-fiber strategy',
-        'Light activity routine: 15-30 minutes daily walking',
+        'Personalized meal plan',
+        'Personalized activity routine',
         'Mental health screening and mindful eating introduction',
       ],
     },
@@ -38,7 +38,6 @@ export const TimelineSection: React.FC = () => {
       title: 'Optimization & Sustainability',
       purpose: 'Building long-term success and preventing relapse',
       highlights: [
-        'Target achieved: 5-10% body weight loss',
         'Sustainable meal templates and plateau management',
         'Relapse prevention and body acceptance work',
         'Celebrate non-scale wins: strength, energy, mood',

@@ -22,7 +22,7 @@ export const ScienceSection: React.FC = () => {
           </h2>
           <div className="flex items-center justify-center gap-2 text-base sm:text-lg text-[#2E445B]">
             <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-            <span>Only <span className="font-bold text-red-500">12%</span> complete their GLP-1 journey without structured support</span>
+            <span>More than <span className="font-bold text-red-500">50%</span> quit within a year after spending resources and regaining weight</span>
           </div>
         </div>
 
@@ -79,11 +79,7 @@ export const ScienceSection: React.FC = () => {
           </div>
 
           {/* Right: The Solution */}
-          <div className="bg-gradient-to-br from-[#1C4E80] to-[#2E445B] rounded-xl p-6 md:p-8 text-white shadow-soft">
-            <h3 className="text-lg md:text-xl font-bold mb-4 text-center">
-              With continuous medical supervision
-            </h3>
-
+          <div className="bg-gradient-to-br from-[#1C4E80] to-[#2E445B] rounded-xl p-6 md:p-8 text-white shadow-soft flex flex-col justify-center">
             <div className="space-y-3">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                 <div className="flex items-center gap-3">
@@ -114,8 +110,7 @@ export const ScienceSection: React.FC = () => {
 
             <div className="mt-4 pt-4 border-t border-white/20">
               <p className="text-xs md:text-sm text-white/90 text-center leading-relaxed">
-                Results matching clinical trials through
-                <span className="font-semibold text-[#C89F65]"> weekly coordination & proactive support</span>
+                Results matching clinical trials
               </p>
             </div>
 

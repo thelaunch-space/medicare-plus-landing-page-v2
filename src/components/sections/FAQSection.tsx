@@ -33,11 +33,6 @@ export const FAQSection: React.FC = () => {
       question: 'What if I experience side effects?',
       answer: 'Our medical team is available to address side effects promptly. We provide proactive management strategies and adjust your treatment plan as needed.',
     },
-    {
-      id: 6,
-      question: 'Do you accept insurance?',
-      answer: 'We can provide documentation for insurance reimbursement. Contact us to discuss your specific insurance situation and coverage options.',
-    },
   ];
 
   const toggleFAQ = (id: number) => {
