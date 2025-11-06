@@ -32,7 +32,7 @@ export const PriorityAccessSection: React.FC = () => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Join an Exclusive Cohort of <span className="text-[#C89F65]">10 Executives</span>
+              Join an <span className="text-[#C89F65]">Exclusive Cohort</span>
             </h2>
 
             <p className="text-base md:text-lg text-white/90 mb-6">
@@ -91,7 +91,7 @@ export const PriorityAccessSection: React.FC = () => {
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-[#2E445B]">
-                    <span className="font-semibold text-[#1A1A1A]">Executive or founder</span> with demanding schedule
+                    <span className="font-semibold text-[#1A1A1A]">C-Suite or founder</span> with demanding schedule
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -156,45 +156,6 @@ export const PriorityAccessSection: React.FC = () => {
                   </span>
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Program Expectations with Pricing */}
-        <div className="bg-white rounded-xl p-6 md:p-8 shadow-soft border-2 border-[#1C4E80]/20">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center shadow-button-3d">
-              <Target className="w-6 h-6 text-white" />
-            </div>
-            <div className="text-center sm:text-left">
-              <h3 className="text-lg md:text-xl font-bold text-[#1A1A1A]">What to Expect</h3>
-              <p className="text-xs md:text-sm text-[#1C4E80] font-semibold">Designed for executive schedules</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            <div className="text-center p-3 md:p-4 rounded-lg bg-[#F9FBFC] border border-gray-100">
-              <div className="text-xl md:text-2xl font-bold text-[#1C4E80] mb-1">3-6</div>
-              <p className="text-xs text-[#2E445B]">Months</p>
-            </div>
-            <div className="text-center p-3 md:p-4 rounded-lg bg-[#F9FBFC] border border-gray-100">
-              <div className="text-xl md:text-2xl font-bold text-[#1C4E80] mb-1">1-3</div>
-              <p className="text-xs text-[#2E445B]">Hours/week</p>
-            </div>
-            <div className="text-center p-3 md:p-4 rounded-lg bg-[#F9FBFC] border border-gray-100">
-              <div className="text-xl md:text-2xl font-bold text-[#1C4E80] mb-1">Weekly</div>
-              <p className="text-xs text-[#2E445B]">Check-ins</p>
-            </div>
-            <div className="text-center p-3 md:p-4 rounded-lg bg-[#F9FBFC] border border-gray-100">
-              <div className="text-xl md:text-2xl font-bold text-[#1C4E80] mb-1">4-8</div>
-              <p className="text-xs text-[#2E445B]">Weeks to results</p>
-            </div>
-            <div className="text-center p-3 md:p-4 rounded-lg bg-[#F9FBFC] border border-gray-100 col-span-2 md:col-span-1">
-              <div className="flex items-center justify-center gap-1 mb-1">
-                <DollarSign className="w-4 h-4 md:w-5 md:h-5 text-[#1C4E80]" />
-                <div className="text-xl md:text-2xl font-bold text-[#1C4E80]">2-2.7L</div>
-              </div>
-              <p className="text-xs text-[#2E445B]">Investment</p>
             </div>
           </div>
         </div>

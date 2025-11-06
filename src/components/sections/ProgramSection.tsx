@@ -14,22 +14,22 @@ export const ProgramSection: React.FC = () => {
   const features = [
     {
       icon: Stethoscope,
-      title: 'GLP-1 dosing + endocrinology oversight',
+      title: 'GLP-1 Dosing + Endocrinology Oversight',
       delay: '0',
     },
     {
       icon: Apple,
-      title: 'Personalized Indian meal plans',
+      title: 'Personalized Regional Indian Menus',
       delay: '200',
     },
     {
       icon: Brain,
-      title: 'Behavioral therapy for emotional eating',
+      title: 'Behavioral Therapy for a Healthier Lifestyle',
       delay: '400',
     },
     {
       icon: Dumbbell,
-      title: 'Time-efficient resistance + mobility workouts',
+      title: 'Time-Efficient Resistance + Mobility Workouts',
       delay: '600',
     },
   ];
@@ -67,12 +67,12 @@ export const ProgramSection: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in animation-delay-${feature.delay}`}
+                  className={`bg-white rounded-2xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in animation-delay-${feature.delay} flex flex-col`}
                 >
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center mb-4 shadow-button-3d">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <p className="font-semibold text-[#1A1A1A]">
+                  <p className="font-semibold text-[#1A1A1A] min-h-[3.5rem] flex items-center">
                     {feature.title}
                   </p>
                 </div>
