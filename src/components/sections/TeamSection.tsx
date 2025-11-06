@@ -45,6 +45,19 @@ export const TeamSection: React.FC = () => {
         'Beyond clinical work, she\'s a published author, educator, speaker, and an advisor to international diabetes and nutrition associations. Her programs combine evidence-based dietetics with holistic wellness, giving people the tools they need to not just lose weight, but live stronger, healthier, happier lives.'
       ],
       imagePath: '/sheryl-salis.jpg'
+    },
+    {
+      id: 3,
+      name: 'Dr. Venkatesh Veera, MBBS MBA',
+      role: 'Program Director & Medical Strategist',
+      credentials: 'Ex-Mayo Clinic, Johnson & Johnson',
+      atAGlance: 'Program architect with decades of experience across medicine, pharmaceuticals, and medical technology, pioneering personalized, doctor-led metabolic care.',
+      fullBio: [
+        'Dr. Venkatesh brings together decades of experience across medicine, pharmaceuticals, and medical technology, with a vision to redefine weight management through personalized, doctor-led care. Having worked across diverse global healthcare systems, he understands the nuances of how science, behavior, and culture influence health outcomes.',
+        'He unites endocrinology, nutrition, psychology, and exercise under a coordinated clinical framework, ensuring every client receives a plan that is as individual as their biology.',
+        'Grounded in science and empathy, Dr. Venkatesh champions a holistic, concierge model of metabolic transformation for lasting results.'
+      ],
+      imagePath: '/dr-venkatesh.jpg'
     }
   ];
 
@@ -60,31 +73,33 @@ export const TeamSection: React.FC = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
+        {/* Compact header for better fold fit */}
+        <div className="text-center max-w-4xl mx-auto mb-6 lg:mb-8">
           <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">YOUR CARE TEAM</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1A1A] mb-2">
             Meet your <span className="text-[#1C4E80]">multidisciplinary team</span>
           </h2>
-          <p className="text-base md:text-lg text-[#2E445B]">Trusted experts. Unified care.</p>
+          <p className="text-sm sm:text-base lg:text-lg text-[#2E445B]">Trusted experts. Unified care.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+        {/* 3-column grid on desktop for perfect fold fit */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 max-w-7xl mx-auto">
           {team.map((member, index) => {
             const isExpanded = expandedId === member.id;
 
             return (
               <div
                 key={member.id}
-                className={`bg-white rounded-xl shadow-soft overflow-hidden animate-fade-in animation-delay-${index * 200} transition-all duration-300 ${
+                className={`bg-white rounded-xl shadow-soft overflow-hidden animate-fade-in animation-delay-${index * 200} transition-all duration-300 flex flex-col ${
                   isExpanded ? 'ring-2 ring-[#1C4E80]' : ''
                 }`}
               >
-                {/* Card Header - Always Visible */}
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-4">
-                    {/* Profile Image */}
-                    <div className="flex-shrink-0 mx-auto sm:mx-0">
-                      <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600 shadow-soft-lg">
+                {/* Card Header - Compact for fold fit */}
+                <div className="p-4 lg:p-5">
+                  <div className="flex flex-col items-center gap-3 mb-3">
+                    {/* Smaller profile image for compact layout */}
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden bg-gradient-to-br from-[#1C4E80] to-blue-600 shadow-soft-lg">
                         <img
                           src={member.imagePath}
                           alt={member.name}
@@ -99,7 +114,7 @@ export const TeamSection: React.FC = () => {
                           }}
                         />
                         <div
-                          className="w-full h-full hidden items-center justify-center text-white text-3xl font-bold"
+                          className="w-full h-full hidden items-center justify-center text-white text-2xl font-bold"
                           style={{ display: 'none' }}
                         >
                           {member.name.split(' ')[0][0]}{member.name.split(' ')[member.name.split(' ').length - 1][0]}
@@ -107,55 +122,55 @@ export const TeamSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Name & Credentials */}
-                    <div className="flex-1 text-center sm:text-left">
-                      <h3 className="text-lg md:text-xl font-bold text-[#1A1A1A] mb-1">
+                    {/* Name & Credentials - Centered, Compact */}
+                    <div className="flex-1 text-center">
+                      <h3 className="text-base lg:text-lg font-bold text-[#1A1A1A] mb-1 leading-tight">
                         {member.name}
                       </h3>
-                      <p className="text-sm md:text-base text-[#1C4E80] font-semibold mb-2">
+                      <p className="text-xs lg:text-sm text-[#1C4E80] font-semibold mb-2 leading-snug">
                         {member.role}
                       </p>
-                      <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-[#2E445B]">
-                        <Award className="w-4 h-4 text-[#C89F65]" />
-                        <span>{member.credentials}</span>
+                      <div className="flex items-center justify-center gap-1.5 text-[10px] lg:text-xs text-[#2E445B]">
+                        <Award className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#C89F65] flex-shrink-0" />
+                        <span className="leading-tight">{member.credentials}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* At a Glance */}
-                  <div className="mb-4">
-                    <p className="text-sm md:text-base text-[#2E445B] leading-relaxed">
+                  {/* At a Glance - Compact */}
+                  <div className="mb-3">
+                    <p className="text-xs lg:text-sm text-[#2E445B] leading-relaxed text-center">
                       {member.atAGlance}
                     </p>
                   </div>
 
-                  {/* View More/Less Button */}
+                  {/* View More/Less Button - Compact */}
                   <button
                     onClick={() => toggleExpand(member.id)}
-                    className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-[#F9FBFC] hover:bg-[#F2F6F8] text-[#1C4E80] font-semibold text-sm transition-colors duration-200 border border-[#1C4E80]/20"
+                    className="flex items-center justify-center gap-1.5 w-full px-3 py-2 rounded-lg bg-[#F9FBFC] hover:bg-[#F2F6F8] text-[#1C4E80] font-semibold text-xs lg:text-sm transition-colors duration-200 border border-[#1C4E80]/20"
                   >
-                    <BookOpen className="w-4 h-4" />
+                    <BookOpen className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                     <span>{isExpanded ? 'View Less' : 'View Full Bio'}</span>
                     {isExpanded ? (
-                      <ChevronUp className="w-4 h-4" />
+                      <ChevronUp className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                     ) : (
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                     )}
                   </button>
                 </div>
 
-                {/* Expanded Bio */}
+                {/* Expanded Bio - Scrollable to stay within fold */}
                 <div
                   className={`transition-all duration-500 ease-in-out ${
                     isExpanded
-                      ? 'max-h-[2000px] opacity-100'
+                      ? 'max-h-[400px] lg:max-h-[450px] opacity-100'
                       : 'max-h-0 opacity-0'
                   } overflow-hidden`}
                 >
-                  <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
-                    <div className="border-t border-gray-200 pt-6 space-y-4">
+                  <div className="px-4 lg:px-5 pb-4 lg:pb-5 pt-0 max-h-[400px] lg:max-h-[450px] overflow-y-auto">
+                    <div className="border-t border-gray-200 pt-4 space-y-3">
                       {member.fullBio.map((paragraph, idx) => (
-                        <p key={idx} className="text-sm md:text-base text-[#2E445B] leading-relaxed">
+                        <p key={idx} className="text-xs lg:text-sm text-[#2E445B] leading-relaxed">
                           {paragraph}
                         </p>
                       ))}
@@ -165,13 +180,6 @@ export const TeamSection: React.FC = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* Note about more team members */}
-        <div className="mt-8 text-center">
-          <p className="text-sm text-[#2E445B] italic">
-            Additional team members (Psychologist & Program Coordinator) coming soon
-          </p>
         </div>
       </div>
     </Section>
