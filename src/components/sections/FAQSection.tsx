@@ -26,7 +26,7 @@ export const FAQSection: React.FC = () => {
     {
       id: 4,
       question: 'Is it confidential?',
-      answer: 'Absolutely. Every consultation and record is private. We maintain strict HIPAA compliance and take your privacy seriously.',
+      answer: 'Absolutely. Every consultation and record is private. We follow strict medical confidentiality protocols and take your privacy seriously.',
     },
     {
       id: 5,
