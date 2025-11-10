@@ -81,9 +81,9 @@ export const TeamSection: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto mb-6 lg:mb-8">
           <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">YOUR CARE TEAM</p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1A1A] mb-2">
-            Meet Your <span className="text-[#1C4E80]">Multidisciplinary Team</span>
+            The Experts <span className="text-[#1C4E80]">Guiding Your Program</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-[#2E445B]">Trusted experts. Unified care.</p>
+          <p className="text-sm sm:text-base lg:text-lg text-[#2E445B]">Specialist Care Focused on Your Journey</p>
         </div>
 
         {/* 3-column grid on desktop for perfect fold fit */}
