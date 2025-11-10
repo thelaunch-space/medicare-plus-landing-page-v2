@@ -92,7 +92,7 @@ export const TestimonialsSection: React.FC = () => {
             <div className="flex-shrink-0 w-full md:w-auto">
               <div className="bg-white rounded-2xl shadow-soft-lg p-8 border border-gray-200 max-w-sm mx-auto md:mx-0">
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
-                  Why join our priority program?
+                  Why Join Our Priority Program?
                 </h3>
                 <p className="text-[#2E445B] mb-6 leading-relaxed">
                   As a priority member, you're not just getting treatment—you're getting exclusive access to personalized weight loss care with unparalleled attention.

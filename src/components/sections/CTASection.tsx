@@ -22,7 +22,7 @@ export const CTASection: React.FC = () => {
       >
         <div className="text-center space-y-8">
           <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Ready for lasting results?
+            Ready for Lasting Results?
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

@@ -18,7 +18,7 @@ export const ScienceSection: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto mb-6 md:mb-8">
           <p className="text-xs uppercase tracking-wide text-[#1C4E80]/80 mb-2">CLINICAL EVIDENCE</p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-3">
-            Why medical supervision <span className="text-[#1C4E80]">matters</span>
+            Why Medical Supervision <span className="text-[#1C4E80]">Matters</span>
           </h2>
           <div className="flex items-center justify-center gap-2 text-base sm:text-lg text-[#2E445B]">
             <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
@@ -32,7 +32,7 @@ export const ScienceSection: React.FC = () => {
           {/* Left: The Problem */}
           <div className="bg-white rounded-xl p-6 md:p-8 shadow-soft">
             <h3 className="text-lg md:text-xl font-bold text-[#1A1A1A] mb-4 text-center">
-              Without medical support
+              Without Medical Support
             </h3>
 
             <div className="space-y-3">

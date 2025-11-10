@@ -46,10 +46,10 @@ export const ProgramSection: React.FC = () => {
           <div className="space-y-5">
             <p className="text-sm uppercase tracking-wide text-[#1C4E80]/80">The Approach</p>
             <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A]">
-              How we close the gap
+              How We Close the Gap
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold text-[#1A1A1A]/90">
-              A <span className="text-[#1C4E80]">4-specialist team</span> built around your life.
+              A <span className="text-[#1C4E80]">4-Specialist Team</span> Built Around Your Life.
             </h3>
             <p className="text-lg text-[#2E445B]">
               Medication is the starting point. Leave the rest to us. Our 4-specialist team gives you the psychological tools, nutrition strategy, and medical oversight to turn initial progress into lasting transformation.

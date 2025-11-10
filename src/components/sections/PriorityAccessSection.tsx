@@ -68,7 +68,7 @@ export const PriorityAccessSection: React.FC = () => {
         {/* Qualification Grid - Is This Program Right for You? */}
         <div className="mb-8">
           <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-6 text-center">
-            Is this program right for you?
+            Is This Program Right for You?
           </h3>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -78,7 +78,7 @@ export const PriorityAccessSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-button-3d">
                   <CheckCircle className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Perfect if you are...</h4>
+                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Perfect If You Are...</h4>
               </div>
 
               <ul className="space-y-3">
@@ -121,7 +121,7 @@ export const PriorityAccessSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-button-3d">
                   <XCircle className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Not right if you want...</h4>
+                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Not Right If You Want...</h4>
               </div>
 
               <ul className="space-y-3">
