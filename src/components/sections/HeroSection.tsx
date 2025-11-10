@@ -43,7 +43,7 @@ export const HeroSection: React.FC = () => {
               Secure lasting results with doctor-led care.
             </h2>
             <p className="mt-4 text-base sm:text-lg lg:text-lg leading-relaxed text-[#2E445B] max-w-[560px]">
-              Endocrinologist led Medication management, psychological support for motivation and good habits, personally tailored dietetics and nutrition support - clinically co-ordinated to deliver optimum results for a healthy life
+              Doctor-led care that combines safe medication, practical nutrition and mindset support - so you lose weight <span className="text-[#1C4E80] font-semibold">the right way</span>.
             </p>
 
             {/* CTAs */}
