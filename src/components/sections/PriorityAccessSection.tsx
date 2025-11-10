@@ -32,12 +32,12 @@ export const PriorityAccessSection: React.FC = () => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Join an <span className="text-[#C89F65]">Exclusive Cohort</span>
+              Join a <span className="text-[#C89F65]">Limited Access Program</span>
             </h2>
 
             <p className="text-base md:text-lg text-white/90 mb-6">
-              Doctor-supervised GLP-1 program designed for demanding schedules.
-              <span className="block mt-1 text-sm text-white/70">Next cohort opens in 3 months • Limited to 10 applications</span>
+              Doctor-supervised GLP-1 program, personalized for your body and lifestyle.
+              <span className="block mt-1 text-sm text-white/70">Next program opens in 3 months • Limited to 10 applications</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
@@ -85,7 +85,7 @@ export const PriorityAccessSection: React.FC = () => {
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-[#2E445B]">
-                    Currently using or considering <span className="font-semibold text-[#1A1A1A]">GLP-1 medications</span> (Ozempic, Wegovy, Saxenda)
+                    Currently using or considering <span className="font-semibold text-[#1A1A1A]">GLP-1 medications</span> (Ozempic, Wegovy, Mounjaro)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

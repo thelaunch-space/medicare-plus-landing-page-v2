@@ -59,7 +59,7 @@ export const WhoSection: React.FC = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-[#1A1A1A] mb-1">GLP-1 Users</h4>
-                          <p className="text-sm text-[#2E445B]">Currently using or considering Ozempic, Wegovy, Saxenda</p>
+                          <p className="text-sm text-[#2E445B]">Currently using or considering Ozempic, Wegovy, Mounjaro</p>
                         </div>
                       </div>
 
