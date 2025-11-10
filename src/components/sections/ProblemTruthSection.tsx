@@ -18,10 +18,10 @@ export const ProblemTruthSection: React.FC = () => {
         <div className="text-center max-w-5xl mx-auto">
           <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">UNDERSTAND THE FULL PICTURE</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A]">
-            Why <span className="text-[#1C4E80]">GLP-1</span> alone may not yield long term results - and how it can impact your wellness
+            Why <span className="text-[#1C4E80]">GLP-1</span> Alone Isn't Enough for Lasting Results
           </h2>
           <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#F2F6F8' }}>
-            <span className="text-sm text-[#2E445B]">GLP‑1 lowers appetite quickly; without behavioral and metabolic care, results often fade. We add both.</span>
+            <span className="text-sm text-[#2E445B]">GLP 1 helps you lose weight only in the short term but only when it is combined with the right food, activity and mindset the results are long term.</span>
           </div>
         </div>
 
@@ -33,11 +33,11 @@ export const ProblemTruthSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1C4E80] to-blue-600 flex items-center justify-center shadow-button-3d">
                   <Activity className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A]">The power of GLP‑1</h3>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">What GLP 1 Does</h3>
               </div>
               <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Appetite down</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Cravings down</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Helps control hunger</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>You feel full sooner</span></li>
                 <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Early weight loss</span></li>
               </ul>
             </div>
@@ -50,12 +50,12 @@ export const ProblemTruthSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-button-3d" style={{ backgroundColor: 'white' }}>
                   <AlertCircle className="w-6 h-6 text-red-500" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A]">What breaks when used alone</h3>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">What Happens When GLP 1 Alone Is Used</h3>
               </div>
               <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Habits persist</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Lean mass risk</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Rebound risk</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Loss of muscles</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Weight regain likely</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-red-500 mt-1">•</span><span>Old habits do not change</span></li>
               </ul>
             </div>
           </Card>
@@ -67,13 +67,13 @@ export const ProblemTruthSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C89F65] to-amber-600 flex items-center justify-center shadow-button-3d">
                   <Shield className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A]">How we close the gap</h3>
+                <h3 className="text-xl font-bold text-[#1A1A1A]">How We Close the Gap</h3>
               </div>
               <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Dose titration</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Behavioral therapy for triggers</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Protein + strength</span></li>
-                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Planned taper</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Right dose, guided by your doctor</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Habit coaching</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Focus on avoiding muscle loss</span></li>
+                <li className="flex items-start gap-2 text-sm text-[#2E445B]"><span className="text-[#1C4E80] mt-1">•</span><span>Long term plan</span></li>
               </ul>
             </div>
           </Card>

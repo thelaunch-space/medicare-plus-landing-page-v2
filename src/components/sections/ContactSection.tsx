@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Lock } from 'lucide-react';
+import { Lock } from 'lucide-react';
 import { Section } from '../Section';
 import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
@@ -118,10 +118,10 @@ export const ContactSection: React.FC = () => {
           {/* Header - Compact & Sleek */}
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-2 whitespace-nowrap overflow-hidden text-ellipsis px-4 sm:px-0 sm:whitespace-normal">
-              💊 Check If You Are a GLP-1 Candidate
+              Share Your Details
             </h2>
             <p className="text-sm md:text-base text-[#2E445B] italic">
-              Takes 30 seconds to find out
+              We'll get back to you within 24-48 hours
             </p>
             <div className="flex items-center justify-center gap-1.5 mt-3 text-xs md:text-sm text-[#2E445B]">
               <Lock className="w-3.5 h-3.5 text-[#1C4E80]" />
@@ -331,11 +331,10 @@ export const ContactSection: React.FC = () => {
                 <Button
                   type="submit"
                   variant="primary"
-                  icon={Search}
                   className="w-full"
                   disabled={!isFormComplete()}
                 >
-                  🔍 Check My Eligibility
+                  I Want to Learn More
                 </Button>
               </div>
 
@@ -349,12 +348,12 @@ export const ContactSection: React.FC = () => {
                     <div className="w-12 h-12 mx-auto rounded-full bg-[#C89F65] flex items-center justify-center">
                       <span className="text-2xl">✓</span>
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold">Great News!</h3>
+                    <h3 className="text-lg md:text-xl font-bold">Thank You!</h3>
                     <p className="text-sm md:text-base leading-relaxed text-white/95">
-                      Based on your answers, you may be an ideal candidate for a doctor-supervised GLP-1 holistic program that addresses both biology and lifestyle.
+                      We've received your information. Our founding team will personally review your details and reach out to you soon.
                     </p>
                     <p className="text-sm md:text-base font-semibold text-[#C89F65]">
-                      Let's confirm with a short consultation.
+                      We're excited to connect with you!
                     </p>
                     <div className="pt-2">
                       <a href="tel:+919380010221" className="block">
@@ -362,12 +361,12 @@ export const ContactSection: React.FC = () => {
                           variant="secondary"
                           className="w-full bg-white text-[#1C4E80] border-white hover:bg-[#F2F6F8]"
                         >
-                          📞 Book Consultation
+                          Or Call Us Now
                         </Button>
                       </a>
                     </div>
                     <p className="text-xs text-white/80 pt-1">
-                      Response within 24-48 hours
+                      Expect a response within 24-48 hours
                     </p>
                   </div>
                 </div>

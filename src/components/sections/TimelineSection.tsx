@@ -13,34 +13,34 @@ export const TimelineSection: React.FC = () => {
   const months = [
     {
       number: 1,
-      title: 'Foundation & Stabilization',
-      purpose: 'Getting you started safely with coordinated specialist care',
+      title: 'Foundation & Assessment',
+      purpose: 'Establishing your baseline and personalized plan',
       highlights: [
-        'Initial consultation: GLP-1 review, baseline labs, and metabolic profile',
+        'We review your GLP-1 plan, do key blood tests, and assess your overall health',
         'Personalized meal plan',
         'Personalized activity routine',
-        'Mental health screening and mindful eating introduction',
+        'Stress and mood check',
       ],
     },
     {
       number: 2,
-      title: 'Acceleration & Refinement',
-      purpose: 'Optimizing your dosage and building sustainable habits',
+      title: 'Optimization & Habit Building',
+      purpose: 'Fine-tuning treatment and building lasting routines',
       highlights: [
-        'GLP-1 dose titration and side effect management',
-        'Advanced nutrition: meal timing and glycemic control strategies',
-        'Progressive exercise: 4-5x/week with cardio and strength training',
-        'Deep dive into food beliefs and habit tracking',
+        'GLP 1 dose adjustment and side effect care',
+        'Smart Nutrition when and what to eat for steady sugar levels',
+        'Move more, get stronger - 4 to 5 days a week',
+        'Explore your food patterns and track your habits',
       ],
     },
     {
       number: 3,
-      title: 'Optimization & Sustainability',
-      purpose: 'Building long-term success and preventing relapse',
+      title: 'Sustaining Results',
+      purpose: 'Locking in lasting transformation',
       highlights: [
-        'Sustainable meal templates and plateau management',
-        'Relapse prevention and body acceptance work',
-        'Celebrate non-scale wins: strength, energy, mood',
+        'Simple meal guides that help to keep results moving',
+        'Keep progress steady and boost confidence',
+        'Feel stronger, happier and more energetic',
       ],
     },
   ];
@@ -56,10 +56,10 @@ export const TimelineSection: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto mb-16">
           <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">YOUR ROADMAP</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-            Your <span className="text-[#1C4E80]">3-Month Roadmap</span> to Sustainable Weight Loss
+            How We Deliver <span className="text-[#1C4E80]">Results</span>
           </h2>
           <p className="text-lg text-[#2E445B] max-w-2xl mx-auto mt-4">
-            Safe, sustainable weight loss while maximizing GLP-1 effectiveness through coordinated specialist care.
+            A 4-specialist team that works in co-ordination understanding each patient and tailoring personalized treatment week on week that ensures lasting transformation.
           </p>
         </div>
 

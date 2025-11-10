@@ -18,7 +18,7 @@ export const WhoSection: React.FC = () => {
         <div className="text-center max-w-6xl mx-auto mb-12">
           <p className="text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">FOR FOUNDERS & EXECUTIVES</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-            Who this is <span className="text-[#1C4E80]">for</span>
+            Who This Is <span className="text-[#1C4E80]">For</span>
           </h2>
           <p className="text-lg text-[#2E445B]">
             Medical weight loss designed for demanding schedules and high standards
@@ -59,7 +59,7 @@ export const WhoSection: React.FC = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-[#1A1A1A] mb-1">GLP-1 Users</h4>
-                          <p className="text-sm text-[#2E445B]">Currently using or considering Ozempic, Wegovy, Saxenda</p>
+                          <p className="text-sm text-[#2E445B]">Currently using or considering Ozempic, Wegovy, Mounjaro</p>
                         </div>
                       </div>
 

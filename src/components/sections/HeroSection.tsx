@@ -37,13 +37,13 @@ export const HeroSection: React.FC = () => {
           {/* Left Column - Text + CTAs */}
           <div className="flex flex-col justify-center">
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight leading-snug sm:leading-tight">
-              On Ozempic or Wegovy and worried about regaining weight?
+              On Ozempic or Wegovy and Worried about Regaining Weight?
             </h1>
             <h2 className="mt-6 text-lg sm:text-xl md:text-xl lg:text-2xl leading-relaxed font-semibold text-[#1C4E80]">
-              Secure lasting results with doctor-led care.
+              Secure Lasting Results with Doctor-Led Care.
             </h2>
             <p className="mt-4 text-base sm:text-lg lg:text-lg leading-relaxed text-[#2E445B] max-w-[560px]">
-              Endocrinologist led Medication management, psychological support for motivation and good habits, personally tailored dietetics and nutrition support - clinically co-ordinated to deliver optimum results for a healthy life
+              Doctor-led care that combines safe medication, practical nutrition and mindset support - so you lose weight <span className="text-[#1C4E80] font-semibold">the right way</span>.
             </p>
 
             {/* CTAs */}
@@ -74,7 +74,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Trust Bar Chips */}
             <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
-              {['Doctor-supervised', 'Science-backed', 'Personalized to Your Lifestyle'].map((label) => (
+              {['Clinically Supervised', 'Mind-body support', 'Lasting transformation'].map((label) => (
                 <div
                   key={label}
                   className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-2"

@@ -32,12 +32,12 @@ export const PriorityAccessSection: React.FC = () => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Join an <span className="text-[#C89F65]">Exclusive Cohort</span>
+              Join a <span className="text-[#C89F65]">Limited Access Program</span>
             </h2>
 
             <p className="text-base md:text-lg text-white/90 mb-6">
-              Doctor-supervised GLP-1 program designed for demanding schedules.
-              <span className="block mt-1 text-sm text-white/70">Next cohort opens in 3 months • Limited to 10 applications</span>
+              Doctor-supervised GLP-1 program, personalized for your body and lifestyle.
+              <span className="block mt-1 text-sm text-white/70">Next program opens in 3 months • Limited to 10 applications</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
@@ -68,7 +68,7 @@ export const PriorityAccessSection: React.FC = () => {
         {/* Qualification Grid - Is This Program Right for You? */}
         <div className="mb-8">
           <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-6 text-center">
-            Is this program right for you?
+            Is This Program Right for You?
           </h3>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -78,14 +78,14 @@ export const PriorityAccessSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-button-3d">
                   <CheckCircle className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Perfect if you are...</h4>
+                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Perfect If You Are...</h4>
               </div>
 
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-[#2E445B]">
-                    Currently using or considering <span className="font-semibold text-[#1A1A1A]">GLP-1 medications</span> (Ozempic, Wegovy, Saxenda)
+                    Currently using or considering <span className="font-semibold text-[#1A1A1A]">GLP-1 medications</span> (Ozempic, Wegovy, Mounjaro)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -121,7 +121,7 @@ export const PriorityAccessSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-button-3d">
                   <XCircle className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Not right if you want...</h4>
+                <h4 className="text-lg md:text-xl font-bold text-[#1A1A1A]">Not Right If You Want...</h4>
               </div>
 
               <ul className="space-y-3">
