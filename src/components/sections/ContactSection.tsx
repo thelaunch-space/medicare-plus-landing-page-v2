@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Lock } from 'lucide-react';
+import { Lock, Loader2 } from 'lucide-react';
 import { Section } from '../Section';
 import { Button } from '../Button';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 interface QuizData {
+  name: string;
+  email: string;
+  phone: string;
   age: string;
   height: string;
   weight: string;
@@ -18,6 +21,9 @@ interface QuizData {
 export const ContactSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [quizData, setQuizData] = useState<QuizData>({
+    name: '',
+    email: '',
+    phone: '',
     age: '',
     height: '',
     weight: '',
@@ -30,6 +36,8 @@ export const ContactSection: React.FC = () => {
 
   const [bmi, setBmi] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Auto-calculate BMI when height and weight change
   useEffect(() => {
@@ -56,8 +64,17 @@ export const ContactSection: React.FC = () => {
     return 'text-orange-500';
   };
 
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const isFormComplete = (): boolean => {
     return (
+      quizData.name.trim() !== '' &&
+      quizData.email.trim() !== '' &&
+      isValidEmail(quizData.email) &&
+      quizData.phone.trim() !== '' &&
       quizData.age !== '' &&
       quizData.height !== '' &&
       quizData.weight !== '' &&
@@ -69,14 +86,61 @@ export const ContactSection: React.FC = () => {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isFormComplete()) {
+
+    if (!isFormComplete()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      // TODO: Replace this URL with your actual webhook URL
+      const webhookUrl = 'YOUR_WEBHOOK_URL_HERE';
+
+      // Prepare payload with all form data including calculated BMI
+      const payload = {
+        ...quizData,
+        bmi: bmi ? parseFloat(bmi.toFixed(1)) : null,
+        bmiCategory: bmi ? getBMICategory(bmi) : null,
+        submittedAt: new Date().toISOString(),
+      };
+
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to submit: ${response.statusText}`);
+      }
+
+      // Success - show result card
       setShowResult(true);
+      setSubmitError(null);
+
       // Scroll to result
       setTimeout(() => {
-        document.getElementById('quiz-result')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        document.getElementById('quiz-result')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
       }, 100);
+
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'Failed to submit form. Please try again or call us directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -132,6 +196,65 @@ export const ContactSection: React.FC = () => {
           {/* Quiz Form - Sleek & Compact */}
           <div className="bg-white rounded-2xl shadow-soft-lg p-4 md:p-6 lg:p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Contact Information Section */}
+              <div className="space-y-4 pb-4 border-b border-gray-200">
+                <h3 className="text-base md:text-lg font-bold text-[#1A1A1A]">
+                  Your Contact Information
+                </h3>
+
+                {/* Name */}
+                <div className="space-y-2">
+                  <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={quizData.name}
+                    onChange={(e) => setQuizData({ ...quizData, name: e.target.value })}
+                    placeholder="Enter your full name"
+                    className="w-full px-3 py-2 md:py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all text-sm md:text-base"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="space-y-2">
+                  <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    value={quizData.email}
+                    onChange={(e) => setQuizData({ ...quizData, email: e.target.value })}
+                    placeholder="your.email@example.com"
+                    className="w-full px-3 py-2 md:py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all text-sm md:text-base"
+                  />
+                  {quizData.email && !isValidEmail(quizData.email) && (
+                    <p className="text-xs text-red-500">Please enter a valid email address</p>
+                  )}
+                </div>
+
+                {/* Phone */}
+                <div className="space-y-2">
+                  <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    value={quizData.phone}
+                    onChange={(e) => setQuizData({ ...quizData, phone: e.target.value })}
+                    placeholder="+91 98765 43210"
+                    className="w-full px-3 py-2 md:py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1C4E80] transition-all text-sm md:text-base"
+                  />
+                </div>
+              </div>
+
+              {/* Health Assessment Section */}
+              <div className="pt-2">
+                <h3 className="text-base md:text-lg font-bold text-[#1A1A1A] mb-4">
+                  Health Assessment
+                </h3>
+              </div>
+
               {/* Question 1: Age */}
               <div className="space-y-2">
                 <label className="block text-sm md:text-base font-semibold text-[#1A1A1A]">
@@ -326,15 +449,29 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Error Message */}
+              {submitError && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-sm text-red-600">{submitError}</p>
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-2">
                 <Button
                   type="submit"
                   variant="primary"
-                  className="w-full"
-                  disabled={!isFormComplete()}
+                  className="w-full flex items-center justify-center gap-2"
+                  disabled={!isFormComplete() || isSubmitting}
                 >
-                  I Want to Learn More
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'I Want to Learn More'
+                  )}
                 </Button>
               </div>
 
