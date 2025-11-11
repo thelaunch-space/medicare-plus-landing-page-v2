@@ -97,8 +97,8 @@ export const ContactSection: React.FC = () => {
     setSubmitError(null);
 
     try {
-      // TODO: Replace this URL with your actual webhook URL
-      const webhookUrl = 'YOUR_WEBHOOK_URL_HERE';
+      // Webhook URL for Make.com integration
+      const webhookUrl = 'https://hook.us2.make.com/xv7eg773pd617apzh16wlc7e4e72rhv6';
 
       // Prepare payload with all form data including calculated BMI
       const payload = {
