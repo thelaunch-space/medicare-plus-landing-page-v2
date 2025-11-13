@@ -1,4 +1,4 @@
-# Medicare+ Landing Page Optimization Plan
+# Vitalyf Landing Page Optimization Plan
 **Pre-Launch Strategy for Zero-Customer Startup**
 
 ---
@@ -98,7 +98,7 @@
 - Professional photo of Dr. Venkatesh (approachable, medical setting)
 - **Bio (2-3 sentences):**
   - Full credentials (medical school, specialization, years in practice)
-  - Why he started Medicare+
+  - Why he started Vitalyf
   - What he's seen in clinical practice
 - **Personal Mission:**
   - "After watching countless patients struggle with GLP-1 relapse, I realized medication alone isn't enough. That's why I assembled a team of specialists to address the full picture—medical, psychological, nutritional."
@@ -484,7 +484,7 @@ Link: https://wa.me/919380010221?text=Hi%2C%20I%27m%20interested%20in%20the%20fo
 **Question:** "How do I know this program will work if you're just launching?"
 
 **Answer:**
-"Great question. While Medicare+ is new, our approach isn't. Our program is built on:
+"Great question. While Vitalyf is new, our approach isn't. Our program is built on:
 - Decades of clinical experience: Dr. Venkatesh and our team have XX years combined experience
 - Evidence-based protocols: We follow ADA guidelines and STEP/SUSTAIN trial findings
 - Proven team: Cleveland Clinic-trained endocrinologist, 25+ year nutritionist
@@ -525,7 +525,7 @@ As a founding member, you actually get MORE attention than future cohorts—not 
 
 **30-60 second video:**
 - Who is Dr. Venkatesh
-- Why he started Medicare+
+- Why he started Vitalyf
 - What founding members can expect
 - Call to action: "Apply to speak with me"
 
