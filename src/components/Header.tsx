@@ -44,9 +44,15 @@ export const Header: React.FC = () => {
                 <div className="flex-shrink-0">
                   <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="text-2xl font-bold bg-gradient-to-r from-[#1C4E80] to-blue-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+                    className="hover:opacity-80 transition-opacity"
+                    aria-label="Scroll to top"
                   >
-                    Medicare+
+                    <img
+                      src="/logo.png"
+                      alt="Vitalyf logo"
+                      className="h-10 w-auto"
+                      loading="lazy"
+                    />
                   </button>
                 </div>
 

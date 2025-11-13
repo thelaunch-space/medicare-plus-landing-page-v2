@@ -49,9 +49,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         <div className="flex flex-col h-full">
           {/* Menu Header */}
           <div className="px-6 py-8 border-b border-gray-200 flex items-center justify-between">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-[#1C4E80] to-blue-600 bg-clip-text text-transparent">
-              Medicare+
-            </h2>
+            <img
+              src="/logo.png"
+              alt="Vitalyf logo"
+              className="h-10 w-auto"
+              loading="lazy"
+            />
             <button
               onClick={onClose}
               className="p-2 rounded-lg text-[#1A1A1A] hover:bg-[#F2F6F8] transition-colors"

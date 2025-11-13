@@ -10,27 +10,27 @@ export const ComparisonSection: React.FC = () => {
     {
       aspect: 'Appetite & cravings',
       alone: 'Temporary suppression',
-      medicare: 'Root-cause management + coaching',
+      vitalyf: 'Root-cause management + coaching',
     },
     {
       aspect: 'Emotional eating',
       alone: 'Unaddressed',
-      medicare: 'Behavioral therapy support',
+      vitalyf: 'Behavioral therapy support',
     },
     {
       aspect: 'Metabolic monitoring',
       alone: 'Minimal',
-      medicare: 'Endocrinologist-led tracking',
+      vitalyf: 'Endocrinologist-led tracking',
     },
     {
       aspect: 'Long-term results',
       alone: 'Often rebound',
-      medicare: 'Structured taper + sustainability plan',
+      vitalyf: 'Structured taper + sustainability plan',
     },
     {
       aspect: 'Support',
       alone: 'Self-guided',
-      medicare: 'Weekly multidisciplinary reviews',
+      vitalyf: 'Weekly multidisciplinary reviews',
     },
   ];
 
@@ -45,7 +45,7 @@ export const ComparisonSection: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto mb-12">
           <p className="text-xs sm:text-sm uppercase tracking-wide text-[#1C4E80]/80 mb-2">COMPARE CARE MODELS</p>
           <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-4">
-            <span className="text-[#1C4E80]">GLP-1 Alone</span> vs <span className="text-[#1C4E80]">Medicare+</span>
+            <span className="text-[#1C4E80]">GLP-1 Alone</span> vs <span className="text-[#1C4E80]">Vitalyf</span>
           </h2>
         </div>
 
@@ -61,7 +61,7 @@ export const ComparisonSection: React.FC = () => {
                     GLP-1 Alone
                   </th>
                   <th className="px-6 py-5 text-left text-sm font-bold text-[#1C4E80] uppercase tracking-wider">
-                    Medicare+
+                    Vitalyf
                   </th>
                 </tr>
               </thead>
@@ -85,7 +85,7 @@ export const ComparisonSection: React.FC = () => {
                     <td className="px-6 py-5">
                       <div className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-[#1C4E80] flex-shrink-0 mt-0.5" />
-                        <span className="text-[#1A1A1A] font-medium">{item.medicare}</span>
+                        <span className="text-[#1A1A1A] font-medium">{item.vitalyf}</span>
                       </div>
                     </td>
                   </tr>
@@ -112,9 +112,9 @@ export const ComparisonSection: React.FC = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Check className="w-5 h-5 text-[#1C4E80]" />
-                    <span className="text-sm font-semibold text-[#1C4E80]">Medicare+</span>
+                    <span className="text-sm font-semibold text-[#1C4E80]">Vitalyf</span>
                   </div>
-                  <p className="text-[#1A1A1A] font-medium ml-7">{item.medicare}</p>
+                  <p className="text-[#1A1A1A] font-medium ml-7">{item.vitalyf}</p>
                 </div>
               </div>
             </div>
