@@ -91,6 +91,7 @@ export const HeroSection: React.FC = () => {
           <div className="hidden md:block">
             <div className="relative w-full h-[340px] sm:h-[440px] md:h-[520px] lg:h-[600px] xl:h-[660px] overflow-hidden rounded-2xl">
               <picture>
+                <source srcSet="/hero-image.webp" type="image/webp" />
                 <source srcSet="/hero-image.jpeg" type="image/jpeg" />
                 <img
                   src="/hero-image.jpeg"
